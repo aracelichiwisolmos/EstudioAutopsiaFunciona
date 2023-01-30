@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../Template/plantillaError.xhtml">
+
+            <ui:define name="content" >
+                <h:form>
+                   <p:growl id="growl" showDetail="true"/>
+                    <div class="loguin">
+                        <p:graphicImage url="/resources/images/medico.png"  />
+                    </div>
+                    <div class="formLoguin">
+                        <p:panelGrid columns="2"  styleClass="noBordes">
+                            <p:outputLabel for="txtUsuario" value="Usuario:"/>
+                            <p:inputText id="txtUsuario" value="#{oLoginJb.usuario
+                                                                  .usuario}" required="true" requiredMessage="Campo requerido."/>
+                            <p:outputLabel for="txtClave" value="Contrase&ntilde;a:"/> 
+                            <p:password id="txtClave" value="#{oLoginJb.usuario.clave}" required="true" requiredMessage="Campo requerido."/>  
+                        </p:panelGrid>
+                        <br/>
+                        <p:panelGrid columns="2" styleClass="noBordes" style="margin-left: 19px">
+                            <p:commandButton value="Iniciar Sesión" icon="ui-icon-key" update="growl" action="#{oLoginJb.iniciarSesion()}"/>
+                            <p:commandButton value="Cancelar" action="#{oLoginJb.cancelar()}" process="@this" icon="ui-icon-close"  />
+                        </p:panelGrid>
+                       
+                    </div>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

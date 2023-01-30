@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@1dd7056, predicate=has:DATASET_FILE_NAME, object=adults.arff]]">
+  <dc:date>Wed Nov 09 10:30:55 CET 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@1dd7056, predicate=has:DATASET_FILE_NAME, object=adults.arff]]" />
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Philippines</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Preschool</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="36,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,944" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>China</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="36,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,944" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Protective-serv</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>5th-6th</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="34,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,892" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Protective-serv</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>7th-8th</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="29,53" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="9" />
+      <parameter name="lift" value="1,765" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>5th-6th</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="29,2" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="14" />
+      <parameter name="lift" value="1,757" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>5th-6th</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Prof-specialty</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="34,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,892" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>Asian-Pac-Islander</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Without-pay</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="28,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,737" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Other-service</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Without-pay</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="33,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,866" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="workclass">
+          <includeValue>State-gov</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>1st-4th</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="42,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,099" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="workclass">
+          <includeValue>Without-pay</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-spouse-absent</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="29,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,762" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Canada</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="30,09" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="3" />
+      <parameter name="lift" value="1,78" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>1st-4th</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="28,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,737" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>1st-4th</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Poland</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="42,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,099" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="34,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2" />
+      <parameter name="lift" value="1,892" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Farming-fishing</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Vietnam</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="32,92" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2" />
+      <parameter name="lift" value="1,853" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Farming-fishing</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Doctorate</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="38,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,996" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Preschool</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Priv-house-serv</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="31,92" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2" />
+      <parameter name="lift" value="1,827" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="28,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="1,737" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Priv-house-serv</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="28,46" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="22" />
+      <parameter name="lift" value="1,738" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>El-Salvador</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Doctorate</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="40,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,048" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

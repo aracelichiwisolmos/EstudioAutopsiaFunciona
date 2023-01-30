@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <h:outputStylesheet name="./dist/vis-network.min.css"/>
+        <h:outputScript name="./dist/vis.js"/>
+
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <div id="mynetwork"></div>
+
+        <script type="text/javascript">
+            // create an array with nodes
+            var nodes = [
+                {id: 1, label: 'Node 1'},
+                {id: 2, label: 'Node 2'},
+                {id: 3, label: 'Node 3:\nLeft-Aligned', font: {'face': 'Monospace', align: 'left'}},
+                {id: 4, label: 'Node 4'},
+                {id: 5, label: 'Node 5\nLeft-Aligned box', shape: 'box', font: {'face': 'Monospace', align: 'left'}},
+                {id: 6, label: 'Node 6'}
+            ];
+
+            // create an array with edges
+            var edges = [
+                {from: 1, to: 2, label: 'middle', font: {align: 'middle'}},
+                {from: 1, to: 3, label: 'top', font: {align: 'top'}},
+                {from: 2, to: 4, label: 'horizontal', font: {align: 'horizontal'}},
+                {from: 2, to: 5, label: 'bottom', font: {align: 'bottom'}},
+                {from: 1, to: 6, label: '5', font: {align: 'bottom'}},
+                {from: 2, to: 6, label: '7', font: {align: 'bottom'}},
+            ];
+
+            // create a network
+            var container = document.getElementById('mynetwork');
+            var data = {
+                nodes: nodes,
+                edges: edges
+            };
+            var options = {};
+            var network = new vis.Network(container, data, options);
+        </script>
+    </h:body>
+</html>
+

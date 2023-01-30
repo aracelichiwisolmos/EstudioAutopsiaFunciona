@@ -1,0 +1,17 @@
+% This is a dummy dataset for testing purposes.
+@relation dummy
+@attribute numericTarget real
+@attribute A {'true', 'false'}
+@attribute B {'true', 'false'}
+@attribute C {'true', 'false'}
+@data
+100, true, false, false
+90, true, false, false
+80, true, false, false
+70, true, false, true
+60, true, false, false
+10, false, false, false
+20, false, true, false
+30, false, true, false
+40, false, true, false
+50, false, false, false

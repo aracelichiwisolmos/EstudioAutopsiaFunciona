@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<miningTask>
+  <dataset name="adults.arff">
+    <restrictions />
+  </dataset>
+  <target type="boolean">
+    <attribute name="class">
+      <includeValue>&gt;50K</includeValue>
+    </attribute>
+  </target>
+  <searchSpace>
+    <attribute name="sex" />
+    <attribute name="occupation" />
+    <attribute name="marital-status" />
+    <attribute name="class" />
+    <attribute name="education" />
+    <attribute name="race" />
+    <attribute name="native-country" />
+    <attribute name="relationship" />
+    <attribute name="workclass" />
+  </searchSpace>
+  <qualityFunction name="ChiSquareQF" />
+  <method name="BSD" />
+  <constraints>
+    <constraint name="maxK" value="20" />
+    <constraint name="minQuality" value="0.0" />
+    <constraint name="maxSelectors" value="3" />
+    <constraint name="minSubgroupSize" value="0.0" />
+    <constraint name="minTPSupportRelative" value="0.0" />
+    <constraint name="minTPSupportAbsolute" value="0.0" />
+    <constraint name="relevantSubgroupsOnly" value="false" />
+    <constraint name="weightedCovering" value="false" />
+    <constraint name="ignoreDefaultValues" value="false" />
+  </constraints>
+</miningTask>
+

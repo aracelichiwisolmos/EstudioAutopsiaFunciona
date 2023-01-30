@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+        <ui:composition template="./../Template/plantillaBase.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Gestionar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                          <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                        
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Encuesta" outcome="/Views/nueva_encuesta" icon="ui-icon-disk" />
+                    </p:submenu>
+                </p:menubar>
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right;min-width: 20%; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Gestionar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Encuesta" outcome="/Views/administrador/usuario" icon="ui-icon-disk" />
+
+                    </p:submenu>
+                </p:menu>
+            </ui:define>
+            <ui:define name="content">
+                <div id="intro">
+                    <h2 style="text-align: center">Determinación del diagnóstico
+                        situacional de las autopsias en el H.R.R.B aplicando algoritmos
+                        de aprendizaje automático para las tareas de minería de datos y
+                        Análisis de Encuestas sobre la Disminución de Autopsias en
+                        Hospitales Mexicanos usando Técnicas de Minería de Datos
+                    </h2>
+                    <div>
+
+                        <p> La autopsia es una práctica muy importante para
+                            la medicina, dado que es el único estudio que permite
+                            identificar la verdadera causa de muerte del finado,
+                            estudiar la evolución de la enfermedades, determinar
+                            la efectividad de los tratamientos tradicionales y
+                            descubrir nuevas enfermedades entre otras no menos
+                            importantes. Sin embargo, en el hospital de Río Blanco (H.R.R.B)
+                            este método se encuentra prácticamente en desuso. </p>
+                        <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="float: left">
+                            <p:chart type="line" model="#{chartView.animatedModel1}" style="width:250px; height: 250px"/>
+                        </p:panelGrid>
+                    </div>
+                    <div id="graficos" style="padding-top: 5px">
+
+                        <h3>Objetivo</h3>
+                        <p>Aplicar algoritmos de minería de datos para identificar
+                            las causas, motivos y circunstancias por las cuáles
+                            los médicos no solicitan autopsias en el H.R.R.B.</p>
+                        <p>La investigación se enfoca en realizar un análisis
+                            descriptivo para comprender los datos y a partir de
+                            esto determinar las relaciones existentes entre las
+                            variables categóricas que los conforman, lo que permite
+                            obtener un modelo basado en reglas mediante el que un
+                            experto puede evaluar cuáles son los factores influyentes
+                            en el rechazo hacia la práctica de autopsias. </p>
+
+
+                    </div>
+
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,5 @@
+RULE NUMBER 0.0: IF Categoria = c2 AND Esc_esp = c7 THEN 20e
+RULE NUMBER 1.0: IF Categoria = c2 AND Anios_prac = 3b AND Mcc_no_aut = 16b THEN 20e
+RULE NUMBER 2.0: IF Hall_arb = 8a AND Hall_disc = 7b THEN 20e
+RULE NUMBER 3.0: IF Hall_arb = 8a AND Esc_esp = c7 THEN 20e
+RULE NUMBER 4.0: IF Hall_dem = 11a AND Esc_esp = c7 THEN 20e

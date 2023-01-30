@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../Template/plantillaError.xhtml">
+
+            <ui:define name="content" >
+                <div class="denegado">
+                    <p:graphicImage url="/resources/images/denegado.png" width="90%" height="90%"/>
+                </div>
+                <div class="formDenegado">
+                    <h:form>
+                    <p:panelGrid columns="1"  styleClass="noBordes">
+                        <p:outputLabel value="Lo sentimos, usted no tiene acceso a esta p&aacute;gina."/>
+                       <p:outputLabel value="Por favor verifique sus permisos."/>  
+                       <p:commandButton value="Inicio" action="/Views/inicio?faces-redirect=true" icon="ui-icon-home" />
+                    </p:panelGrid>
+                  </h:form>
+                </div>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

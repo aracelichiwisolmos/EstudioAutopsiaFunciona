@@ -1,0 +1,10 @@
+RULE NUMBER 0.0: IF Esc_med_gral = c18 THEN 18c
+RULE NUMBER 1.0: IF Categoria = c4 AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 2.0: IF Casos = 4b AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 3.0: IF Rechazo_fam = 17f AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 4.0: IF Hall_arb = 8a AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 5.0: IF Anios_prac = 3c AND Esc_esp = c43 THEN 18c
+RULE NUMBER 6.0: IF Anios_prac = 3c AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 7.0: IF Mcc_no_aut = 16j AND Esc_esp = c43 THEN 18c
+RULE NUMBER 8.0: IF Mcc_no_aut = 16j AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 9.0: IF Esc_esp = c43 AND Esc_med_gral = c10 THEN 18c

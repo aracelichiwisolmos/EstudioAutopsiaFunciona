@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+<ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                            <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                            <p:submenu label="Sesión" icon="ui-icon-person">
+                                <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                                <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                            </p:submenu>
+                             <p:submenu label="Eliminar" icon="ui-icon-close">
+                                <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                            </p:submenu>
+                             <p:submenu label="Consultar" icon="ui-icon-search">
+                                <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                                <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                                <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                            </p:submenu>
+                             <p:submenu label="Crear" icon="ui-icon-disk">
+                                <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                                <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                                 <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                            </p:submenu>
+                        </p:menubar>     
+            </ui:define>
+             <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menu>     
+            </ui:define>
+            <ui:define name="content">
+                content
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

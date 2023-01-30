@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@34a1fc, predicate=has:DATASET_FILE_NAME, object=adults.arff]]">
+  <dc:date>Fri Oct 21 15:52:44 CEST 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@34a1fc, predicate=has:DATASET_FILE_NAME, object=adults.arff]]" />
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Exec-managerial</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="987,97" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2907" />
+      <parameter name="TP" value="1688" />
+      <parameter name="FP" value="1219" />
+      <parameter name="target/subgroup" value="58,1%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="21,5%" />
+      <parameter name="coverage" value="08,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,411" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Exec-managerial</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="988,87" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="4066" />
+      <parameter name="TP" value="1968" />
+      <parameter name="FP" value="2098" />
+      <parameter name="target/subgroup" value="48,4%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="25,1%" />
+      <parameter name="coverage" value="12,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,01" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.406,1" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="19488" />
+      <parameter name="TP" value="6099" />
+      <parameter name="FP" value="13389" />
+      <parameter name="target/subgroup" value="31,3%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="77,8%" />
+      <parameter name="coverage" value="59,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,3" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Prof-specialty</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="995,04" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2126" />
+      <parameter name="TP" value="1507" />
+      <parameter name="FP" value="619" />
+      <parameter name="target/subgroup" value="70,9%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="19,2%" />
+      <parameter name="coverage" value="06,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,944" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Bachelors</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.060,11" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2433" />
+      <parameter name="TP" value="1646" />
+      <parameter name="FP" value="787" />
+      <parameter name="target/subgroup" value="67,7%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="21,0%" />
+      <parameter name="coverage" value="07,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,809" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.730,66" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13319" />
+      <parameter name="TP" value="5938" />
+      <parameter name="FP" value="7381" />
+      <parameter name="target/subgroup" value="44,6%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="75,7%" />
+      <parameter name="coverage" value="40,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,851" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.414,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="21790" />
+      <parameter name="TP" value="6662" />
+      <parameter name="FP" value="15128" />
+      <parameter name="target/subgroup" value="30,6%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="85,0%" />
+      <parameter name="coverage" value="66,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,27" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.876,44" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="9732" />
+      <parameter name="TP" value="4220" />
+      <parameter name="FP" value="5512" />
+      <parameter name="target/subgroup" value="43,4%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="53,8%" />
+      <parameter name="coverage" value="29,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,801" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Exec-managerial</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.077,46" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2444" />
+      <parameter name="TP" value="1666" />
+      <parameter name="FP" value="778" />
+      <parameter name="target/subgroup" value="68,2%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="21,3%" />
+      <parameter name="coverage" value="07,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,831" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.688,78" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="8572" />
+      <parameter name="TP" value="3753" />
+      <parameter name="FP" value="4819" />
+      <parameter name="target/subgroup" value="43,8%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="47,9%" />
+      <parameter name="coverage" value="26,3%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,818" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Bachelors</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.188,44" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="2768" />
+      <parameter name="TP" value="1855" />
+      <parameter name="FP" value="913" />
+      <parameter name="target/subgroup" value="67,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="23,7%" />
+      <parameter name="coverage" value="08,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,783" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.741" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13193" />
+      <parameter name="TP" value="5918" />
+      <parameter name="FP" value="7275" />
+      <parameter name="target/subgroup" value="44,9%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="75,5%" />
+      <parameter name="coverage" value="40,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,863" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.741,24" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13192" />
+      <parameter name="TP" value="5918" />
+      <parameter name="FP" value="7274" />
+      <parameter name="target/subgroup" value="44,9%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="75,5%" />
+      <parameter name="coverage" value="40,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,863" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.739,17" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13184" />
+      <parameter name="TP" value="5914" />
+      <parameter name="FP" value="7270" />
+      <parameter name="target/subgroup" value="44,9%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="75,4%" />
+      <parameter name="coverage" value="40,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,863" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="1.471,72" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="19174" />
+      <parameter name="TP" value="6089" />
+      <parameter name="FP" value="13085" />
+      <parameter name="target/subgroup" value="31,8%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="77,7%" />
+      <parameter name="coverage" value="58,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,319" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.875,74" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13410" />
+      <parameter name="TP" value="6105" />
+      <parameter name="FP" value="7305" />
+      <parameter name="target/subgroup" value="45,5%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="77,9%" />
+      <parameter name="coverage" value="41,2%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,891" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3.085,64" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="14976" />
+      <parameter name="TP" value="6692" />
+      <parameter name="FP" value="8284" />
+      <parameter name="target/subgroup" value="44,7%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="85,4%" />
+      <parameter name="coverage" value="46,0%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,856" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.552,73" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="11940" />
+      <parameter name="TP" value="5428" />
+      <parameter name="FP" value="6512" />
+      <parameter name="target/subgroup" value="45,5%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="69,2%" />
+      <parameter name="coverage" value="36,7%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,888" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.568,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="11861" />
+      <parameter name="TP" value="5425" />
+      <parameter name="FP" value="6436" />
+      <parameter name="target/subgroup" value="45,7%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="69,2%" />
+      <parameter name="coverage" value="36,4%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,899" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2.897,86" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13368" />
+      <parameter name="TP" value="6117" />
+      <parameter name="FP" value="7251" />
+      <parameter name="target/subgroup" value="45,8%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="78,0%" />
+      <parameter name="coverage" value="41,1%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,9" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                          <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menubar>
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menu>
+            </ui:define>
+            <ui:define name="content">
+
+                <p:panelGrid id="dgReglas" columns="2" style="vertical-align: top" styleClass="noBordes">
+                    <p:column width="20%">
+                        <p:accordionPanel  id="apAlgoritmos">
+                            <p:tab title="Apriori" >
+                                <h:form id="formAlg">
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <p:messages id="mensaje"/>
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <p:outputLabel for="conjuntoA" value="Dataset:" />
+                                        <p:selectOneRadio id="conjuntoA" layout="grid" columns="1" value="#{oAsociacionJB.corpusSeleccionado}" required="true">
+                                            <p:ajax listener="#{oAsociacionJB.configurarAlgoritmos(1)}" update="regA, sopA, confA, conjuntoA"/>
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                        </p:selectOneRadio>
+                                        <p:outputLabel value="Confianza:" />
+                                        <p:inputText id="confA" value="#{oAsociacionJB.minConfianza}" required="true"/>
+                                        <p:outputLabel value="Soporte:" />
+                                        <p:inputText id="sopA" value="#{oAsociacionJB.minSoporte}" required="true"/>
+                                        <p:outputLabel value="Reglas:" />
+                                        <p:inputText id="regA" value="#{oAsociacionJB.cantReglas}" required="true"/>
+                                        <p:column/>
+                                        <p:commandButton update="frmReglas:dtReglas1, frmReglas:dtReglas" value="Muestra Reglas" action="#{oAsociacionJB.obtenerReglas(1)}" />
+                                        <p:column/>
+                                        <p:commandButton update="growl" value="Guardar Modelo" action="#{oAsociacionJB.guardarModelo(1)}" />
+
+                                    </h:panelGrid>
+                                </h:form>
+
+                                        </p:tab>
+                                    <p:tab title="FP-Growth">
+                                <h:form>
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <p:outputLabel for="conjuntoF" value="Dataset:" />
+                                        <p:selectOneRadio id="conjuntoF" layout="grid" columns="1" value="#{oAsociacionJB.corpusSeleccionado}">
+                                            <p:ajax listener="#{oAsociacionJB.configurarAlgoritmos(2)}" update="regF, sopF, confF, conjuntoF"/>
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" itemDisabled="true" />
+                                        </p:selectOneRadio>
+                                        <p:outputLabel value="Confianza:" />
+                                        <p:inputText id="confF" value="#{oAsociacionJB.minConfianza}" required="true"/>
+                                        <p:outputLabel value="Soporte:" />
+                                        <p:inputText id="sopF" value="#{oAsociacionJB.minSoporte}" required="true"/>
+                                        <p:outputLabel value="Reglas:" />
+                                        <p:inputText id="regF" value="#{oAsociacionJB.cantReglas}" required="true"/>
+                                        <p:column/>
+                                        <p:commandButton update="frmReglas:dtReglas1, frmReglas:dtReglas" value="Muestra Reglas" action="#{oAsociacionJB.obtenerReglas(2)}"/>
+                                        <p:column/>
+                                        <p:commandButton update="growl" value="Guardar Modelo" action="#{oAsociacionJB.guardarModelo(2)}" />
+
+                                    </h:panelGrid>
+                                </h:form>
+                                        </p:tab>
+                                    <p:tab title="Predictive Apriori">
+                                <h:form>
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <p:outputLabel for="conjuntoP" value="Dataset:" />
+                                        <p:selectOneRadio id="conjuntoP" layout="grid" columns="1" value="#{oAsociacionJB.corpusSeleccionado}">
+                                            <p:ajax listener="#{oAsociacionJB.configurarAlgoritmos(3)}" update="regP, conjuntoP"/>
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" itemDisabled="true" />
+                                        </p:selectOneRadio>
+                                        <p:outputLabel value="Reglas:" />
+                                        <p:inputText id="regP" value="#{oAsociacionJB.cantReglas}" required="true"/>
+                                        <p:column/>
+                                        <p:commandButton update="frmReglas:dtReglas1, frmReglas:dtReglas" value="Muestra Reglas" action="#{oAsociacionJB.obtenerReglas(3)}"/>
+                                        <p:column/>
+                                        <p:commandButton update="growl" value="Guardar Modelo" action="#{oAsociacionJB.guardarModelo(3)}" />
+
+                                    </h:panelGrid>
+                                </h:form>
+                                        </p:tab>
+                            <p:tab title="Tertius">
+                                <h:form>
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <p:outputLabel for="conjuntoT" value="Dataset:" />
+                                        <p:selectOneRadio id="conjuntoT" layout="grid" columns="1" value="#{oAsociacionJB.corpusSeleccionado}" required="true">
+                                            <p:ajax listener="#{oAsociacionJB.configurarAlgoritmos(4)}" update="confT, sopT, regT, conjuntoT"/>
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                        </p:selectOneRadio>
+                                        <p:outputLabel value="Frecuencia:" />
+                                        <p:inputText id="confT" value="#{oAsociacionJB.minConfianza}" required="true"/>
+                                        <p:outputLabel value="Literales:" />
+                                        <p:inputText id="sopT" value="#{oAsociacionJB.literales}" required="true"/>
+                                        <p:outputLabel value="Reglas:" />
+                                        <p:inputText id="regT" value="#{oAsociacionJB.cantReglas}" required="true"/>
+                                        <p:column/>
+                                        <p:commandButton update="frmReglas:dtReglas1, frmReglas:dtReglas, growl" value="Muestra Reglas" action="#{oAsociacionJB.obtenerReglas(4)}"/>
+                                        <p:column/>
+                                        <p:commandButton update="growl" value="Guardar Modelo" action="#{oAsociacionJB.guardarModelo(4)}" />
+
+                                    </h:panelGrid>
+                                </h:form>
+                                        </p:tab>
+                                </p:accordionPanel>
+
+                    </p:column>
+                    <p:column>
+                        <h:form id="frmReglas">
+                            <p:fieldset collapsed="true" legend="Reglas" toggleable="true">
+                                <p:dataTable id="dtReglas1" value="#{oAsociacionJB.reglas}" var="reglita" emptyMessage="" rowIndexVar="rowIndex"  rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'alternativa2' : 'alternativa1'}">
+
+
+                                    <p:column headerText="No." width="10%">
+                                        <p:outputLabel value="#{rowIndex+1}"/>
+                                    </p:column>
+                                    <p:column headerText="Regla" width="70%">
+                                        <p:outputLabel value="#{reglita.describeReglas()}"/>
+                                    </p:column>
+                                    <p:column headerText="#{oAsociacionJB.columna1}" style="text-align: center; vertical-align: middle" width="10%">
+                                        <p:outputLabel value="#{reglita.confianza}" >
+                                            <f:convertNumber integerOnly="true"/>
+                                        </p:outputLabel>
+                                        <p:outputLabel value="%"/>
+                                    </p:column>
+                                    <p:column headerText="#{oAsociacionJB.columna2}" style="text-align: center; vertical-align: middle" width="10%">
+                                        <p:outputLabel value="#{reglita.soporte}" >
+                                            <f:convertNumber integerOnly="true"/>
+                                        </p:outputLabel>
+                                        <p:outputLabel value="%"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </p:fieldset>
+                            <br/>
+                            <p:dataTable id="dtReglas" value="#{oAsociacionJB.reglas}"
+                                         var="reglita" emptyMessage="" rowIndexVar="rowIndex" >
+                                <f:facet name="header">
+                                    Interpretación de las reglas
+                                     <h:commandLink>
+                                        <p:graphicImage name="/images/pdf1.png" width="40em" />
+                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oAsociacionJB.preProcessPDF}"/>
+                                    </h:commandLink>
+                                </f:facet>
+                                <p:column>
+                                    <p:outputLabel value="#{rowIndex+1}- #{reglita.interpretaRegla()}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </h:form>
+                    </p:column>
+                </p:panelGrid>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

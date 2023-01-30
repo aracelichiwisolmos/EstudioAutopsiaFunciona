@@ -1,0 +1,20 @@
+RULE NUMBER 0.0: IF Esc_med_gral = c5 THEN 17f
+RULE NUMBER 1.0: IF Anios_prac = 3a AND Hall_arb = 8d THEN 17f
+RULE NUMBER 2.0: IF Categoria = c2 AND Area = a2 AND Hall_arb = 8d THEN 17f
+RULE NUMBER 3.0: IF Categoria = c2 AND Hall_dem = 11c AND Hall_arb = 8d THEN 17f
+RULE NUMBER 4.0: IF Hall_disc = 7b AND Hall_dem = 11c AND Hall_arb = 8d THEN 17f
+RULE NUMBER 5.0: IF Esc_esp = c39 AND Hall_arb = 8d THEN 17f
+RULE NUMBER 6.0: IF Categoria = c4 AND Esc_med_gral = c10 THEN 17f
+RULE NUMBER 7.0: IF Hall_arb = 8a AND Mcc_no_aut = 16j THEN 17f
+RULE NUMBER 8.0: IF Mcc_aut = 14c AND Hall_dem = 11c AND Hall_arb = 8d THEN 17f
+RULE NUMBER 9.0: IF No_hosp = 18c AND Esc_esp = c43 THEN 17f
+RULE NUMBER 10.0: IF No_hosp = 18c AND Esc_med_gral = c10 THEN 17f
+RULE NUMBER 11.0: IF No_hosp = 18c AND Mcc_no_aut = 16j AND Casos = 4b THEN 17f
+RULE NUMBER 12.0: IF No_hosp = 18c AND Mcc_no_aut = 16j AND Anios_prac = 3c THEN 17f
+RULE NUMBER 13.0: IF No_hosp = 18c AND Casos = 4b AND Anios_prac = 3c THEN 17f
+RULE NUMBER 14.0: IF Mcc_no_aut = 16j AND Esc_esp = c43 THEN 17f
+RULE NUMBER 15.0: IF Mcc_no_aut = 16j AND Esc_med_gral = c10 THEN 17f
+RULE NUMBER 16.0: IF Casos = 4b AND Esc_med_gral = c10 THEN 17f
+RULE NUMBER 17.0: IF Anios_prac = 3c AND Esc_esp = c43 THEN 17f
+RULE NUMBER 18.0: IF Anios_prac = 3c AND Esc_med_gral = c10 THEN 17f
+RULE NUMBER 19.0: IF Esc_esp = c43 AND Esc_med_gral = c10 THEN 17f

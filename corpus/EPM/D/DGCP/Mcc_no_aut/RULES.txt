@@ -1,0 +1,229 @@
+RULE NUMBER 0.0: IF Hall_arb = 8a AND Esc_esp = c7 THEN 16b
+RULE NUMBER 1.0: IF Hall_dem = 11a AND Esc_esp = c7 THEN 16b
+RULE NUMBER 2.0: IF Categoria = c2 AND Esc_esp = c7 THEN 16b
+RULE NUMBER 3.0: IF Esc_esp = c23 THEN 16c
+RULE NUMBER 4.0: IF Anios_prac = 3b AND Esc_esp = c40 THEN 16c
+RULE NUMBER 5.0: IF Anios_prac = 3b AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 6.0: IF Area = a3 AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 7.0: IF Hall_dem = 11b AND Anios_prac = 3d AND Hall_disc = 7c THEN 16c
+RULE NUMBER 8.0: IF Esc_esp = c6 AND Anios_prac = 3d THEN 16c
+RULE NUMBER 9.0: IF Esc_esp = c6 AND Hall_disc = 7c THEN 16c
+RULE NUMBER 10.0: IF Anios_prac = 3e AND Med_aut = 20c THEN 16c
+RULE NUMBER 11.0: IF Anios_prac = 3e AND Mcc_aut = 14e AND Casos = 4c THEN 16c
+RULE NUMBER 12.0: IF Anios_prac = 3e AND Med_aut = 20b AND Casos = 4c THEN 16c
+RULE NUMBER 13.0: IF Ult_grado = g1 AND Med_aut = 20c THEN 16c
+RULE NUMBER 14.0: IF Ult_grado = g1 AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 15.0: IF No_hosp = 18f AND Hall_arb = 8a THEN 16c
+RULE NUMBER 16.0: IF No_hosp = 18f AND Hall_dem = 11a AND Casos = 4c THEN 16c
+RULE NUMBER 17.0: IF Categoria = c2 AND Esc_esp = c40 THEN 16c
+RULE NUMBER 18.0: IF Categoria = c2 AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 19.0: IF Casos = 4b AND Esc_esp = c40 THEN 16c
+RULE NUMBER 20.0: IF Mcc_aut = 14e AND Casos = 4c THEN 16c
+RULE NUMBER 21.0: IF Hall_arb = 8a AND Med_aut = 20c THEN 16c
+RULE NUMBER 22.0: IF Hall_arb = 8a AND Hall_disc = 7c THEN 16c
+RULE NUMBER 23.0: IF Hall_arb = 8a AND Esc_esp = c40 THEN 16c
+RULE NUMBER 24.0: IF Hall_arb = 8a AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 25.0: IF Hall_arb = 8a AND Med_aut = 20b AND Casos = 4c THEN 16c
+RULE NUMBER 26.0: IF Hall_dem = 11a AND Med_aut = 20c THEN 16c
+RULE NUMBER 27.0: IF Hall_dem = 11a AND Esc_esp = c40 THEN 16c
+RULE NUMBER 28.0: IF Hall_dem = 11a AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 29.0: IF Hall_dem = 11a AND Med_aut = 20b AND Casos = 4c THEN 16c
+RULE NUMBER 30.0: IF Casos = 4c AND Med_aut = 20c THEN 16c
+RULE NUMBER 31.0: IF Hall_disc = 7c AND Esc_esp = c40 THEN 16c
+RULE NUMBER 32.0: IF Hall_disc = 7c AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 33.0: IF Esc_esp = c40 AND Esc_med_gral = c19 THEN 16c
+RULE NUMBER 34.0: IF Esc_esp = c15 THEN 16e
+RULE NUMBER 35.0: IF Esc_esp = c8 THEN 16e
+RULE NUMBER 36.0: IF Casos = 4e AND Hall_arb = 8d THEN 16e
+RULE NUMBER 37.0: IF Casos = 4e AND Esc_med_gral = c14 THEN 16e
+RULE NUMBER 38.0: IF Ult_grado = g1 AND Esc_med_gral = c14 THEN 16e
+RULE NUMBER 39.0: IF Area = a3 AND Esc_med_gral = c14 THEN 16e
+RULE NUMBER 40.0: IF Hall_disc = 7a AND Hall_arb = 8d THEN 16e
+RULE NUMBER 41.0: IF Hall_dem = 11d AND Esc_med_gral = c14 THEN 16e
+RULE NUMBER 42.0: IF Anios_prac = 3e AND Esc_med_gral = c14 THEN 16e
+RULE NUMBER 43.0: IF Hall_arb = 8d AND Esc_med_gral = c14 THEN 16e
+RULE NUMBER 44.0: IF Esc_med_gral = c8 THEN 16f
+RULE NUMBER 45.0: IF Mcc_aut = 14d AND Esc_esp = c6 THEN 16f
+RULE NUMBER 46.0: IF Mcc_aut = 14d AND Hall_dem = 11a AND Casos = 4a THEN 16f
+RULE NUMBER 47.0: IF Mcc_aut = 14d AND Casos = 4a AND Anios_prac = 3c THEN 16f
+RULE NUMBER 48.0: IF Mcc_aut = 14i AND Esc_esp = c7 THEN 16f
+RULE NUMBER 49.0: IF Mcc_aut = 14i AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 50.0: IF Mcc_aut = 14i AND Hall_dem = 11b AND Hall_disc = 7b THEN 16f
+RULE NUMBER 51.0: IF Mcc_aut = 14i AND Hall_dem = 11b AND Anios_prac = 3c THEN 16f
+RULE NUMBER 52.0: IF Mcc_aut = 14i AND Hall_disc = 7b AND Anios_prac = 3c THEN 16f
+RULE NUMBER 53.0: IF Ult_grado = g1 AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 54.0: IF Hall_dem = 11d AND Fmr_sol_aut = 21e THEN 16f
+RULE NUMBER 55.0: IF Hall_dem = 11d AND No_hosp = 18e THEN 16f
+RULE NUMBER 56.0: IF Hall_dem = 11d AND No_hosp = 18h THEN 16f
+RULE NUMBER 57.0: IF Hall_dem = 11d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 58.0: IF Hall_dem = 11d AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 59.0: IF Hall_dem = 11d AND Rechazo_fam = 17c AND Hall_disc = 7b THEN 16f
+RULE NUMBER 60.0: IF Hall_dem = 11d AND Rechazo_fam = 17c AND Ult_grado = g2 THEN 16f
+RULE NUMBER 61.0: IF Hall_dem = 11d AND Rechazo_fam = 17c AND Anios_prac = 3d THEN 16f
+RULE NUMBER 62.0: IF Hall_dem = 11d AND Mcc_aut = 14a AND Anios_prac = 3d THEN 16f
+RULE NUMBER 63.0: IF Hall_dem = 11d AND Hall_disc = 7b AND Mcc_aut = 14e THEN 16f
+RULE NUMBER 64.0: IF Hall_dem = 11d AND Hall_disc = 7b AND Anios_prac = 3d THEN 16f
+RULE NUMBER 65.0: IF Hall_dem = 11d AND Hall_arb = 8b AND Mcc_aut = 14e THEN 16f
+RULE NUMBER 66.0: IF Hall_dem = 11d AND Mcc_aut = 14e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 67.0: IF Hall_dem = 11d AND Ult_grado = g2 AND Anios_prac = 3d THEN 16f
+RULE NUMBER 68.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 69.0: IF Esc_med_gral = c1 AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 70.0: IF Rechazo_fam = 17d AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 71.0: IF Mcc_aut = 14c AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 72.0: IF Mcc_aut = 14c AND Fmr_sol_aut = 21e AND Casos = 4e THEN 16f
+RULE NUMBER 73.0: IF Mcc_aut = 14c AND Fmr_sol_aut = 21e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 74.0: IF Mcc_aut = 14c AND Casos = 4e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 75.0: IF Mcc_aut = 14c AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 76.0: IF Mcc_aut = 14c AND Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 77.0: IF Area = a3 AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 78.0: IF Area = a3 AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 79.0: IF Area = a3 AND Per_sol_aut = 19e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 80.0: IF Categoria = c4 AND Esc_esp = c7 AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 81.0: IF Categoria = c4 AND Esc_med_gral = c12 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 82.0: IF Anios_prac = 3b AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 83.0: IF Med_aut = 20f AND Casos = 4c THEN 16f
+RULE NUMBER 84.0: IF Med_aut = 20f AND Esc_esp = c7 THEN 16f
+RULE NUMBER 85.0: IF Med_aut = 20f AND Anios_prac = 3d THEN 16f
+RULE NUMBER 86.0: IF Med_aut = 20f AND Hall_disc = 7b AND No_hosp = 18e THEN 16f
+RULE NUMBER 87.0: IF Med_aut = 20f AND Hall_disc = 7b AND Esc_esp = c39 THEN 16f
+RULE NUMBER 88.0: IF Med_aut = 20f AND Hall_disc = 7b AND Casos = 4e THEN 16f
+RULE NUMBER 89.0: IF Med_aut = 20f AND Hall_disc = 7b AND Ult_grado = g2 THEN 16f
+RULE NUMBER 90.0: IF Med_aut = 20f AND Hall_disc = 7b AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 91.0: IF Med_aut = 20f AND Hall_disc = 7b AND Anios_prac = 3c THEN 16f
+RULE NUMBER 92.0: IF Med_aut = 20f AND Hall_disc = 7b AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 93.0: IF Med_aut = 20f AND Hall_disc = 7b AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 94.0: IF Med_aut = 20f AND Hall_arb = 8b AND No_hosp = 18e THEN 16f
+RULE NUMBER 95.0: IF Med_aut = 20f AND Hall_arb = 8b AND Casos = 4e THEN 16f
+RULE NUMBER 96.0: IF Med_aut = 20f AND Hall_arb = 8b AND Anios_prac = 3c THEN 16f
+RULE NUMBER 97.0: IF Med_aut = 20f AND Hall_arb = 8b AND Esc_esp = c39 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 98.0: IF Med_aut = 20f AND Hall_arb = 8b AND Ult_grado = g2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 99.0: IF Med_aut = 20f AND Fmr_sol_aut = 21e AND Casos = 4e THEN 16f
+RULE NUMBER 100.0: IF Med_aut = 20f AND Esc_esp = c39 AND Casos = 4e THEN 16f
+RULE NUMBER 101.0: IF Med_aut = 20f AND Esc_esp = c39 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 102.0: IF Med_aut = 20f AND Casos = 4e AND Ult_grado = g2 THEN 16f
+RULE NUMBER 103.0: IF Med_aut = 20f AND Ult_grado = g2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 104.0: IF Med_aut = 20f AND Esc_med_gral = c12 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 105.0: IF Rechazo_fam = 17f AND Esc_esp = c7 THEN 16f
+RULE NUMBER 106.0: IF Rechazo_fam = 17f AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 107.0: IF Rechazo_fam = 17f AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 108.0: IF No_hosp = 18d AND Mcc_aut = 14e AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 109.0: IF Med_aut = 20a AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 110.0: IF Med_aut = 20a AND Esc_esp = c7 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 111.0: IF Fmr_sol_aut = 21b AND Anios_prac = 3c THEN 16f
+RULE NUMBER 112.0: IF Rechazo_fam = 17a AND Anios_prac = 3c THEN 16f
+RULE NUMBER 113.0: IF Rechazo_fam = 17a AND Casos = 4e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 114.0: IF Rechazo_fam = 17a AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 115.0: IF Rechazo_fam = 17a AND Casos = 4e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 116.0: IF Rechazo_fam = 17a AND Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 117.0: IF Rechazo_fam = 17a AND Anios_prac = 3d AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 118.0: IF Esc_esp = c6 AND Hall_dem = 11a AND No_hosp = 18e THEN 16f
+RULE NUMBER 119.0: IF Esc_esp = c6 AND Hall_dem = 11a AND Anios_prac = 3c THEN 16f
+RULE NUMBER 120.0: IF Casos = 4c AND Esc_esp = c7 THEN 16f
+RULE NUMBER 121.0: IF Casos = 4c AND Anios_prac = 3c THEN 16f
+RULE NUMBER 122.0: IF Fmr_sol_aut = 21d AND Esc_esp = c7 THEN 16f
+RULE NUMBER 123.0: IF Fmr_sol_aut = 21d AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 124.0: IF Fmr_sol_aut = 21d AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 125.0: IF Hall_arb = 8a AND No_hosp = 18b THEN 16f
+RULE NUMBER 126.0: IF Hall_arb = 8a AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 127.0: IF Hall_dem = 11a AND Fmr_sol_aut = 21e THEN 16f
+RULE NUMBER 128.0: IF Hall_dem = 11a AND Categoria = c1 THEN 16f
+RULE NUMBER 129.0: IF Hall_dem = 11a AND Esc_esp = c1 THEN 16f
+RULE NUMBER 130.0: IF No_hosp = 18b AND Anios_prac = 3c THEN 16f
+RULE NUMBER 131.0: IF Rechazo_fam = 17c AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 132.0: IF Rechazo_fam = 17c AND Casos = 4e AND Ult_grado = g2 THEN 16f
+RULE NUMBER 133.0: IF Rechazo_fam = 17c AND Casos = 4e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 134.0: IF Rechazo_fam = 17c AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 135.0: IF Rechazo_fam = 17c AND Ult_grado = g2 AND Anios_prac = 3d THEN 16f
+RULE NUMBER 136.0: IF Rechazo_fam = 17c AND Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 137.0: IF Hall_dem = 11b AND Esc_esp = c9 THEN 16f
+RULE NUMBER 138.0: IF Hall_dem = 11b AND Mcc_aut = 14e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 139.0: IF Hall_dem = 11b AND Esc_esp = c7 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 140.0: IF Med_aut = 20e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 141.0: IF Med_aut = 20e AND Casos = 4e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 142.0: IF Med_aut = 20e AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 143.0: IF Med_aut = 20e AND Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 144.0: IF Categoria = c2 AND Casos = 4e THEN 16f
+RULE NUMBER 145.0: IF Categoria = c2 AND Anios_prac = 3d THEN 16f
+RULE NUMBER 146.0: IF Categoria = c2 AND No_hosp = 18h THEN 16f
+RULE NUMBER 147.0: IF Categoria = c2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 148.0: IF Categoria = c2 AND Fmr_sol_aut = 21e AND Mcc_aut = 14e THEN 16f
+RULE NUMBER 149.0: IF Categoria = c2 AND Fmr_sol_aut = 21e AND Ult_grado = g2 THEN 16f
+RULE NUMBER 150.0: IF Categoria = c2 AND Fmr_sol_aut = 21e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 151.0: IF Categoria = c2 AND Mcc_aut = 14e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 152.0: IF Categoria = c2 AND Ult_grado = g2 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 153.0: IF Hall_disc = 7b AND Anios_prac = 3d THEN 16f
+RULE NUMBER 154.0: IF Hall_disc = 7b AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 155.0: IF Hall_disc = 7b AND Mcc_aut = 14e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 156.0: IF Hall_disc = 7b AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 157.0: IF Hall_disc = 7b AND Esc_med_gral = c12 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 158.0: IF Hall_disc = 7b AND No_hosp = 18h AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 159.0: IF Casos = 4a AND Esc_esp = c9 THEN 16f
+RULE NUMBER 160.0: IF Casos = 4a AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 161.0: IF Casos = 4a AND Anios_prac = 3c THEN 16f
+RULE NUMBER 162.0: IF Casos = 4a AND Mcc_aut = 14e AND Area = a2 THEN 16f
+RULE NUMBER 163.0: IF Hall_arb = 8b AND Esc_esp = c9 THEN 16f
+RULE NUMBER 164.0: IF Hall_arb = 8b AND Mcc_aut = 14e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 165.0: IF Hall_arb = 8b AND Mcc_aut = 14e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 166.0: IF Hall_arb = 8b AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 167.0: IF Hall_arb = 8b AND Casos = 4e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 168.0: IF Hall_arb = 8b AND Per_sol_aut = 19e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 169.0: IF Mcc_aut = 14b AND Per_sol_aut = 19d AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 170.0: IF Mcc_aut = 14b AND Esc_esp = c7 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 171.0: IF Fmr_sol_aut = 21e AND Mcc_aut = 14e THEN 16f
+RULE NUMBER 172.0: IF Fmr_sol_aut = 21e AND Casos = 4e THEN 16f
+RULE NUMBER 173.0: IF Fmr_sol_aut = 21e AND Anios_prac = 3c THEN 16f
+RULE NUMBER 174.0: IF Fmr_sol_aut = 21e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 175.0: IF Fmr_sol_aut = 21e AND No_hosp = 18e AND Esc_esp = c39 THEN 16f
+RULE NUMBER 176.0: IF Fmr_sol_aut = 21e AND No_hosp = 18e AND Ult_grado = g2 THEN 16f
+RULE NUMBER 177.0: IF Fmr_sol_aut = 21e AND No_hosp = 18e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 178.0: IF Fmr_sol_aut = 21e AND Esc_esp = c39 AND Anios_prac = 3d THEN 16f
+RULE NUMBER 179.0: IF Fmr_sol_aut = 21e AND Ult_grado = g2 AND Anios_prac = 3d THEN 16f
+RULE NUMBER 180.0: IF Fmr_sol_aut = 21e AND Anios_prac = 3d AND No_hosp = 18h THEN 16f
+RULE NUMBER 181.0: IF No_hosp = 18e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 182.0: IF No_hosp = 18e AND Mcc_aut = 14e AND Area = a2 THEN 16f
+RULE NUMBER 183.0: IF No_hosp = 18e AND Mcc_aut = 14e AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 184.0: IF No_hosp = 18e AND Area = a2 AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 185.0: IF No_hosp = 18e AND Area = a2 AND Ult_grado = g2 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 186.0: IF No_hosp = 18e AND Casos = 4e AND Ult_grado = g2 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 187.0: IF No_hosp = 18e AND Casos = 4e AND Ult_grado = g2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 188.0: IF No_hosp = 18e AND Ult_grado = g2 AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 189.0: IF No_hosp = 18e AND Ult_grado = g2 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 190.0: IF No_hosp = 18e AND Ult_grado = g2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 191.0: IF Mcc_aut = 14e AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 192.0: IF Mcc_aut = 14e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 193.0: IF Mcc_aut = 14e AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 194.0: IF Mcc_aut = 14e AND Esc_esp = c39 AND Casos = 4e THEN 16f
+RULE NUMBER 195.0: IF Mcc_aut = 14e AND Esc_esp = c39 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 196.0: IF Mcc_aut = 14e AND Casos = 4e AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 197.0: IF Mcc_aut = 14e AND Ult_grado = g2 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 198.0: IF Esc_esp = c39 AND Casos = 4e THEN 16f
+RULE NUMBER 199.0: IF Esc_esp = c39 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 200.0: IF Esc_esp = c39 AND Anios_prac = 3d AND No_hosp = 18h THEN 16f
+RULE NUMBER 201.0: IF Esc_esp = c39 AND Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 202.0: IF Per_sol_aut = 19d AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 203.0: IF Per_sol_aut = 19d AND Esc_med_gral = c17 THEN 16f
+RULE NUMBER 204.0: IF Esc_esp = c7 AND Esc_med_gral = c12 THEN 16f
+RULE NUMBER 205.0: IF Esc_esp = c7 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 206.0: IF Area = a2 AND Esc_med_gral = c12 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 207.0: IF Casos = 4e AND Anios_prac = 3d THEN 16f
+RULE NUMBER 208.0: IF Casos = 4e AND Ult_grado = g2 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 209.0: IF Casos = 4e AND Ult_grado = g2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 210.0: IF Casos = 4e AND No_hosp = 18h AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 211.0: IF Casos = 4e AND No_hosp = 18h AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 212.0: IF Ult_grado = g2 AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 213.0: IF Ult_grado = g2 AND Esc_med_gral = c12 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 214.0: IF Ult_grado = g2 AND Anios_prac = 3d AND No_hosp = 18h THEN 16f
+RULE NUMBER 215.0: IF Ult_grado = g2 AND Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 216.0: IF Esc_med_gral = c12 AND Anios_prac = 3c THEN 16f
+RULE NUMBER 217.0: IF Esc_med_gral = c12 AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 218.0: IF Anios_prac = 3d AND No_hosp = 18h THEN 16f
+RULE NUMBER 219.0: IF Anios_prac = 3d AND Per_sol_aut = 19e THEN 16f
+RULE NUMBER 220.0: IF Anios_prac = 3d AND Fmr_sol_aut = 21j THEN 16f
+RULE NUMBER 221.0: IF Categoria = c4 AND Esc_med_gral = c10 THEN 16j
+RULE NUMBER 222.0: IF Rechazo_fam = 17f AND Esc_med_gral = c10 THEN 16j
+RULE NUMBER 223.0: IF Casos = 4b AND Esc_med_gral = c10 THEN 16j
+RULE NUMBER 224.0: IF Anios_prac = 3c AND Esc_esp = c43 THEN 16j
+RULE NUMBER 225.0: IF Anios_prac = 3c AND Esc_med_gral = c10 THEN 16j
+RULE NUMBER 226.0: IF No_hosp = 18c AND Esc_esp = c43 THEN 16j
+RULE NUMBER 227.0: IF No_hosp = 18c AND Esc_med_gral = c10 THEN 16j
+RULE NUMBER 228.0: IF Esc_esp = c43 AND Esc_med_gral = c10 THEN 16j

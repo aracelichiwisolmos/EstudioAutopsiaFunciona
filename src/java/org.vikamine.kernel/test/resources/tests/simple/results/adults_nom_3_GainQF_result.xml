@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@3bb2b8, predicate=has:DATASET_FILE_NAME, object=adults.arff]]">
+  <dc:date>Fri Oct 21 15:52:47 CEST 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@3bb2b8, predicate=has:DATASET_FILE_NAME, object=adults.arff]]" />
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Self-emp-inc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Female</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Exec-managerial</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Female</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Divorced</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Divorced</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Divorced</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Transport-moving</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Self-emp-inc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>HS-grad</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Self-emp-inc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>HS-grad</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Transport-moving</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Divorced</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>Assoc-voc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Transport-moving</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>&gt;50K</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>Hungary</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Self-emp-inc</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="0,76" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="TP" value="1" />
+      <parameter name="FP" value="0" />
+      <parameter name="target/subgroup" value="100,0%" />
+      <parameter name="target/population" value="24,1%" />
+      <parameter name="TP-Rate" value="00,0%" />
+      <parameter name="coverage" value="00,0%" />
+      <parameter name="significance" value="&lt;=1" />
+      <parameter name="lift" value="4,153" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

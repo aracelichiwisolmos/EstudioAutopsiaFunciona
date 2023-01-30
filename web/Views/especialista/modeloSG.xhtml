@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+   
+    <body>
+        <script type="text/javascript">
+            //<![CDATA[
+            function start() {
+                PF('startButton1').disable();
+
+                window['progress'] = setInterval(function () {
+                    var pbClient = PF('pbClient'),
+                            oldValue = pbClient.getValue(),
+                            newValue = oldValue + 10;
+
+                    pbClient.setValue(pbClient.getValue() + 10);
+
+                    if (newValue === 100) {
+                        clearInterval(window['progress']);
+                    }
+
+
+                }, 1000);
+            }
+
+            function cancel() {
+                clearInterval(window['progress']);
+                PF('pbClient').setValue(0);
+                PF('startButton1').enable();
+            }
+            //]]>
+        </script>
+        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menubar>
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                    </p:submenu>
+                </p:menu>
+            </ui:define>
+            <ui:define name="content">
+
+                <p:panelGrid id="dgReglas" columns="2" style="vertical-align: top" styleClass="noBordes">
+                    <h:outputScript name="./js/leer.js"/>
+
+                    <table id="demo"></table>
+
+                    <p:column width="20%">
+                        <p:accordionPanel  id="apAlgoritmos">
+                            <p:tab title="Descubrimiento Subgrupos" >
+                                <h:form id="formAlg2">
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <p:messages id="mensaje"/>
+                                 <h:panelGrid columns="2" cellpadding="10">
+
+
+                                    <p:outputLabel for="algoritmo" value="Algoritmo:" style="font-weight: bolder"/>
+
+
+
+                                    <p:selectOneMenu id="algoritmo" value="#{oSGJB.modeloSeleccionado}" required="true" style="width:125px">
+                                        <f:selectItem itemLabel="SDMap" itemValue="1" />
+                                        <f:selectItem itemLabel="BSD" itemValue="2" />
+                                        <f:selectItem itemLabel="BeamSearch" itemValue="3" />
+
+                                    </p:selectOneMenu>
+                                    
+                                    <p:outputLabel for="conjunto" value="Dataset:" style="font-weight: bolder"/>
+                                    <p:selectOneRadio id="conjunto" layout="grid" columns="1" value="#{oSGJB.corpusSeleccionado}" required="true">
+                                        <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                        <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                    </p:selectOneRadio>
+                                    
+                                   
+                                     
+                                      <p:outputLabel for="medida" value="Medida de interés:" style="font-weight: bolder"/>
+                                      <p:selectOneMenu id="medida" value="#{oSGJB.medidaSeleccionada}" required="true" style="width:125px">
+                                        <f:selectItem itemLabel="WRAccQF" itemValue="1"  />
+                                        <f:selectItem itemLabel="ChiSquareQF" itemValue="2"/>
+                                        <f:selectItem itemLabel="BinomialQF" itemValue="3"  />
+
+                                    </p:selectOneMenu>
+                                      
+                                      
+                                      
+                                    <p:outputLabel for="Etiqueta_clase" value="Etiqueta de clase:" style="font-weight: bolder"/>
+                                    <p:selectOneMenu id="Etiqueta_clase" value="#{oSGJB.claseSeleccionada}" required="true" style="width:125px">
+                                        <f:selectItems  value="#{oSGJB.lista_hospitales}" var="hospital" itemValue="#{hospital.claveCH}" itemLabel="#{hospital.nombreCH}" /> 
+                                    </p:selectOneMenu>
+                                    
+                                    <p:outputLabel for="reglas" value="Número de reglas:" style="font-weight: bolder"/>
+                                    <p:selectOneMenu id="reglas" value="#{oSGJB.reglasSeleccionadas}" required="true" style="width:125px">
+                                        <f:selectItem itemLabel="20" itemValue="20"/>
+                                        <f:selectItem itemLabel="50" itemValue="50"/>
+                                        
+
+                                    </p:selectOneMenu>
+                                    
+                                     <p:outputLabel for="numero" value="Número de atributos:" style="font-weight: bolder"/>
+                                     <p:inputText id="numero" type="number" value="#{oSGJB.numeroSeleccionado}" required="true"  style="width:125px" requiredMessage="Campo requerido." onkeydown="return event.keyCode === 69 ? false : true" >
+                                        
+                                             <f:attribute name="value" value="3" />   </p:inputText>  
+
+                                     
+                                     <p:column/> <p:commandButton  onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog2').hide()" update="frmReglas:dtReglas" value="Mostrar Reglas" action="#{oSGJB.mostrarResultadosSG()}">
+                                     
+                                     </p:commandButton>
+                                    <p:column/>                                
+                                    <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
+
+
+                                    <p:dialog widgetVar="statusDialog2" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                        <p:graphicImage name="/images/load.gif" />
+                                    </p:dialog>
+                                </h:panelGrid>
+                                </h:form>
+
+                                        </p:tab>
+                                    
+                                </p:accordionPanel>
+
+                    </p:column>
+                    <p:column>
+                        <h:form id="frmReglas" >
+                            <p:panelGrid id="dgReglas2" columns="2" style="vertical-align: top" styleClass="noBordes">
+                                <p:fieldset collapsed="true" legend="Reglas sin interpretar" toggleable="true">
+
+                                    <p:column width="20%">
+                                        <p:dataTable id="dtReglas1" value="#{oSGJB.reglas2}" var="reglita2"  emptyMessage="" rowIndexVar="rowIndex"  rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'alternativa2' : 'alternativa1'}" paginator="true" rows="20" style="margin-bottom:20px" >
+
+
+                                            <p:column headerText="No. Regla" width="60%" filterBy="#{rowIndex+1}">
+                                                <h:outputText value="#{rowIndex+1}" />
+                                            </p:column>
+                                            <p:column headerText="Regla" width="60%">
+                                                <p:outputLabel value="#{reglita2.descripcion}"/>
+                                            </p:column>
+                                            <p:column headerText="Tamaño" width="60%">
+                                                <p:outputLabel value="#{reglita2.tamaño}"/>
+                                            </p:column>
+                                            <p:column headerText="Valor de función de calidad" width="60%" filterBy="#{reglita2.valFuncion}">
+                                                <p:outputLabel value="#{reglita2.valFuncion}"  />
+                                            </p:column>
+
+
+
+                                        </p:dataTable>
+                                    </p:column>
+
+                                </p:fieldset>
+
+                            </p:panelGrid>
+                            <br/>
+
+                            <style type="text/css">
+                                .ui-paginator a {
+                                    margin-right: 5px;
+                                }
+                            </style>
+
+
+
+                            <p:dataTable id="dtReglas" value="#{oSGJB.reglasPDFA}"
+                                         var="reglita" emptyMessage="" rowIndexVar="rowIndex" paginator="true" rows="20" style="margin-bottom:20px">
+
+                                <f:facet name="header">
+                                    Interpretación de las reglas
+                                     <h:commandLink>
+                                        <p:graphicImage name="/images/pdf1.png" width="40em" />
+                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" />
+                                    </h:commandLink>
+                                </f:facet>
+                                <p:column  headerText="No." width="20%" filterBy="#{rowIndex+1}" filterMatchMode="exact">
+                                    <p:outputLabel value="Regla: #{rowIndex+1}"/>
+                                </p:column>
+                                <p:column headerText="Regla">
+                                    <p:outputLabel value="#{reglita}"/>
+                                </p:column>
+
+
+
+                            </p:dataTable>
+
+                        </h:form>
+                    </p:column>
+                </p:panelGrid>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+

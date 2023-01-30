@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <script type="text/javascript">
+            //<![CDATA[
+            function start() {
+                PF('startButton1').disable();
+
+                window['progress'] = setInterval(function () {
+                    var pbClient = PF('pbClient'),
+                            oldValue = pbClient.getValue(),
+                            newValue = oldValue + 10;
+
+                    pbClient.setValue(pbClient.getValue() + 10);
+
+                    if (newValue === 100) {
+                        clearInterval(window['progress']);
+                    }
+
+
+                }, 1000);
+            }
+
+            function cancel() {
+                clearInterval(window['progress']);
+                PF('pbClient').setValue(0);
+                PF('startButton1').enable();
+            }
+            //]]>
+        </script>
+        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menubar>
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                    </p:submenu>
+                </p:menu>
+            </ui:define>
+            <ui:define name="content">
+
+                <p:panelGrid id="dgReglas" columns="2" style="vertical-align: top" styleClass="noBordes">
+                    <h:outputScript name="./js/leer.js"/>
+
+                    <table id="demo"></table>
+
+                    <p:column width="20%">
+                        <p:accordionPanel  id="apAlgoritmos">
+                            <p:tab title="iEPMiner" >
+                                <h:form id="formAlg2">
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <p:messages id="mensaje"/>
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <p:outputLabel for="conjuntoA" value="Dataset:" />
+                                        <p:selectOneRadio id="conjuntoA" layout="grid" columns="1" value="#{oEPMJB.corpusSeleccionado}" required="true">
+
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                        </p:selectOneRadio>
+                                        <p:outputLabel for="Etiqueta_clase" value="Etiqueta de clase"/>
+                                        <p:selectOneMenu id="Etiqueta_clase" value="#{oEPMJB.claseSeleccionada}" required="true">
+                                            <f:selectItem itemLabel="Fmr_sol_aut" itemValue="1" itemDescription="Forma, método o recurso que funciona en forma eficiente para la solicitud de un estudio de autopsia" />
+                                            <f:selectItem itemLabel="Med_aut" itemValue="2" itemDescription="Causas por parte del médico para solicitar una autopsia"/>
+                                            <f:selectItem itemLabel="Per_sol_aut" itemValue="3" itemDescription="Persona que debe solicitar la autopsia"/>
+                                            <f:selectItem itemLabel="No_hosp" itemValue="4" itemDescription="Causas por las que no se realizan suficientes autopsias en el hospital" />
+                                            <f:selectItem itemLabel="Rechazo_fam" itemValue="5" itemDescription="Principal causa de rechazo por parte del familiar para realizar una autopsia"/>
+                                            <f:selectItem itemLabel="Mcc_no_aut" itemValue="6" itemDescription="Motivos, causas y circunstancias para que no se solicite una autopsia"/>
+                                            <f:selectItem itemLabel="Mcc_aut" itemValue="7" itemDescription="Motivos, causas y circunstancias para que se solicite una autopsia"/>
+                                        </p:selectOneMenu>
+
+
+                                        <p:outputLabel value="min_soporte:" />
+                                        <p:inputText id="sopA" value="#{oEPMJB.minSoporte}" required="true"/>
+                                        <p:outputLabel value="min_growt_rate:" />
+                                        <p:inputText id="grA" value="#{oEPMJB.growthRate}" required="true"/>
+                                        <p:outputLabel value="min_chi_squared:" />
+                                        <p:inputText id="csA" value="#{oEPMJB.chiSquaret}" required="true"/>
+                                        <p:column/>
+
+                                        <p:commandButton  onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" update="frmReglas:dtReglas1, frmReglas:dtReglas" value="Muestra Reglas" action="#{oEPMJB.mostrarResultados(1)}">
+                                            <f:ajax execute="@form" render="@none" />
+                                        </p:commandButton>
+                                        <p:column/>
+                                        <p:commandButton onstart="PF('statusDialog3').show()" onsuccess="PF('statusDialog3').hide()" update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oEPMJB.guardarModelo(1)}" />
+
+
+                                        <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                            <p:graphicImage name="/images/load.gif" />
+                                        </p:dialog>
+                                        <p:dialog widgetVar="statusDialog3" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                            <p:graphicImage name="/images/load.gif" />
+                                        </p:dialog>
+                                    </h:panelGrid>
+                                </h:form>
+
+                                        </p:tab>
+                                    <p:tab title="DGCP-Tree" id="demo">
+                                <h:form>
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <h:panelGrid columns="2" cellpadding="10">
+                                        <p:outputLabel for="conjuntoF" value="Dataset:" />
+                                        <p:selectOneRadio id="conjuntoF" layout="grid" columns="1" value="#{oEPMJB.corpusSeleccionado}">
+
+
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                        </p:selectOneRadio>
+                                        <p:outputLabel for="Etiqueta_clase" value="Etiqueta de clase"/>
+                                        <p:selectOneMenu id="Etiqueta_clase" value="#{oEPMJB.claseSeleccionada}" required="true">
+                                            <f:selectItem itemLabel="Fmr_sol_aut" itemValue="1" itemDescription="Forma, método o recurso que funciona en forma eficiente para la solicitud de un estudio de autopsia" />
+                                            <f:selectItem itemLabel="Med_aut" itemValue="2" itemDescription="Causas por parte del médico para solicitar una autopsia"/>
+                                            <f:selectItem itemLabel="Per_sol_aut" itemValue="3" itemDescription="Persona que debe solicitar la autopsia"/>
+                                            <f:selectItem itemLabel="No_hosp" itemValue="4" itemDescription="Causas por las que no se realizan suficientes autopsias en el hospital" />
+                                            <f:selectItem itemLabel="Rechazo_fam" itemValue="5" itemDescription="Principal causa de rechazo por parte del familiar para realizar una autopsia"/>
+                                            <f:selectItem itemLabel="Mcc_no_aut" itemValue="6" itemDescription="Motivos, causas y circunstancias para que no se solicite una autopsia"/>
+                                            <f:selectItem itemLabel="Mcc_aut" itemValue="7" itemDescription="Motivos, causas y circunstancias para no se solicite una autopsia"/>
+                                        </p:selectOneMenu>
+
+                                        <p:outputLabel value="min_soporte:" />
+                                        <p:inputText id="sopF" value="#{oEPMJB.minSoporte}" required="true"/>
+                                        <p:column/>
+
+                                        <p:commandButton  onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog2').hide()" update="frmReglas:dtReglas1, frmReglas:dtReglas" value="Muestra Reglas" action="#{oEPMJB.mostrarResultados(2)}">
+                                            <f:ajax execute="@form" render="@none" />
+                                        </p:commandButton>
+                                        <p:column/>
+                                        <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oEPMJB.guardarModelo(2)}"/>
+
+                                        <p:dialog widgetVar="statusDialog2" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                            <p:graphicImage name="/images/load.gif" />
+                                        </p:dialog>
+                                        <p:dialog widgetVar="statusDialog4" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                            <p:graphicImage name="/images/load.gif" />
+                                        </p:dialog>
+                                    </h:panelGrid>
+                                </h:form>
+                                 </p:tab>
+                                </p:accordionPanel>
+
+                    </p:column>
+                    <p:column>
+                        <h:form id="frmReglas" >
+                            <p:panelGrid id="dgReglas2" columns="2" style="vertical-align: top" styleClass="noBordes">
+                                <p:fieldset collapsed="true" legend="Reglas" toggleable="true">
+
+                                    <p:column width="20%">
+                                        <p:dataTable id="dtReglas1" value="#{oEPMJB.confianzaReglas}" var="reglita2"  emptyMessage="" rowIndexVar="rowIndex"  rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'alternativa2' : 'alternativa1'}" paginator="true" rows="20" style="margin-bottom:20px" >
+
+
+                                            <p:column headerText="No. Regla" width="60%">
+                                                <h:outputText value="#{reglita2.idRegla}" />
+                                            </p:column>
+                                            <p:column headerText="Regla" width="60%">
+                                                <p:outputLabel value="#{reglita2.regla}"/>
+                                            </p:column>
+                                            <p:column headerText="Confianza" width="60%" filterBy="#{reglita2.CONF}">
+                                                <p:outputLabel value="#{reglita2.CONF}"/>
+                                            </p:column>
+
+
+
+                                        </p:dataTable>
+                                    </p:column>
+
+                                </p:fieldset>
+
+                            </p:panelGrid>
+                            <br/>
+
+                            <style type="text/css">
+                                .ui-paginator a {
+                                    margin-right: 5px;
+                                }
+                            </style>
+
+
+
+                            <p:dataTable id="dtReglas" value="#{oEPMJB.reglasPDFA}"
+                                         var="reglita" emptyMessage="" rowIndexVar="rowIndex" paginator="true" rows="20" style="margin-bottom:20px">
+
+                                <f:facet name="header">
+                                    Interpretación de las reglas
+                                     <h:commandLink>
+                                        <p:graphicImage name="/images/pdf1.png" width="40em" />
+                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oEPMJB.preProcessPDF}"/>
+                                    </h:commandLink>
+                                </f:facet>
+                                <p:column  headerText="No." width="20%" filterBy="#{rowIndex+1}" filterMatchMode="exact">
+                                    <p:outputLabel value="Regla: #{rowIndex+1}"/>
+                                </p:column>
+                                <p:column headerText="Regla">
+                                    <p:outputLabel value="#{reglita}"/>
+                                </p:column>
+
+
+
+                            </p:dataTable>
+
+                        </h:form>
+                    </p:column>
+                </p:panelGrid>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <div>TODO write content</div>
+
+        <div id="texto">
+            <h1>Información algoritmos</h1>
+            <button id="cargaDatos">Carga información</button>
+        </div>
+        <table id="demo"></table>
+
+
+        <script type = "text / javascript" >
+
+
+            document.getElementById(	&quot;cargaDatos	&quot;).addEventListener(	&quot;click	&quot;, cargarDatos);
+
+            function cargarDatos() {
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function () {
+            if (this.readyState == 4 &amp;&amp; this.status == 200) {
+            cargarXML(this);
+            }
+
+            };
+            xhr.open(	&quot;GET&quot; , 	&quot; algorithms.xml	&quot;, true);
+            xhr.send();
+            }
+
+            function  cargarXML(xml) {
+            var docXML = xml.responseXML;
+            var tabla = 	&quot;<tr><th>Algoritmo</th><th>default</th></tr>	&quot;;
+            var aDGCP = docXML.getElementsByTagName(	&quot;algorithm	&quot;);
+            for (var i = 0; i &lt; aDGCP.length; i++) {
+            tabla += 	&quot;<tr><td>	&quot;;
+            tabla += aDGCP[i].getElementsByTagName("name")[0].textContent;
+            tabla += 	&quot;</td><td>	&quot;;
+            tabla += aDGCP[i].getElementsByTagName("default")[0].textContent;
+            tabla += 	&quot;</td></tr>	&quot;;
+            }
+            document.getElementById(	&quot;demo	&quot;).innerHTML = tabla;
+            }
+
+
+
+        </script>
+    </body>
+</html>

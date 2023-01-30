@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@67064, predicate=has:DATASET_FILE_NAME, object=credit-g.arff]]">
+  <dc:date>Fri Oct 21 15:53:00 CEST 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@67064, predicate=has:DATASET_FILE_NAME, object=credit-g.arff]]" />
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,44" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="259" />
+      <parameter name="TP" value="133" />
+      <parameter name="FP" value="126" />
+      <parameter name="target/subgroup" value="51,4%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="44,3%" />
+      <parameter name="coverage" value="25,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,712" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,44" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="208" />
+      <parameter name="TP" value="112" />
+      <parameter name="FP" value="96" />
+      <parameter name="target/subgroup" value="53,9%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="37,3%" />
+      <parameter name="coverage" value="20,8%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,795" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="other_parties">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,46" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="229" />
+      <parameter name="TP" value="121" />
+      <parameter name="FP" value="108" />
+      <parameter name="target/subgroup" value="52,8%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="40,3%" />
+      <parameter name="coverage" value="22,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,761" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="other_parties">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,49" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="178" />
+      <parameter name="TP" value="100" />
+      <parameter name="FP" value="78" />
+      <parameter name="target/subgroup" value="56,2%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="33,3%" />
+      <parameter name="coverage" value="17,8%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,873" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,52" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="134" />
+      <parameter name="TP" value="81" />
+      <parameter name="FP" value="53" />
+      <parameter name="target/subgroup" value="60,5%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="27,0%" />
+      <parameter name="coverage" value="13,4%" />
+      <parameter name="significance" value="&lt;=0,000001 (1,1E-16)" />
+      <parameter name="lift" value="2,015" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="other_parties">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,53" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="145" />
+      <parameter name="TP" value="86" />
+      <parameter name="FP" value="59" />
+      <parameter name="target/subgroup" value="59,3%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="28,7%" />
+      <parameter name="coverage" value="14,5%" />
+      <parameter name="significance" value="&lt;=0,000001 (1,1E-16)" />
+      <parameter name="lift" value="1,977" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,54" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="165" />
+      <parameter name="TP" value="95" />
+      <parameter name="FP" value="70" />
+      <parameter name="target/subgroup" value="57,6%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="31,7%" />
+      <parameter name="coverage" value="16,5%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,919" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="other_parties">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,62" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="110" />
+      <parameter name="TP" value="71" />
+      <parameter name="FP" value="39" />
+      <parameter name="target/subgroup" value="64,6%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="23,7%" />
+      <parameter name="coverage" value="11,0%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,152" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,6" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="130" />
+      <parameter name="TP" value="80" />
+      <parameter name="FP" value="50" />
+      <parameter name="target/subgroup" value="61,5%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="26,7%" />
+      <parameter name="coverage" value="13,0%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="2,051" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="other_parties">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,53" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="112" />
+      <parameter name="TP" value="71" />
+      <parameter name="FP" value="41" />
+      <parameter name="target/subgroup" value="63,4%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="23,7%" />
+      <parameter name="coverage" value="11,2%" />
+      <parameter name="significance" value="&lt;=0,000001 (2,2E-16)" />
+      <parameter name="lift" value="2,113" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

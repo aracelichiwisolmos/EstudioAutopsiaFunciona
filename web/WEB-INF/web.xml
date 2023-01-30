@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>usrdb</param-name>
+        <param-value>postgres</param-value>
+    </context-param>
+    <context-param>
+        <param-name>pwddb</param-name>
+        <param-value>1234</param-value>
+    </context-param>
+    <context-param>
+        <param-name>urldb</param-name>
+        <param-value>jdbc:postgresql://localhost/encuesta</param-value>
+    </context-param>
+    <context-param>
+        <param-name>driverdb</param-name>
+        <param-value>org.postgresql.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Production</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.THEME</param-name>
+        <param-value>bootstrap</param-value>
+    </context-param>
+    <context-param>
+        <param-name>misFicheros</param-name>
+        <!-- <param-value>E://Tesis//Código//EstudioAutopsia//corpus/</param-value>-->
+        <!--  <param-value>D://Documentos//Tesis//3er semestre//Tesis//Código//EstudioAutopsia//corpus/</param-value>-->
+        <param-value>C:\Users\Araceli\Desktop\MAESTRÍA\EstudioAutopsiaFunciona\corpus\</param-value>
+    </context-param>
+    <context-param>
+        <param-name>primefaces.FONT_AWESOME</param-name>
+        <param-value>true</param-value>
+    </context-param> 
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <filter>
+        <filter-name>filtro</filter-name>
+        <filter-class>hospital.filtro.filtro</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filtro</filter-name>
+        <url-pattern>/faces/Views/administrador/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filtro</filter-name>
+        <url-pattern>/faces/Views/especialista/*</url-pattern>
+    </filter-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>faces/Views/inicio.xhtml</welcome-file>
+    </welcome-file-list>
+
+    
+</web-app>

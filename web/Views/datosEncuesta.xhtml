@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+    <h:body>
+
+        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:composition template="./../Template/plantillaBase.xhtml">
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Gestionar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Datos encuesta" outcome="/Views/datosEncuesta" icon="ui-icon-search"/>
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Encuesta" outcome="/Views/administrador/usuario" icon="ui-icon-disk" />
+
+                    </p:submenu>
+                </p:menu>     
+            </ui:define>
+            <ui:define name="content"> 
+                <p:tabView id="tbpestañas" style="width: 100%" >
+                    <p:tab title="Datos de la encuesta" >
+                        <h:form style="width:100%">
+
+                            <p:growl id="growl" showDetail="true"/>
+                            <div id="graficos" style="width:500px; height: 500px">
+                                <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="width:100%">
+                                    <p:chart id="chtMod1" type="bar" model="#{chartView.animatedModel2}" style="width:100%;" />
+                                    <p:chart id="chtMod2" type="bar" model="#{chartView.animatedModelCasos}" style="width:100%;" />
+                                </p:panelGrid>
+                            </div>                        
+                        </h:form> 
+                    </p:tab>
+                    <p:tab title="Resultados de Asociación">
+                        <h:form><p:panelGrid id="dgReglas" columns="2" style="vertical-align: top" styleClass="noBordes">
+
+                                <p:column>
+
+                                    <p:fieldset legend="Algoritmos" class="siBordes">
+
+                                        <p:growl id="growl" showDetail="true"/>
+                                        <h:panelGrid columns="2" cellpadding="10">  
+
+                                            <p:outputLabel for="algoritmo" value="Algoritmo:" style="font-weight: bolder"/>
+                                            <p:selectOneMenu id="algoritmo" value="#{oAsociacionJB.modeloSeleccionado}" required="true">
+                                                <f:selectItem itemLabel="Apriori" itemValue="1" />
+                                                <f:selectItem itemLabel="FPGrowth" itemValue="2" />
+                                                <f:selectItem itemLabel="Predictive Apriori" itemValue="3" />
+                                                <f:selectItem itemLabel="Tertius" itemValue="4" />
+                                            </p:selectOneMenu>
+                                            <p:outputLabel for="conjunto" value="Dataset:" style="font-weight: bolder"/>
+                                            <p:selectOneRadio id="conjunto" layout="grid" columns="1" value="#{oAsociacionJB.corpusSeleccionado}" required="true">
+                                                <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                                <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                            </p:selectOneRadio>
+                                            <p:column/>
+                                            <p:commandButton value="Resultados " update="dtReglas1" action="#{oAsociacionJB.mostrarResultados()}"/>                                           
+                                        </h:panelGrid>
+
+                                    </p:fieldset>
+                                </p:column>
+                                <p:column id="clmRegla">
+
+                                    <p:dataTable id="dtReglas1" value="#{oAsociacionJB.reglas}" var="reglita" emptyMessage="" rowIndexVar="rowIndex"  rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'alternativa2' : 'alternativa1'}" >
+                                        <p:column headerText="No." width="10%">
+                                            <p:outputLabel value="#{rowIndex+1}"/>
+                                        </p:column>
+                                        <p:column headerText="Regla" width="90%">
+                                            <p:outputLabel value="#{reglita.interpretaRegla()}"/>
+                                        </p:column> 
+                                    </p:dataTable>
+
+                                </p:column>
+
+                            </p:panelGrid>  </h:form>
+                    </p:tab>
+
+                </p:tabView>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

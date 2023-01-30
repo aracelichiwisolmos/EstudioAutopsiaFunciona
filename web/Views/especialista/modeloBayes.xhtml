@@ -1,0 +1,227 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+        <p:growl id="growl" sticky="true" showDetail="true"/>
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+           
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                         <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menubar>     
+            </ui:define>
+             <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                         <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                         <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menu>     
+            </ui:define>
+            <ui:define name="content"> 
+                <p:panelGrid id="dgReglas" columns="2" style="vertical-align: top" styleClass="noBordes">
+                    <p:column width="20%">
+                        <p:accordionPanel  id="apAlgoritmos" style="min-width: 300px" >
+                            <p:tab title="Red Bayesiana"  >  
+                                <h:form> 
+                                    <p:growl id="growl" showDetail="true"/>
+                                    <p:messages id="mensaje"/>
+                                    <h:panelGrid columns="2" cellpadding="10">  
+                                        <p:outputLabel for="conjunto" value="Clase" style="font-weight: bolder" />
+                                        <p:selectOneMenu id="conjunto" value="#{oBayesNetJB.clase}" required="true">
+                                            <f:selectItems value="#{oBayesNetJB.listAtributosDataSet}" var="clase" itemLabel="#{clase.label}" itemValue="#{clase.value}" itemDescription="#{clase.description}" />
+                                        </p:selectOneMenu>
+                                        <p:commandButton id="btStartModel" value="Modelo">
+                                            <p:ajax update="grafo, btSaveModel, otplPresicion"  process="@form" listener="#{oBayesNetJB.generarModelo()}"/>
+                                        </p:commandButton>
+                                        <p:commandButton id="btSaveModel" disabled="#{oBayesNetJB.disable}" update="growl,btSaveModel" process="@this" title="Guardar Modelo" icon="ui-icon-disk" actionListener="#{oBayesNetJB.guardarModelo()}" />
+
+                                    </h:panelGrid> 
+
+                                </h:form>
+                                 </p:tab>
+
+                            <p:tab title="Filtrar"  >  
+                                <h:form id="frmFiltrar"> 
+                                    <p:growl id="growl" showDetail="true" showSummary="true"/>                                    
+                                    <p:panel header="Filtrar Elementos" class="siBordes">
+                                        <p:panelGrid columns="2" class="noBordes">
+                                            <p:outputLabel value="Modo " style="font-weight: bolder"/>
+                                            <p:selectOneRadio id="filtro" value="#{oBayesNetJB.filtro}" layout="grid" columns="1">
+                                                <f:selectItem itemLabel="Incluyente" itemValue="incluir" noSelectionOption="false"/>
+                                                <f:selectItem itemLabel="Excluyente" itemValue="excluir"/>
+                                            </p:selectOneRadio>
+                                            <p:column/>
+                                            <h:inputHidden id="clase" value="#{oBayesNetJB.idNodo}" />
+                                            <p:outputLabel value="Valor Nodo" style="font-weight: bolder"/>
+                                            <p:selectOneMenu id="attValor" value="#{oBayesNetJB.selectItemValorNodo}" required="true" >
+                                                <f:selectItems value="#{oBayesNetJB.listaValorNodo}" var="valor" itemLabel="#{valor.label}" itemValue="#{valor.value}"  />
+                                            </p:selectOneMenu>   
+                                            <p:outputLabel value="Nodo Padre" style="font-weight: bolder"/>
+                                            <p:selectOneMenu id="nodoPadre"  value="#{oBayesNetJB.selectItemPadre}"  required="true" >
+                                                <f:selectItems value="#{oBayesNetJB.listaPadres}"  var="item" itemLabel="#{item.label}" itemValue="#{item.value}"  />
+                                                <p:ajax update="apAlgoritmos:frmFiltrar:valorPadre" process="@this" listener="#{oBayesNetJB.obtenerValoresPadre()}"/>
+                                            </p:selectOneMenu>
+                                            <p:outputLabel value="Valor Padre" style="font-weight: bolder"/>
+                                            <p:selectOneMenu id="valorPadre" value="#{oBayesNetJB.selectItemValorPadre}" required="true">
+                                                <f:selectItems value="#{oBayesNetJB.listaValorPadre}" var="valor" itemLabel="#{valor.label}" itemValue="#{valor.value}" />
+                                            </p:selectOneMenu>
+                                            <p:column/>
+                                            <p:column >
+                                                <p:commandButton id="plus" icon="ui-icon-plus">
+                                                    <p:ajax  process="@form" update="growl, padresSelec, nodoPadre, valorPadre" listener="#{oBayesNetJB.adicionarPadre()}" />
+                                                </p:commandButton>
+                                                <p:commandButton id="minus" icon="ui-icon-minus" >
+                                                    <p:ajax  process="@this" update="padresSelec, nodoPadre, valorPadre" listener="#{oBayesNetJB.limpiarPadreSelec()}" />
+                                                </p:commandButton>
+                                            </p:column>
+                                        </p:panelGrid>
+                                        <p:column>
+                                            <h:inputHidden id="padresSelec" value="#{oBayesNetJB.seleccionPadres}"/> 
+                                        </p:column>
+                                    </p:panel>
+                                    <br/>
+                                    <p:panel header="Filtrar Probabilidad" class="siBordes">
+                                        <p:panelGrid columns="2" class="noBordes">                           
+                                            <p:outputLabel value="Índice" style="font-weight: bolder"/>
+                                            <p:selectOneRadio id="indiceProb" value="#{oBayesNetJB.indiceProb}" layout="grid" columns="1">
+                                                <f:selectItem itemLabel="Todo" itemValue="-1" noSelectionOption="true"/>
+                                                <f:selectItem itemLabel="Menor que" itemValue="1"/>
+                                                <f:selectItem itemLabel="Mayor que" itemValue="2"/>
+                                            </p:selectOneRadio>
+                                            <p:outputLabel value="Probabilidad" style="font-weight: bolder"/>
+                                            <p:inputText id="valorProb" value="#{oBayesNetJB.valorProb}" />
+                                        </p:panelGrid>
+                                    </p:panel>
+                                    <p:panelGrid columns="3" columnClasses="ui-grid-col-6, ui-grid-col-6" layout="grid" styleClass="ui-panelgrid-blank" class="noBordes" >
+                                        <p:column/>
+                                        <p:column>
+                                            <p:commandButton id="btTCP" value="Todo" update="grafo, 
+                                                             graph:contenedorTCP, apAlgoritmos:frmFiltrar:nodoPadre, 
+                                                             frmFiltrar:nodoPadre, frmFiltrar:attValor, frmFiltrar:valorPadre, 
+                                                             apAlgoritmos:frmFiltrar:filtro, apAlgoritmos:frmFiltrar:padresSelec, 
+                                                             graph:lbOrden, graph:somOrden, indiceProb, valorProb" process="@this,clase" 
+                                                             actionListener="#{oBayesNetJB.obtenerTCP()}"/>
+                                            <p:commandButton id="btfiltrar" value="Filtrar">
+                                                <p:ajax listener="#{oBayesNetJB.filtrar()}" process="@form" 
+                                                        update="grafo, growl, graph:contenedorTCP, frmFiltrar:attValor,
+                                                        apAlgoritmos:frmFiltrar:attValor, apAlgoritmos:frmFiltrar:filtro, 
+                                                        apAlgoritmos:frmFiltrar:padresSelec, graph:somOrden,apAlgoritmos:frmFiltrar:nodoPadre, 
+                                                        frmFiltrar:nodoPadre,frmFiltrar:valorPadre,indiceProb, valorProb "/>
+                                            </p:commandButton>
+                                        </p:column>
+                                    </p:panelGrid>
+                                </h:form> 
+                                     </p:tab>  
+                                </p:accordionPanel>
+
+                    </p:column>
+                    <p:column>
+                        <br/>
+                        <p:fieldset toggleable="true" legend="Ver Grafo" id="grafo" collapsed="#{oBayesNetJB.collapsed}">
+                            <p:outputLabel id="otplPresicion" value="#{oBayesNetJB.presicion}"/>
+                            <div id="mynetwork" />
+                            <script type="text/javascript">
+                                pintaGrafo(#{oBayesNetJB.nodosDataSet},#{oBayesNetJB.arcosDataSet});
+                            </script></p:fieldset>
+                        <h:form id="graph">
+
+                            <p:panel id="contenedorTCP" >
+                                <p:panelGrid columns="2" class="noBordes" style="margin-left:  55%">
+                                    <p:outputLabel id="lbOrden" value="Ordenar: " style="font-weight: bolder" rendered="#{empty(oBayesNetJB.idNodo) ? false:true}"/>
+                                    <p:selectOneMenu id="somOrden" value="#{oBayesNetJB.orden}" rendered="#{empty(oBayesNetJB.idNodo) ? false:true}">
+                                        <f:selectItem itemLabel="Default" itemValue="default" noSelectionOption="false" />
+                                        <f:selectItem itemLabel="Menor a mayor probabilidad" itemValue="ascendente" />
+                                        <f:selectItem itemLabel="Mayor a menor probabilidad" itemValue="descendente"/>
+                                        <p:ajax listener="#{oBayesNetJB.ordenarDataset()}" update="grafo, graph:contenedorTCP"/> 
+                                    </p:selectOneMenu>
+                                </p:panelGrid>
+                                <p:dataTable  id="dgParentSet" var="parents" value="#{oBayesNetJB.parentSets}"  
+                                              rows="10" 
+                                              paginator="true"
+                                              paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown} "
+                                              currentPageReportTemplate="P&aacute;ginas: ({currentPage} de {totalPages})"
+                                              rowsPerPageTemplate="5,10,15"
+                                              emptyMessage="No se encontraron resultados de b&uacute;squeda"
+                                              rowIndexVar="rowIndex" 
+                                              class="#{(rowIndex mod 2) eq 0 ? 'alternativa2' : 'alternativa1'}"
+                                              rendered="#{empty(oBayesNetJB.idNodo) ? false:true}">
+
+                                    <f:facet name="header">
+                                        <p:outputLabel value="Probabilidades condicionales"/>
+                                         <h:commandLink>
+                                            <p:graphicImage name="/images/pdf1.png" width="40em" />
+                                            <p:dataExporter type="pdf"  target="dgParentSet" fileName="probabilidades" encoding="ISO-8859-1" preProcessor="#{oBayesNetJB.preProcessPDF}"/>
+                                        </h:commandLink>
+                                    </f:facet>
+
+                                    <p:column  exportable="false" >
+                                        <p:outputLabel value="#{parents.regla()}"/> 
+                                        <p:separator/>
+                                        <p:outputLabel value="Probabilidad:" style="font-style: italic"/><p:spacer width="5em"/>
+                                        <p:outputLabel value="#{parents.probabilidad}"/>
+                                    </p:column>
+                                    <p:column >
+                                        <p:outputLabel value="#{rowIndex+1}- #{parents.interpretacion}"/>
+                                    </p:column>
+                                </p:dataTable>
+
+                            </p:panel>
+
+                        </h:form>
+
+                    </p:column>
+                </p:panelGrid>
+                <h:form id="formInterpreta">
+                    <p:dialog  header="Interpretación" widgetVar="dlg1" minHeight="40" style="text-align: justify; max-width: 400px">
+                        <p:panelGrid class="noBordes" columns="1" rendered="#{not empty oBayesNetJB.selectParentSet}">
+                            <p:outputLabel id="optRegla" value="#{oBayesNetJB.selectParentSet.regla()}" style="font-weight: bolder"/>
+                                <p:outputLabel id="optInterp" value="#{oBayesNetJB.selectParentSet.Interpretacion()}" />
+                        </p:panelGrid>
+                    </p:dialog>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

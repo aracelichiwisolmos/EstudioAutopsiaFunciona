@@ -1,0 +1,2 @@
+RULE NUMBER 0.0: IF No_hosp = 18d AND Esc_esp = c43 THEN 21a
+RULE NUMBER 1.0: IF Anios_prac = 3e AND Esc_esp = c43 THEN 21a

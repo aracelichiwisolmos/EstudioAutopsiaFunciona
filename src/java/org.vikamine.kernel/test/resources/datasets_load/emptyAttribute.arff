@@ -1,0 +1,5 @@
+@relation test
+@attribute empty {}
+@attribute test {'t'}
+@data
+?,'t'

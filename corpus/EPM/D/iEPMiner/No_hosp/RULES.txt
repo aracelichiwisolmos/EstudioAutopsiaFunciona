@@ -1,0 +1,91 @@
+RULE NUMBER 0.0: IF Esc_med_gral = c18 THEN 18c
+RULE NUMBER 1.0: IF Esc_med_gral = c10 THEN 18c
+RULE NUMBER 2.0: IF Hall_dem = 11a AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 3.0: IF Hall_arb = 8a AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 4.0: IF Hall_arb = 8a AND Hall_dem = 11c THEN 18c
+RULE NUMBER 5.0: IF Esc_med_gral = c10 AND Rechazo_fam = 17f THEN 18c
+RULE NUMBER 6.0: IF Esc_med_gral = c10 AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 7.0: IF Esc_esp = c43 AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 8.0: IF Esc_esp = c43 AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 9.0: IF Categoria = c4 AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 10.0: IF Casos = 4b AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 11.0: IF Anios_prac = 3c AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 12.0: IF Anios_prac = 3c AND Esc_med_gral = c10 THEN 18c
+RULE NUMBER 13.0: IF Anios_prac = 3c AND Esc_esp = c43 THEN 18c
+RULE NUMBER 14.0: IF Hall_disc = 7a AND Mcc_no_aut = 16j AND Rechazo_fam = 17f THEN 18c
+RULE NUMBER 15.0: IF Hall_dem = 11c AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18c
+RULE NUMBER 16.0: IF Hall_dem = 11a AND Mcc_no_aut = 16j AND Rechazo_fam = 17f THEN 18c
+RULE NUMBER 17.0: IF Casos = 4b AND Mcc_no_aut = 16j AND Rechazo_fam = 17f THEN 18c
+RULE NUMBER 18.0: IF Casos = 4b AND Hall_disc = 7a AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 19.0: IF Casos = 4a AND Hall_dem = 11c AND Ult_grado = g2 THEN 18c
+RULE NUMBER 20.0: IF Casos = 4a AND Hall_dem = 11c AND Hall_disc = 7a THEN 18c
+RULE NUMBER 21.0: IF Casos = 4a AND Hall_arb = 8a AND Ult_grado = g2 THEN 18c
+RULE NUMBER 22.0: IF Casos = 4a AND Hall_arb = 8a AND Hall_dem = 11c THEN 18c
+RULE NUMBER 23.0: IF Casos = 4a AND Esc_esp = c39 AND Hall_dem = 11c THEN 18c
+RULE NUMBER 24.0: IF Casos = 4a AND Esc_esp = c39 AND Hall_arb = 8a THEN 18c
+RULE NUMBER 25.0: IF Area = a3 AND Hall_dem = 11c AND Ult_grado = g2 THEN 18c
+RULE NUMBER 26.0: IF Area = a3 AND Hall_dem = 11c AND Hall_disc = 7a THEN 18c
+RULE NUMBER 27.0: IF Area = a3 AND Hall_dem = 11a AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 28.0: IF Area = a3 AND Esc_esp = c39 AND Hall_dem = 11c THEN 18c
+RULE NUMBER 29.0: IF Area = a3 AND Casos = 4b AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 30.0: IF Anios_prac = 3c AND Casos = 4b AND Hall_dem = 11a THEN 18c
+RULE NUMBER 31.0: IF Anios_prac = 3c AND Casos = 4b AND Hall_arb = 8a THEN 18c
+RULE NUMBER 32.0: IF Anios_prac = 3c AND Casos = 4b AND Categoria = c4 THEN 18c
+RULE NUMBER 33.0: IF Anios_prac = 3a AND Hall_dem = 11c AND Hall_disc = 7a THEN 18c
+RULE NUMBER 34.0: IF Anios_prac = 3a AND Hall_arb = 8a AND Hall_dem = 11c THEN 18c
+RULE NUMBER 35.0: IF Anios_prac = 3a AND Casos = 4a AND Ult_grado = g2 THEN 18c
+RULE NUMBER 36.0: IF Anios_prac = 3a AND Casos = 4a AND Hall_dem = 11c THEN 18c
+RULE NUMBER 37.0: IF Anios_prac = 3a AND Casos = 4a AND Hall_arb = 8a THEN 18c
+RULE NUMBER 38.0: IF Anios_prac = 3a AND Area = a3 AND Hall_dem = 11c THEN 18c
+RULE NUMBER 39.0: IF Anios_prac = 3a AND Area = a3 AND Casos = 4a THEN 18c
+RULE NUMBER 40.0: IF Categoria = c2 AND Hall_disc = 7a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 41.0: IF Categoria = c2 AND Fmr_sol_aut = 21c AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 42.0: IF Categoria = c2 AND Fmr_sol_aut = 21c AND Hall_disc = 7a THEN 18d
+RULE NUMBER 43.0: IF Casos = 4b AND Categoria = c2 AND Hall_arb = 8b THEN 18d
+RULE NUMBER 44.0: IF Casos = 4b AND Hall_dem = 11a AND Hall_disc = 7a AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 45.0: IF Area = a3 AND Casos = 4b AND Mcc_no_aut = 16j AND Rechazo_fam = 17f THEN 18c
+RULE NUMBER 46.0: IF Anios_prac = 3c AND Casos = 4b AND Categoria = c4 AND Rechazo_fam = 17f THEN 18c
+RULE NUMBER 47.0: IF Anios_prac = 3c AND Casos = 4b AND Categoria = c4 AND Mcc_no_aut = 16j THEN 18c
+RULE NUMBER 48.0: IF Anios_prac = 3c AND Casos = 4b AND Categoria = c4 AND Hall_disc = 7a THEN 18c
+RULE NUMBER 49.0: IF Anios_prac = 3a AND Hall_dem = 11c AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18c
+RULE NUMBER 50.0: IF Anios_prac = 3a AND Casos = 4a AND Hall_dem = 11c AND Hall_disc = 7a THEN 18c
+RULE NUMBER 51.0: IF Anios_prac = 3a AND Area = a3 AND Casos = 4a AND Esc_esp = c39 THEN 18c
+RULE NUMBER 52.0: IF Anios_prac = 3a AND Area = a3 AND Casos = 4a AND Categoria = c4 THEN 18c
+RULE NUMBER 53.0: IF Hall_dem = 11b AND Hall_disc = 7a AND Rechazo_fam = 17f AND Ult_grado = g1 THEN 18d
+RULE NUMBER 54.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Ult_grado = g1 THEN 18d
+RULE NUMBER 55.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 56.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a THEN 18d
+RULE NUMBER 57.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_arb = 8b AND Hall_disc = 7a THEN 18d
+RULE NUMBER 58.0: IF Categoria = c2 AND Fmr_sol_aut = 21c AND Hall_disc = 7a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 59.0: IF Categoria = c2 AND Esc_med_gral = c1 AND Rechazo_fam = 17f AND Ult_grado = g1 THEN 18d
+RULE NUMBER 60.0: IF Categoria = c2 AND Esc_med_gral = c1 AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 61.0: IF Categoria = c2 AND Esc_med_gral = c1 AND Hall_dem = 11b AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 62.0: IF Categoria = c2 AND Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 63.0: IF Casos = 4b AND Hall_dem = 11b AND Rechazo_fam = 17f AND Ult_grado = g1 THEN 18d
+RULE NUMBER 64.0: IF Casos = 4b AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Ult_grado = g1 THEN 18d
+RULE NUMBER 65.0: IF Casos = 4b AND Categoria = c2 AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 66.0: IF Casos = 4b AND Categoria = c2 AND Hall_dem = 11b AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 67.0: IF Casos = 4b AND Categoria = c2 AND Fmr_sol_aut = 21c AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 68.0: IF Casos = 4b AND Categoria = c2 AND Fmr_sol_aut = 21c AND Hall_dem = 11b THEN 18d
+RULE NUMBER 69.0: IF Casos = 4b AND Categoria = c2 AND Esc_med_gral = c1 AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 70.0: IF Area = a3 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a THEN 18d
+RULE NUMBER 71.0: IF Area = a3 AND Categoria = c2 AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 72.0: IF Area = a3 AND Categoria = c2 AND Hall_dem = 11b AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 73.0: IF Area = a3 AND Categoria = c2 AND Hall_dem = 11b AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 74.0: IF Area = a3 AND Categoria = c2 AND Fmr_sol_aut = 21c AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 75.0: IF Area = a3 AND Categoria = c2 AND Fmr_sol_aut = 21c AND Hall_disc = 7a THEN 18d
+RULE NUMBER 76.0: IF Area = a3 AND Categoria = c2 AND Fmr_sol_aut = 21c AND Hall_dem = 11b THEN 18d
+RULE NUMBER 77.0: IF Anios_prac = 3c AND Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 78.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 79.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 80.0: IF Casos = 4b AND Categoria = c2 AND Hall_disc = 7a AND Per_sol_aut = 19a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 81.0: IF Casos = 4b AND Categoria = c2 AND Hall_dem = 11b AND Per_sol_aut = 19a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 82.0: IF Casos = 4b AND Categoria = c2 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 83.0: IF Area = a3 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 84.0: IF Area = a3 AND Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a THEN 18d
+RULE NUMBER 85.0: IF Area = a3 AND Categoria = c2 AND Hall_dem = 11b AND Per_sol_aut = 19a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 86.0: IF Area = a3 AND Casos = 4b AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a THEN 18d
+RULE NUMBER 87.0: IF Area = a3 AND Casos = 4b AND Categoria = c2 AND Hall_dem = 11b AND Per_sol_aut = 19a THEN 18d
+RULE NUMBER 88.0: IF Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a AND Per_sol_aut = 19a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 89.0: IF Categoria = c2 AND Esc_med_gral = c1 AND Hall_dem = 11b AND Hall_disc = 7a AND Per_sol_aut = 19a AND Rechazo_fam = 17f THEN 18d
+RULE NUMBER 90.0: IF Area = a3 AND Esc_med_gral = c1 AND Fmr_sol_aut = 21c AND Hall_dem = 11b AND Hall_disc = 7a AND Per_sol_aut = 19a THEN 18d

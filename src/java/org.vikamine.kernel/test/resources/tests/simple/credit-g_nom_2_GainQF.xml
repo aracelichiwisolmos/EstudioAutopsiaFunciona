@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<miningTask>
+  <dataset name="credit-g.arff">
+    <restrictions />
+  </dataset>
+  <target type="boolean">
+    <attribute name="class">
+      <includeValue>bad</includeValue>
+    </attribute>
+  </target>
+  <searchSpace>
+    <attribute name="employment" />
+    <attribute name="housing" />
+    <attribute name="property_magnitude" />
+    <attribute name="job" />
+    <attribute name="own_telephone" />
+    <attribute name="class" />
+    <attribute name="personal_status" />
+    <attribute name="purpose" />
+    <attribute name="savings_status" />
+    <attribute name="checking_status" />
+    <attribute name="other_parties" />
+    <attribute name="foreign_worker" />
+    <attribute name="other_payment_plans" />
+    <attribute name="credit_history" />
+  </searchSpace>
+  <qualityFunction name="AddedValueQF" />
+  <method name="BSD" />
+  <constraints>
+    <constraint name="maxK" value="10" />
+    <constraint name="minQuality" value="0.0" />
+    <constraint name="maxSelectors" value="2" />
+    <constraint name="minSubgroupSize" value="0.0" />
+    <constraint name="minTPSupportRelative" value="0.0" />
+    <constraint name="minTPSupportAbsolute" value="0.0" />
+    <constraint name="relevantSubgroupsOnly" value="false" />
+    <constraint name="weightedCovering" value="false" />
+    <constraint name="ignoreDefaultValues" value="false" />
+  </constraints>
+</miningTask>
+

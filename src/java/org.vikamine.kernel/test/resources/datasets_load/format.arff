@@ -1,0 +1,6 @@
+@relation test
+@attribute One {'AA ','BB'}
+@attribute Two {'II ','RR'}
+@data
+'AA ','II '
+'AA ','RR'

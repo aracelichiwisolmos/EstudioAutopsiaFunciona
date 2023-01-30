@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top">
+
+            <h:form>
+                <p:panelGrid columns="2"  styleClass="noBordes" style="width: 100%">                       
+                    <p:graphicImage url="/resources/images/logo.png" />
+                    <p:panelGrid columns="5"  styleClass="noBordes" style="float: right"> 
+                        <p:graphicImage url="/resources/images/lupa.png" width="25px" height="25px"/>
+                        <p:inputText value="Buscar..."/>
+                        <p:graphicImage url="/resources/images/usuario.png" width="50px" height="50px" />
+                        <p:outputLabel style="color: white" value="#{oLoginJb.usuarioActivo}"/>
+                        <p:commandLink onclick="PF('ayuda').show();">
+                            <i style="color: white; font-size: 15pt" class="fa fa-question-circle" aria-hidden="true" title="Ayuda" ></i>
+                        </p:commandLink>
+                    </p:panelGrid>
+                </p:panelGrid>
+                <div id="mainMenu" style="width: 100%">
+                    <p:panelGrid styleClass="noBordes"  style="width: 100%">
+
+                        <!--                        <p:menubar style="float: right; min-width: 20%" model="{oMenuJb.model}"/>
+                                                <p:menubar style="float: right; width: 50px">
+                                                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                                                </p:menubar>                        -->
+
+                        <ui:insert name="top"></ui:insert> 
+                    </p:panelGrid>
+
+                </div>
+                <!-- <div id="emblema">
+                      <p:graphicImage url="/resources/images/logo.png" height="15%" width="15%"/>
+                 </div> -->
+                 <p:dialog header="Info" widgetVar="ayuda">
+                    <p:scrollPanel mode="native" style="width:500px;height:300px">
+                        <p:fieldset toggleable="true" legend="Info Preguntas" collapsed="true">
+                            <p:dataTable  value="#{oPreguntaJB.linfoPregunta}" var="pregunta">
+                                <p:column style="width:40%">
+                                    <f:facet  name="header"> Código </f:facet>
+                                    <p:outputLabel value="#{pregunta.nomCortoPregunta} "/>
+                                </p:column>  
+                                <p:column style="width:60%">
+                                    <f:facet  name="header"> Descripción </f:facet>
+                                    <p:outputLabel value="#{pregunta.pregunta}"/>
+                                </p:column>  
+                            </p:dataTable>
+                        </p:fieldset>  
+                        <p:fieldset toggleable="true" legend="Info Respuestas" collapsed="false">
+                            <p:dataTable  value="#{oRespuestaJB.lrespuesta}" var="respuesta">
+                                <p:column style="width:40%">
+                                    <f:facet  name="header"> Código </f:facet>
+                                    <p:outputLabel value="#{respuesta.descCorta} "/>
+                                </p:column>  
+                                <p:column style="width:60%">
+                                    <f:facet  name="header"> Descripción </f:facet>
+                                    <p:outputLabel value="#{respuesta.respuesta}"/>
+                                </p:column>  
+                            </p:dataTable>
+                        </p:fieldset>
+
+                    </p:scrollPanel>
+                </p:dialog>
+            </h:form>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <div id="bottom" style="width: 100%;">
+            <ui:insert name="bottom"></ui:insert> 
+            <h:form>
+                <p:panelGrid styleClass="noBordes" columns="4" rendered="false" >
+                    <p:panel styleClass="noBordes">  
+                        <p:graphicImage url="/resources/images/usuario.png" width="50px" height="50px"/><br/>
+                        <span>Especialista</span>                    
+                    </p:panel>
+                    <p:panel styleClass="noBordes">                      
+                        <span style="font-size: 11pt; font-weight: bold"> Dr. José Antonio Palet Guzmán</span><br/>
+                        <span style="font-style: italic">Correo: </span><span>palet_guzman@hotmail.com</span>
+                    </p:panel>
+                    <p:panel styleClass="noBordes"> 
+                        <p:graphicImage url="/resources/images/admin.png" width="50px" height="50px"/><br/>
+                        <span>Administrador</span>
+                    </p:panel>
+                    <p:panel styleClass="noBordes">                      
+                        <span style="font-size: 11pt; font-weight: bold">Ing. Elayne Rubio Delgado</span><br/>
+                        <span style="font-style: italic">Correo: </span><span>n3nyrbd@gmail.com</span>
+                    </p:panel>                   
+                </p:panelGrid>
+            </h:form>
+        </div>
+
+    </h:body>
+
+</html>

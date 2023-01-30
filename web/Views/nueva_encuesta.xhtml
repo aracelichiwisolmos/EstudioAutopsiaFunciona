@@ -1,0 +1,405 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <style type="text/css">
+
+        #p_commandButtonid{
+            float: right;
+        }
+
+    </style>
+
+    <body>
+
+        <ui:composition template="./../Template/plantillaEncuesta.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Gestionar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Encuesta" outcome="/Views/nueva_encuesta"  icon="ui-icon-disk" />
+
+
+
+                    </p:submenu>
+                </p:menubar>
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Gestionar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Datos encuesta" outcome="/Views/datosEncuesta" icon="ui-icon-search"/>
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Encuesta" outcome="/Views/administrador/usuario" icon="ui-icon-disk" />
+
+                    </p:submenu>
+                </p:menu>
+            </ui:define>
+
+            <ui:define name="content">
+                <p:panelGrid columns="1" styleClass="noBordes" >
+                    <h:form id="f">
+                        <p:growl id="mensajes"  sticky="true"  showDetail="true" />
+                        <p:dialog  visible="#{oIdUsuarioJB.visible1}" id="nuevo" header="Identificación de Usuario" closable="false">
+                            <p:outputLabel for="CeHo" value="Centro Hospitalario: " />
+                             <p:selectOneMenu id="CeHo" value="#{oIdUsuarioJB.IU.centroHospitalario}" effect="fold" editable="true" required="true" requiredMessage="Campo requerido.">
+                                          <f:selectItems value="#{oIdUsuarioJB.listaCH}" var="oCeHo" itemLabel="#{oCeHo.nombreCH}" itemValue="#{oCeHo.claveCH}" />                                                
+                            </p:selectOneMenu>
+                            <br/> <br/>
+                            <p:outputLabel value="Institución: " />
+
+                            <p:selectOneMenu id="ins" value="#{oIdUsuarioJB.IU.institucion}" effect="fold" editable="true" required="true" requiredMessage="Campo requerido.">
+                                          <f:selectItems value="#{oIdUsuarioJB.listaIns}" var="oIns" itemLabel="#{oIns.nombreIns}" itemValue="#{oIns.claveIns}" />                                                
+                            </p:selectOneMenu>
+
+                            <br/><br/>
+                            <p:outputLabel value="Municipio: " />
+
+                            <p:selectOneMenu id="mun" value="#{oIdUsuarioJB.IU.municipio}" effect="fold" editable="true" required="true" requiredMessage="Campo requerido.">
+                                          <f:selectItems value="#{oIdUsuarioJB.listaMun}" var="oMun" itemLabel="#{oMun.nombreMun}" itemValue="#{oMun.idMun}" />                                                
+                            </p:selectOneMenu>
+
+                            <br/><br/>
+                            <p:outputLabel value="Localidad: " />
+
+                            <p:selectOneMenu id="lo" value="#{oIdUsuarioJB.IU.localidad}" effect="fold" editable="true" required="true" requiredMessage="Campo requerido.">
+                                          <f:selectItems value="#{oIdUsuarioJB.listaLo}" var="oLo" itemLabel="#{oLo.nombreLo}" itemValue="#{oLo.idLocalidad}" />                                                
+                            </p:selectOneMenu>
+
+                            <br/> <br/>
+                            <br/><br/>
+
+
+                            <p:commandButton value="Enviar" actionListener="#{oIdUsuarioJB.almacena()}" update="f:mensajes f:nuevo f:num"  style="margin-left: 30%"/>
+
+
+                        </p:dialog>
+
+
+
+
+                        <p:growl id="growl" sticky="true" showDetail="true"/>
+
+                        <p:wizard flowListener="#{userWizard.onFlowProcess}" nextLabel="Siguiente" backLabel="Anterior">
+
+
+
+                            <p:tab id="present" title="Presentaci&oacute;n" >
+                                <p:panel  styleClass="siBordes">
+                                    <p:scrollPanel style="width:100%;height:400px" >
+
+                                        <p:panelGrid columns="3" styleClass="noBordes" style="width: 100%; text-align: center; vertical-align: middle">
+
+                                            <p:column>
+                                                <div style=" border-style: solid; border-width: 1px; border-color: #AFAFAF; width: 60%; margin-left: 10%">
+                                                    <h4>FORMATO 1</h4>
+                                                    <h4>ÁREA MÉDICA</h4>
+                                                </div>
+                                            </p:column>
+
+                                            <p:column style="justify-content: center">
+                                                <h4>SERVICIOS DE SALUD DE VERACRUZ</h4>
+                                                <h4>HOSPITAL REGIONAL DE R&Iacute;O BLANCO</h4>
+                                                <h4>SERVICIOS DE ANATOM&Iacute;A PATOL&Oacute;GICA</h4>
+                                            </p:column>
+                                            <p:column>
+                                                <div style=" border-style: solid; border-width: 1px; border-color: #AFAFAF; width: 60%; margin-left: 10%">
+                                                    <h4>Numero de encuestas</h4>
+
+                                                    <h:outputText id="num" value="#{oIdUsuarioJB.IU.total}"/>
+
+                                                </div>
+                                            </p:column>
+                                            <!--  <p:graphicImage value="/resources/images/circulo.png" style="width: 90px; height: 90px"/>-->
+
+                                        </p:panelGrid>
+
+                                        <p>
+                                            Respetuosamente me dirijo a usted para solicitarle unos minutos de su tiempo y responder a las siguientes preguntas, que tienen que ver con la pr&aacute;ctica de autopsias.
+                                        </p>
+
+                                        <center>
+
+                                            <br/>
+                                            <h3> <p:outputLabel value="Nota: Verificar sí se encuntra el centro de estudio al que pertenece"/> </h3>
+
+                                                    <p:selectOneMenu id="escmedicina2" class="noBordes"  >
+                                                            <f:selectItems value="#{oPreguntaJB.centro.centros}" var="oRespuesta" itemLabel="#{oRespuesta.label}" itemValue="#{oRespuesta.value}" />                                                
+                                                        </p:selectOneMenu>
+                                                <br/> <br/> <br/>
+                                            <p:outputLabel for="CE" value="Nombre del Centro de Estudio: " />
+                                             <p:inputTextarea id="CE" rows="1" cols="30" value="#{oPreguntaJB.centro.nombreCentro}" queryDelay="750" minQueryLength="4" />
+
+                                            <p:outputLabel for="ce" value="Tipo: " />
+                                            <p:selectOneMenu id="ce" value="#{oPreguntaJB.centro.description}" effect="fold" >
+                                                         <f:selectItems value="#{oPreguntaJB.listaCE}" var="oCE" itemLabel="#{oCE.description}" itemValue="#{oCE.idTipo}" />                                             
+                                            </p:selectOneMenu>
+
+
+                                            <p:outputLabel for="ciudad" value="Ciudad:" />
+                                              <p:selectOneMenu id="ciudad" value="#{oPreguntaJB.centro.desCi}" effect="fold" >
+                                                          <f:selectItems value="#{oPreguntaJB.listaCiudad}" var="oCiudad" itemLabel="#{oCiudad.desCi}" itemValue="#{oCiudad.idCiudad}" />                                                
+                                                        </p:selectOneMenu>
+                                            <br/>
+                                            <p:commandButton value="Enviar" actionListener="#{oPreguntaJB.almacena()}" update="mensajes f:num"  style="margin-left: 30%">
+
+                                            </p:commandButton>
+                                        </center>
+                                    </p:scrollPanel>
+                                </p:panel>
+
+                            </p:tab>
+                            <p:tab id="personal" title="Formaci&oacute;n">
+
+                                <p:panel styleClass="siBordes" header="Formaci&oacute;n del m&eacute;dico"  >
+                                    <p:scrollPanel style="width:100%;height:400px" >
+                                        <p:messages />
+                                        <p:panelGrid columns="4" styleClass="noBordes">
+                                            <p:fieldset legend="1" class="siBordes">
+                                                <h3> <p:outputLabel for="sorArea" value="#{oPreguntaJB.preg14}"/> </h3>
+                                                <p:selectOneRadio id="sorArea" value="#{oRespuestaJB.resp14_AreaSeleccionado}" layout="grid" columns="1" required="true" requiredMessage="Campo requerido.">
+                                                                <f:selectItems value="#{oPreguntaJB.listaAreas}" var="oArea" itemLabel="#{oArea.area}" itemValue="#{oArea.idArea}" />
+                                                            </p:selectOneRadio>
+                                            </p:fieldset>
+                                            <p:fieldset legend="2" class="siBordes">
+                                                <h3> <p:outputLabel for="sorGrado" value="#{oPreguntaJB.preg15}"/> </h3>
+                                                <p:selectOneRadio id="sorGrado" value="#{oRespuestaJB.resp15_GradoSeleccionado}" layout="grid" columns="1" required="true" requiredMessage="Campo requerido." >
+                                                    <f:selectItems value="#{oPreguntaJB.listaGrado}" var="oGrado" itemLabel="#{oGrado.grado}" itemValue="#{oGrado.idGrado}" />
+                                                     </p:selectOneRadio>
+                                            </p:fieldset>
+                                            <p:column/>
+                                            <p:column/>
+                                        </p:panelGrid>
+
+                                        <p:panelGrid  columns="2" styleClass="noBordes" style="width: 100%">
+                                            <p:fieldset class="siBordes" legend="3">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg16}"/> </h3>
+
+
+                                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                                            <p:selectOneMenu id="escmedicina" class="noBordes" value="#{oRespuestaJB.resp16_CentroLicSeleccionado}" required="true" requiredMessage="Campo requerido.">
+                                                                    <f:selectItems value="#{oPreguntaJB.centro.centros}" var="oRespuesta" itemLabel="#{oRespuesta.label}" itemValue="#{oRespuesta.value}" />                                                
+                                                                </p:selectOneMenu>
+                                                        </h:panelGrid>
+                                            </p:fieldset>
+                                            <p:fieldset class="siBordes" legend="4">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg17}"/> </h3>
+                                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                                            <p:selectOneMenu id="escEspecialidada" value="#{oRespuestaJB.resp17_CentroEspSeleccionado}" required="true" requiredMessage="Campo requerido.">
+                                                                  <f:selectItems value="#{oPreguntaJB.centro.centros}" var="oRespuesta" itemLabel="#{oRespuesta.label}" itemValue="#{oRespuesta.value}" />                                                
+                                                                </p:selectOneMenu>
+                                                        </h:panelGrid>
+
+                                            </p:fieldset>
+
+                                        </p:panelGrid>
+
+                                    </p:scrollPanel>
+
+                                </p:panel>
+
+                            </p:tab>
+
+
+                            <p:tab id="address" title="Experiencia">
+
+                                <p:panel header="Experiencia del m&eacute;dico" styleClass="siBordes">
+                                    <p:scrollPanel style="width:100%;height:400px" >
+                                        <p:messages />
+                                        <p:panelGrid columns="1" styleClass="noBordes" style="width: 100%">
+                                            <p:fieldset legend="5" style="border-bottom-style: solid; border-width: 1px">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg1}"/> </h3>
+                                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                                            <p:selectOneRadio id="anios" value="#{oRespuestaJB.resp1_Seleccionado}" layout="grid" columns="3" required="true" requiredMessage="Campo requerido.">
+                                                                    <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(3)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />                                                
+                                                                </p:selectOneRadio>
+                                                        </h:panelGrid>
+                                            </p:fieldset>
+                                            <p:fieldset legend="6" style="border-bottom-style: solid; border-width: 1px">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg2}"/> </h3>
+                                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                                            <p:selectOneRadio id="casos" value="#{oRespuestaJB.resp2_Seleccionado}" layout="grid" columns="3" required="true" requiredMessage="Campo requerido.">
+                                                                    <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(4)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />                                                
+                                                                    </p:selectOneRadio>
+                                                        </h:panelGrid>
+                                            </p:fieldset>
+                                        </p:panelGrid>
+                                    </p:scrollPanel>
+                                </p:panel>
+
+                            </p:tab>
+
+                            <p:tab id="contact" title="Hallazgos">
+                                <p:panel header="Opini&oacute;n del m&eacute;dico sobre los hallazgos de autopsias" styleClass="siBordes">
+                                    <p:scrollPanel style="width:100%;height:400px" >
+
+                                        <p:messages />
+                                        <p:panelGrid columns="3" styleClass="noBordes">
+                                            <p:fieldset legend="7" class="siBordes">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg3}"/> </h3>
+                                                <p:selectOneRadio id="arefaaaa" value="#{oRespuestaJB.resp3_Seleccionado}" layout="grid" columns="1" required="true" requiredMessage="Campo requerido.">
+                                                    <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(7)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />                                                
+                                                            </p:selectOneRadio>
+                                            </p:fieldset>
+                                            <p:fieldset legend="8" class="siBordes">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg4}"/> </h3>
+                                                <p:selectOneRadio id="grdadoaaa" value="#{oRespuestaJB.resp4_Seleccionado}" layout="grid" columns="1" required="true" requiredMessage="Campo requerido.">
+                                                    <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(8)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />                                                
+                                                </p:selectOneRadio>
+                                            </p:fieldset>
+                                            <p:fieldset legend="9" class="siBordes">
+                                                <h3> <p:outputLabel value="#{oPreguntaJB.preg5}"/> </h3>
+                                                <p:selectOneRadio id="gdrdadoaaa" value="#{oRespuestaJB.resp5_Seleccionado}" layout="grid" columns="1" required="true" requiredMessage="Campo requerido.">
+                                                    <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(11)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />                                                
+                                                            </p:selectOneRadio>
+                                            </p:fieldset>
+                                            <p:column/>
+                                            <p:column/>
+                                        </p:panelGrid>
+                                    </p:scrollPanel>
+                                </p:panel>
+
+                            </p:tab>
+
+                            <p:tab id="solic" title="Solicitud">
+                                <p:panel header="Opini&oacute;n del encuestado ante la solicitud de autopsias " styleClass="siBordes">
+                                    <p:scrollPanel style="width:100%;height:400px" >
+                                        <p:messages />
+                                        <h:panelGrid id="solicitud" columns="1" columnClasses="grid,grid,grid">
+                                            <p:panelGrid columns="2" styleClass="noBordes" style="width: 100%" >
+                                                <p:fieldset legend="10" style="border-bottom-style: solid; border-width: 1px" >
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg6}" /> </h3>
+                                                    <p:inputTextarea value="#{oRespuestaJB.resp6_Seleccionado}" styleClass="opinion" required="true" requiredMessage="Campo requerido."/>
+                                                </p:fieldset>
+                                                <p:fieldset legend="11" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg7}"/> </h3>
+                                                    <p:inputTextarea value="#{oRespuestaJB.resp7_Seleccionado}" styleClass="opinion" required="true" requiredMessage="Campo requerido."/>
+                                                </p:fieldset>
+                                            </p:panelGrid>
+                                            <p:panelGrid columns="1" styleClass="noBordes" style="width: 100%">
+                                                <p:fieldset legend="12" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg8}"/> </h3>
+                                                    <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                                                                <p:selectManyCheckbox id="aniosPjjractica" value="#{oRespuestaJB.resp8_Seleccionado}" layout="grid" columns="3" >
+                                                                       <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(17)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />
+                                                                    </p:selectManyCheckbox>
+                                                        <br/>
+                                                        <p:inplace id="imkkkjagegfg" label="Especifique otro______________" effect="slide" style="width: 100%">
+                                                                        <p:inputTextarea value="#{oRespuestaJB.respAbierta8_Seleccionado}" styleClass="opinion"/>
+                                                                    </p:inplace>
+                                                            </h:panelGrid>
+                                                </p:fieldset>
+                                                <p:fieldset legend="13" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg9}"/> </h3>
+                                                    <p:selectManyCheckbox id="ankknniosPjjractica" value="#{oRespuestaJB.resp9_Seleccionado}" layout="grid" columns="2" >
+                                                              <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(18)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />     
+                                                    </p:selectManyCheckbox>
+                                                    <br/>
+                                                    <p:inplace id="imkkkjage" label="Especifique otro______________" effect="slide" style="width: 100%">
+                                                                    <p:inputTextarea value="#{oRespuestaJB.respAbierta9_Seleccionado}" styleClass="opinion" />
+                                                                </p:inplace>
+                                                </p:fieldset>
+                                            </p:panelGrid>
+                                        </h:panelGrid>
+                                    </p:scrollPanel>
+                                </p:panel>
+
+                            </p:tab>
+                            <p:tab id="proced" title="Procedimiento">
+
+                                <p:panel header="Opini&oacute;n del m&eacute;dico sobre el procedimiento para solicitar una autopsia" styleClass="siBordes">
+                                    <p:scrollPanel style="width:100%;height:400px" >
+                                        <p:messages />
+                                        <h:panelGrid id="procedimiento" columns="3" columnClasses="grid,grid,grid">
+                                            <p:panelGrid columns="1" styleClass="noBordes" style="width: 100%">
+
+                                                <p:fieldset legend="14" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg10}"/> </h3>
+                                                    <p:selectManyCheckbox id="aniokjjjnnjsPjjractica" value="#{oRespuestaJB.resp10_Seleccionado}" layout="grid" columns="3" >
+                                                        <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(19)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />            
+                                                    </p:selectManyCheckbox>
+                                                    <br/>
+                                                    <p:inplace id="imakmmmkkge" label="Especifique otro______________" effect="slide" style="width: 100%">
+                                                                    <p:inputTextarea value="#{oRespuestaJB.respAbierta10_Seleccionado}" styleClass="opinion"/>
+                                                                </p:inplace>
+                                                </p:fieldset>
+                                                <p:fieldset legend="15" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg11}"/> </h3>
+                                                    <p:selectManyCheckbox id="ankkiosPjjractica" value="#{oRespuestaJB.resp11_Seleccionado}" layout="grid" columns="4" >
+                                                                   <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(20)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />            
+                                                    </p:selectManyCheckbox><br/>
+                                                    <p:inplace id="imkjage" label="Especifique otro______________" effect="slide" style="width: 100%">
+                                                                    <p:inputTextarea value="#{oRespuestaJB.respAbierta11_Seleccionado}" styleClass="opinion"/>
+                                                                </p:inplace>
+                                                </p:fieldset>
+                                                <p:fieldset legend="16" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg12}"/> </h3>
+                                                    <p:selectManyCheckbox id="aniokjjsPjjractica" value="#{oRespuestaJB.resp12_Seleccionado}" layout="grid" columns="2" >
+                                                                   <f:selectItems value="#{oPreguntaJB.respuesta.respuestasPorPregunta(21)}" var="oRespuesta" itemLabel="#{oRespuesta.respuesta}" itemValue="#{oRespuesta.NIdResp}" />            
+                                                    </p:selectManyCheckbox><br/>
+                                                    <p:inplace id="imakmkkge" label="Especifique otro______________" effect="slide" style="width: 100%">
+                                                                    <p:inputTextarea value="#{oRespuestaJB.respAbierta12_Seleccionado}" styleClass="opinion"/>
+                                                                </p:inplace>
+                                                </p:fieldset>
+                                            </p:panelGrid>
+                                        </h:panelGrid>
+                                    </p:scrollPanel>
+                                </p:panel>
+
+                            </p:tab>
+                            <p:tab id="coment" title="Comentarios">
+
+                                <p:panel header="Aspecto General" styleClass="siBordes">
+                                    <p:scrollPanel style="width:100%;height:400px"  >
+                                        <p:messages />
+                                        <h:panelGrid id="comentarios" columns="1" columnClasses="grid,grid,grid">
+                                            <p:panelGrid columns="1" styleClass="noBordes" style="width: 100%">
+                                                <p:fieldset legend="17" style="border-bottom-style: solid; border-width: 1px">
+                                                    <h3> <p:outputLabel value="#{oPreguntaJB.preg13}"/> </h3>
+                                                    <p:inputTextarea value="#{oRespuestaJB.resp13_Seleccionado}" styleClass="opinion"/>
+                                                </p:fieldset>
+                                            </p:panelGrid>
+                                            <p:commandButton icon="ui-icon-check" value="Enviar" style="float: right" update="growl" actionListener="#{oRespuestaJB.insertarEncuesta(oIdUsuarioJB.IU)}" />
+
+                                        </h:panelGrid>
+
+                                    </p:scrollPanel>
+                                </p:panel>
+                            </p:tab>
+                        </p:wizard>
+
+                    </h:form>
+                </p:panelGrid>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@1e4f7c2, predicate=has:DATASET_FILE_NAME, object=credit-g.arff]]">
+  <dc:date>Fri Oct 21 15:52:57 CEST 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@1e4f7c2, predicate=has:DATASET_FILE_NAME, object=credit-g.arff]]" />
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+        <attribute name="property_magnitude">
+          <includeValue>no known property</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2,26" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="50" />
+      <parameter name="TP" value="31" />
+      <parameter name="FP" value="19" />
+      <parameter name="target/subgroup" value="62,0%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="10,3%" />
+      <parameter name="coverage" value="05,0%" />
+      <parameter name="significance" value="&lt;=0,000001 (4,1E-7)" />
+      <parameter name="lift" value="2,067" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+        <attribute name="property_magnitude">
+          <includeValue>car</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2,3" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="74" />
+      <parameter name="TP" value="42" />
+      <parameter name="FP" value="32" />
+      <parameter name="target/subgroup" value="56,8%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="14,0%" />
+      <parameter name="coverage" value="07,4%" />
+      <parameter name="significance" value="&lt;=0,000001 (1,8E-7)" />
+      <parameter name="lift" value="1,892" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,19" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="274" />
+      <parameter name="TP" value="135" />
+      <parameter name="FP" value="139" />
+      <parameter name="target/subgroup" value="49,3%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="45,0%" />
+      <parameter name="coverage" value="27,4%" />
+      <parameter name="significance" value="&lt;=0,000001 (3,3E-16)" />
+      <parameter name="lift" value="1,642" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="other_payment_plans">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2,7" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="220" />
+      <parameter name="TP" value="106" />
+      <parameter name="FP" value="114" />
+      <parameter name="target/subgroup" value="48,2%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="35,3%" />
+      <parameter name="coverage" value="22,0%" />
+      <parameter name="significance" value="&lt;=0,000001 (2,7E-11)" />
+      <parameter name="lift" value="1,606" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="credit_history">
+          <includeValue>existing paid</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2,69" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="160" />
+      <parameter name="TP" value="82" />
+      <parameter name="FP" value="78" />
+      <parameter name="target/subgroup" value="51,3%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="27,3%" />
+      <parameter name="coverage" value="16,0%" />
+      <parameter name="significance" value="&lt;=0,000001 (1,6E-10)" />
+      <parameter name="lift" value="1,708" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="other_parties">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,28" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="238" />
+      <parameter name="TP" value="122" />
+      <parameter name="FP" value="116" />
+      <parameter name="target/subgroup" value="51,3%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="40,7%" />
+      <parameter name="coverage" value="23,8%" />
+      <parameter name="significance" value="&lt;=0,000001 (2,2E-16)" />
+      <parameter name="lift" value="1,709" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="foreign_worker">
+          <includeValue>yes</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,44" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="259" />
+      <parameter name="TP" value="133" />
+      <parameter name="FP" value="126" />
+      <parameter name="target/subgroup" value="51,4%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="44,3%" />
+      <parameter name="coverage" value="25,9%" />
+      <parameter name="significance" value="&lt;=0,000001" />
+      <parameter name="lift" value="1,712" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="job">
+          <includeValue>skilled</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,39" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="172" />
+      <parameter name="TP" value="96" />
+      <parameter name="FP" value="76" />
+      <parameter name="target/subgroup" value="55,8%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="32,0%" />
+      <parameter name="coverage" value="17,2%" />
+      <parameter name="significance" value="&lt;=0,000001 (4,4E-16)" />
+      <parameter name="lift" value="1,86" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="3,26" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="219" />
+      <parameter name="TP" value="114" />
+      <parameter name="FP" value="105" />
+      <parameter name="target/subgroup" value="52,1%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="38,0%" />
+      <parameter name="coverage" value="21,9%" />
+      <parameter name="significance" value="&lt;=0,000001 (7,8E-16)" />
+      <parameter name="lift" value="1,735" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="boolean">
+      <attribute name="class">
+        <includeValue>bad</includeValue>
+      </attribute>
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="own_telephone">
+          <includeValue>none</includeValue>
+        </attribute>
+        <attribute name="checking_status">
+          <includeValue>&lt;0</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="2,74" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="178" />
+      <parameter name="TP" value="90" />
+      <parameter name="FP" value="88" />
+      <parameter name="target/subgroup" value="50,6%" />
+      <parameter name="target/population" value="30,0%" />
+      <parameter name="TP-Rate" value="30,0%" />
+      <parameter name="coverage" value="17,8%" />
+      <parameter name="significance" value="&lt;=0,000001 (4,0E-11)" />
+      <parameter name="lift" value="1,685" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

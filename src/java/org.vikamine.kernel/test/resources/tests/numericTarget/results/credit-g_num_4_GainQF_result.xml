@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@f1735, predicate=has:DATASET_FILE_NAME, object=credit-g.arff]]">
+  <dc:date>Wed Nov 09 10:32:53 CET 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@f1735, predicate=has:DATASET_FILE_NAME, object=credit-g.arff]]" />
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="credit_amount" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="savings_status">
+          <includeValue>&lt;100</includeValue>
+        </attribute>
+        <attribute name="property_magnitude">
+          <includeValue>life insurance</includeValue>
+        </attribute>
+        <attribute name="purpose">
+          <includeValue>other</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="15.152,74" />
+      <parameter name="populationSize" value="1000" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="5,632" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

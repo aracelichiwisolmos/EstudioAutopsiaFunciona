@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Editar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-disk" />
+
+                    </p:submenu>
+                </p:menubar>     
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Editar" icon="ui-icon-arrowrefresh-1-w">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-arrowrefresh-1-w"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Usuario" outcome="/Views/administrador/usuario" icon="ui-icon-disk" />
+
+                    </p:submenu>
+                </p:menu>     
+            </ui:define>
+            <ui:define name="content">
+
+                <h:form>
+                    <p:growl id="mensajes" showSummary="true" showDetail="true"/>
+                    <p:panelGrid id="pgDatosPersonales" columns="2" styleClass="noBordes">
+                        <p:fieldset legend="Cambiar Contrase&ntilde;a" style="border-bottom-style: solid; border-width: 1px">
+                            <h3> #{oeditarUsuarioJb.usuario.nombre} #{oeditarUsuarioJb.usuario.paterno} #{oeditarUsuarioJb.usuario.materno} </h3>
+
+                            <p:panelGrid id="pgDatosCuenta" columns="3" styleClass="noBordes">
+                                <p:outputLabel for="txtUsuario" value="Usuario"/>
+                                <p:outputLabel id="txtUsuario" value="#{oeditarUsuarioJb.usuario.usuario}" />
+                                <p:column/>
+                                <p:outputLabel for="clave1" value="Clave"/>
+                                <p:password id="clave1" value="#{oeditarUsuarioJb.usuario.clave}" 
+                                            validatorMessage="Las claves no coinciden o tienen menos de 8 caracteres." weakLabel="D&eacute;bil" strongLabel="Fuerte" goodLabel="Medio"
+                                            match="clave2" feedback="true" promptLabel="Ingrese una clave" required="true" requiredMessage="Campo requerido.">
+                                    <f:validateRegex pattern="^[\s\S]{8,25}$"  />
+                                </p:password>
+                                <p:message for="clave1"/>
+                                <p:outputLabel for="clave2" value="Repetir Clave"/>
+                                <p:password id="clave2" value="#{oeditarUsuarioJb.usuario.clave}" required="true" requiredMessage="Campo requerido."/>                               
+                                <p:message for="clave2"/>
+                                <p:column/>
+                                <p:outputLabel style="font-size: 8pt !important; font-style: italic" value="Mínimo 8 caracteres."/>
+
+                                <h:inputHidden id="txtid" value="#{oeditarUsuarioJb.usuario.idUsuario}" required="true" requiredMessage="Campo requerido."/> 
+
+
+                            </p:panelGrid>                            
+                        </p:fieldset>
+                        <p:column/>
+                        <p:panel>                           
+                            <p:commandButton value="Cambiar" icon="ui-icon-arrowrefresh-1-w" update="pgDatosPersonales, pgDatosCuenta, mensajes" action="#{oeditarUsuarioJb.cambioContraseña()}"/>
+                            <p:commandButton value="Cancelar" icon="ui-icon-close" action="#{oeditarUsuarioJb.cancelarModificarUsuario()}" immediate="true"/>                           
+                        </p:panel> 
+                    </p:panelGrid>
+                </h:form>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

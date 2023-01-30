@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@1df073d, predicate=has:DATASET_FILE_NAME, object=adults.arff]]">
+  <dc:date>Wed Nov 09 10:30:57 CET 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@1df073d, predicate=has:DATASET_FILE_NAME, object=adults.arff]]" />
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="601,52" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13193" />
+      <parameter name="lift" value="1,136" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="571" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="14976" />
+      <parameter name="lift" value="1,121" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="642,66" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="993" />
+      <parameter name="lift" value="1,529" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="501,92" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="7841" />
+      <parameter name="lift" value="1,147" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="580,19" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="11940" />
+      <parameter name="lift" value="1,138" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="554,68" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13410" />
+      <parameter name="lift" value="1,124" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="602,15" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="822" />
+      <parameter name="lift" value="1,544" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="489,56" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="7117" />
+      <parameter name="lift" value="1,15" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="601,59" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13192" />
+      <parameter name="lift" value="1,136" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="591,67" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13319" />
+      <parameter name="lift" value="1,133" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="493,33" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="6662" />
+      <parameter name="lift" value="1,157" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Not-in-family</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="555,79" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="547" />
+      <parameter name="lift" value="1,616" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="602,29" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13184" />
+      <parameter name="lift" value="1,136" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="585,53" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="11861" />
+      <parameter name="lift" value="1,139" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="487,66" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="5918" />
+      <parameter name="lift" value="1,164" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="558,92" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="13368" />
+      <parameter name="lift" value="1,125" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="class">
+          <includeValue>&lt;=50K</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="615,63" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="908" />
+      <parameter name="lift" value="1,53" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="sex">
+          <includeValue>Female</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="570,04" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="825" />
+      <parameter name="lift" value="1,514" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="marital-status">
+          <includeValue>Widowed</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="615,43" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="902" />
+      <parameter name="lift" value="1,531" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="native-country">
+          <includeValue>United-States</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="484" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="7171" />
+      <parameter name="lift" value="1,148" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+

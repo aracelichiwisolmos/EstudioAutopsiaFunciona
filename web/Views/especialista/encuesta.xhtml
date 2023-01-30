@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../../Template/plantillaBase.xhtml">
+            <ui:define name="top">
+                <p:menubar style="float: right; width: 40%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-search" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menubar>
+            </ui:define>
+            <ui:define name="left">
+                <p:menu style="float: right; width: 100%">
+                    <p:menuitem value="Inicio" icon="ui-icon-home" outcome="/Views/inicio"/>
+                    <p:submenu label="Sesión" icon="ui-icon-person">
+                        <p:menuitem value="Iniciar" outcome="/Views/login"  icon="ui-icon-unlocked"/>
+                        <p:menuitem value="Cerrar" outcome="/Views/cerrar" icon="ui-icon-locked"/>
+                    </p:submenu>
+                    <p:submenu label="Eliminar" icon="ui-icon-close">
+                        <p:menuitem value="Encuesta" outcome="/Views/especialista/encuesta" icon="ui-icon-close"/>
+                    </p:submenu>
+                    <p:submenu label="Consultar" icon="ui-icon-search">
+                        <p:menuitem value="Encuestas" outcome="/Views/especialista/encuesta" icon="ui-icon-search" />
+                        <p:menuitem value="Reglas asociación" outcome="/Views/resultado" icon="ui-icon-search" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/resultadoEPM" icon="ui-icon-disk" />
+                         <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/resultadoSubgrupos" icon="ui-icon-search" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/resultadoBayes" icon="ui-icon-search" />
+                    </p:submenu>
+                    <p:submenu label="Crear" icon="ui-icon-disk">
+                        <p:menuitem value="Reglas asociación" outcome="/Views/especialista/modelo" icon="ui-icon-disk" />
+                        <p:menuitem value="Redes bayesianas" outcome="/Views/especialista/modeloBayes" icon="ui-icon-disk" />
+                        <p:menuitem value="Minería de patrones emergentes" outcome="/Views/especialista/modeloEPM" icon="ui-icon-disk" />
+                        <p:menuitem value="Descubrimiento de Subgrupos" outcome="/Views/especialista/modeloSG" icon="ui-icon-disk" />
+                        <p:menuitem value="Conjuntos de datos" outcome="/Views/especialista/datasets"  icon="ui-icon-disk"/>
+                    </p:submenu>
+                </p:menu>
+            </ui:define>
+            <ui:define name="content">
+                <h:form id="dtUsuarios">
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+                    <p:panelGrid columns="2" styleClass="noBordes"  style="margin:5px 10px 10px 50%">
+                        <p:column>
+                            <p:outputLabel value="No. Control: "/>
+                            <p:inputText id="txtcontrol" value="#{oMedicoJb.ncontrol}"/>
+                        </p:column>
+                        <p:column>
+                            <p:commandButton value="Buscar" icon="ui-icon-search" update="dtUsuarios1, txtcontrol" actionListener="#{oMedicoJb.buscaNoControl()}"/>
+                            &lrm;
+                            <p:commandButton value="Todos" icon="ui-icon-search" update="dtUsuarios1, txtcontrol" actionListener="#{oMedicoJb.buscaTodosMedicos()}"/>
+                        </p:column>
+                    </p:panelGrid>
+                    <p:dataTable id="dtUsuarios1" value="#{oMedicoJb.listaMedicos}" var="medico" rows="10"
+                                 paginator="true"
+                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="P&aacute;ginas: ({currentPage} de {totalPages})"
+                                 rowsPerPageTemplate="5,10,15"
+                                 emptyMessage="No se encontraron resultados de b&uacute;squeda">
+
+                        <p:column headerText="Identificador" visible="false">
+                            <p:outputLabel value="#{medico.idMedico}"/>
+                        </p:column>
+                        <p:column headerText="No. Control" style="text-align: center; vertical-align: middle" >
+                            <p:outputLabel value="#{medico.control}"/>
+                        </p:column>
+                        <p:column headerText="Grado" style="text-align: center; vertical-align: middle">
+                            <p:outputLabel value="#{medico.grado}" />
+                        </p:column>
+                        <p:column headerText="&Aacute;rea" style="text-align: center; vertical-align: middle">
+                            <p:outputLabel value="#{medico.area}" />
+                        </p:column>
+                        <p:column headerText="Categor&iacute;a" style="text-align: center; vertical-align: middle">
+                            <p:outputLabel value="#{medico.categoria}" />
+                        </p:column>
+                        <p:column headerText="Especialidad" style="text-align: center; vertical-align: middle">
+                            <p:outputLabel value="#{medico.especialidad}" />
+                        </p:column>
+                        <p:column headerText="Centro Hospitalario" style="text-align: center; vertical-align: middle" >
+                            <p:outputLabel value="#{medico.ch}"/>
+                        </p:column>
+                        <p:column headerText="Institución" style="text-align: center; vertical-align: middle" >
+                            <p:outputLabel value="#{medico.ins}"/>
+                        </p:column>
+                        <p:column headerText="Municipio" style="text-align: center; vertical-align: middle" >
+                            <p:outputLabel value="#{medico.mun}"/>
+                        </p:column>
+                        <p:column headerText="Localidad" style="text-align: center; vertical-align: middle" >
+                            <p:outputLabel value="#{medico.loc}"/>
+                        </p:column>
+                        <p:column headerText="Operaciones">
+                            <p:panelGrid columns="4" styleClass="noBordes" style="text-align: center; vertical-align: middle" >
+                                <p:column/>
+                                <h:commandLink action="#{oConsultaEncuesta.consultarEncuesta(medico.idMedico,medico.control )}" >
+                                    <h:graphicImage library="images" name="consultar.png" title="Consultar"/>
+                                </h:commandLink>
+                                <p:commandLink action="#{oMedicoJb.eliminarEncuesta(medico.control)}" update="dtUsuarios:dtUsuarios1 dtUsuarios:growl ">
+                                    <p:graphicImage library="images" name="eliminar.png" title="Eliminar"/>
+                                </p:commandLink>
+                                <p:column/>
+                            </p:panelGrid>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

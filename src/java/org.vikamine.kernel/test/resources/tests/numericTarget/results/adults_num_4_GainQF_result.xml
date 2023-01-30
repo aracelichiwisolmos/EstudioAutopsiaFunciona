@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patternSet xmlns:dc="http://purl.org/dc/elements/1.1/" dataset="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@191d8c1, predicate=has:DATASET_FILE_NAME, object=adults.arff]]">
+  <dc:date>Wed Nov 09 10:31:10 CET 2011</dc:date>
+  <dataset name="[RDFStatement [subject=org.vikamine.kernel.data.Ontology@191d8c1, predicate=has:DATASET_FILE_NAME, object=adults.arff]]" />
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="education">
+          <includeValue>HS-grad</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Male</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Husband</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Married-civ-spouse</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="occupation">
+          <includeValue>Craft-repair</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Ecuador</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&gt;50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&lt;=50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Female</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="education">
+          <includeValue>Some-college</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Adm-clerical</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="race">
+          <includeValue>White</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="class">
+          <includeValue>&lt;=50K</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="workclass">
+          <includeValue>Private</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="sex">
+          <includeValue>Female</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+  <subgroupPattern>
+    <target type="numeric">
+      <attribute name="age" />
+    </target>
+    <description>
+      <operator type="and">
+        <attribute name="relationship">
+          <includeValue>Own-child</includeValue>
+        </attribute>
+        <attribute name="native-country">
+          <includeValue>Puerto-Rico</includeValue>
+        </attribute>
+        <attribute name="marital-status">
+          <includeValue>Separated</includeValue>
+        </attribute>
+        <attribute name="occupation">
+          <includeValue>Adm-clerical</includeValue>
+        </attribute>
+      </operator>
+    </description>
+    <parameters>
+      <parameter name="quality" value="51,42" />
+      <parameter name="populationSize" value="32561" />
+      <parameter name="subgroupSize" value="1" />
+      <parameter name="lift" value="2,333" />
+    </parameters>
+  </subgroupPattern>
+</patternSet>
+
