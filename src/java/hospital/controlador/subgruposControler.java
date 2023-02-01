@@ -159,20 +159,18 @@ public class subgruposControler extends Model {
         List<centroHospitalario> lista = new ArrayList<>();
         
         try {
-            System.out.println("____ENTRO A CREAR MODELO____");
+            System.out.println("____ENTRO A GUARDAR MODELO____");
             /*lista = this.oCH.buscaTodos();             
       
                System.out.println("____hospitales_ "+lista+"\n");
-           */
-                switch (getClaseSeleccionada()) { //Inicia switch para la clase seleccionada 
-                case 1:               
+           */                          
                     switch (corpusSeleccionado) {
                         case "c":
                             System.out.println("_____Entro a C con el modelo seleccionado: "+getModeloSeleccionado());
                             //Envia la clase seleccionada volviéndola categórica
                             claseSeleccionada2="H"+claseSeleccionada;
                             System.out.println("_____la clase seleccionada es: "+claseSeleccionada2+"____");
-                            System.out.println("___CREANDO MODELO___");                          
+                            System.out.println("___GUARDANDO MODELO___");                          
                             //oSGUtilidades.crearModelo(claseSeleccionada2);//PARARÍA RUTA DEL ARCHIVO
                             
                             //ruta en donde se encuentra el modelo                        
@@ -205,6 +203,7 @@ public class subgruposControler extends Model {
 
                                 }//algoritmo 
                                 break;
+                                
                             case "d":
                                 System.out.println("_____Entro a D con el modelo seleccionado: "+getModeloSeleccionado());
 
@@ -241,10 +240,7 @@ public class subgruposControler extends Model {
                                 }
                                 break;
                         }
-                        break;
-                }
-
-            
+                 
 
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
@@ -775,30 +771,29 @@ public class subgruposControler extends Model {
                         case "c":
                             switch (medidaSeleccionada) {
                                 case 1:
-                                    phrase.add("__________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");
+                                    phrase.add("__________________Detalles de para la interpretación____________________" + "\n" + "\n");
                                     phrase.add("                  Conjunto de datos: " + corpusSeleccionado + "\n");
                                     phrase.add("                  Algoritmo: SDMap" + "\n");
-
-                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");
                                     phrase.add("                  Medida de interés: WRAccQF" +  "\n");
+                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
                                     phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
                                     break;
                                 case 2:
-                                    phrase.add("___________________Reglas interpretadas en lenguaje Natural_____________" + "\n" + "\n");
+                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
                                     phrase.add("                   Conjunto de datos: C" + "\n");
                                     phrase.add("                   Algoritmo: BSD" + "\n");
-                                     phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");
                                     phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
+                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
                                     phrase.add("                   Numero de atributos: " + this.numeroSeleccionado + "\n");
 
                                     break;
                                     
                                  case 3:
-                                    phrase.add("___________________Reglas interpretadas en lenguaje Natural_____________" + "\n" + "\n");
+                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
                                     phrase.add("                   Conjunto de datos: C" + "\n");
                                     phrase.add("                   Algoritmo: BeamSearch" + "\n");
-                                     phrase.add("                  Medida de interés: " + this.reglasSeleccionadas + "\n");
                                     phrase.add("                  Función de calidad: BinomialQF" + "\n");
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
                                     phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
 
                                     break;
@@ -807,7 +802,39 @@ public class subgruposControler extends Model {
 
                             break;
                        
-                    }      
+                        
+                    case "d":
+                            switch (medidaSeleccionada) {
+                                case 1:
+                                    phrase.add("__________________Detalles de para la interpretación____________________" + "\n" + "\n");
+                                    phrase.add("                  Conjunto de datos: D" + "\n");
+                                    phrase.add("                  Algoritmo: SDMap" + "\n");
+                                    phrase.add("                  Medida de interés: WRAccQF" +  "\n");
+                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
+                                    phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
+                                    break;
+                                case 2:
+                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
+                                    phrase.add("                   Conjunto de datos: D" + "\n");
+                                    phrase.add("                   Algoritmo: BSD" + "\n");
+                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
+                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
+                                    phrase.add("                   Numero de atributos: " + this.numeroSeleccionado + "\n");
+
+                                    break;
+                                    
+                                 case 3:
+                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
+                                    phrase.add("                   Conjunto de datos: D" + "\n");
+                                    phrase.add("                   Algoritmo: BeamSearch" + "\n");
+                                    phrase.add("                  Función de calidad: BinomialQF" + "\n");
+                                    phrase.add("                  Medida de interés: " + this.reglasSeleccionadas + "\n");                                    
+                                    phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
+
+                                    break;
+
+                            }
+}
 
             }
             phrase.add("_______________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");

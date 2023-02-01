@@ -386,7 +386,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                 for (int i = 0; i < e.length; i++) {
                     String[] g = e[i].split("=");                       
                     String column = g[0].trim().toLowerCase().replace("[", "").replace("]", "");                   
-                    String value = g[1].trim().toUpperCase().split("-")[0].replace("[", "").replace("]", "");
+                    String value = g[1].trim().toLowerCase().split("-")[0].replace("[", "").replace("]", "");
 
                     // System.out.println("" + g);
                     AccesoDatos acc = new AccesoDatos();
@@ -396,6 +396,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
                       
                         arr = acc.ejecutarConsulta(q);
+                        System.out.println("-"+q);                        
                         acc.desconectar();
                     }
                     if (arr != null && !arr.isEmpty()) {
