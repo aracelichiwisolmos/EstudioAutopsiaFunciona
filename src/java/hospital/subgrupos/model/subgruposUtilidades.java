@@ -350,26 +350,51 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
            //--------------------------Aquí empieza la obtencion de reglas conjunto D------------------------
    public List<String> obtenerReglasD1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception {
         ArrayList<String> interpretaciones = new ArrayList<>();
+        // ReglasSG rsg = new ReglasSG();
+        System.out.println("\nENTRÉ A 'ObtenerReglasD1'\n");
+
+        System.out.println("____Reglas recibidas____: " + reglasSGList + "\n");
 
         try {
-            //  System.out.println("Entro a en Reglas D---");
+            System.out.println("Entro a en Reglas D---\n");
+            int contador1 = 0;
+            for (ReglasSG r : reglasSGList) {           
+                //contador1++;
 
-            for (ReglasSG r : reglasSGList) {
-                String interpretacion = "Si los médicos ";
+                String interpretacion = "Si los médicos   ";
                 //String linea = ran.readLine();
-                String predicados = r.getRegla().substring(r.getRegla().indexOf("IF") + 2, r.getRegla().indexOf("THEN"));
-                // System.out.println("predicados" + predicados);// imprime a partir de p
-                //los divide cuando encuentra un AND
-                String[] e = predicados.split("AND");
+
+                //System.out.println("Regla: "+contador1);
+                int indice = r.getRegla().indexOf("-");
+                String valorAntes = r.getRegla().substring(0, indice).trim();
+                // System.out.println("Valor antes del caracter -: " + valorAntes);
+
+                int indice1 = r.getRegla().indexOf("(");
+                String valorEntre = r.getRegla().substring(indice + 1, indice1).trim();
+                // System.out.println("Valor entre el caracter - y (: " + valorEntre);
+
+                String valorDespues = r.getRegla().substring(indice1 + 1, r.getRegla().length() - 1).trim();
+                // System.out.println("Valor después del caracter (: " + valorDespues);
+
+                String predicados = valorAntes + "-" + valorEntre + "(" + valorDespues + ")";
+
+             //   System.out.println("\npredicados: " + predicados + "\n\n\n");
+
+                //los divide cuando encuentra una ,
+                String[] e = predicados.split(",");
+
                 for (int i = 0; i < e.length; i++) {
-                    //los divide cuando encuentran un =
-                    String[] g = e[i].split("=");
+                    String[] g = e[i].split("=");                       
+                    String column = g[0].trim().toLowerCase().replace("[", "").replace("]", "");                   
+                    String value = g[1].trim().toUpperCase().split("-")[0].replace("[", "").replace("]", "");
+
                     // System.out.println("" + g);
                     AccesoDatos acc = new AccesoDatos();
                     ArrayList arr = null;
                     if (acc.conectar()) {
-                        String q = "select antecedente from interpretacion where descc_columna='" + g[0].trim().toLowerCase() + "' and valor_atributo='" + g[1].trim().toLowerCase() + "'";
-
+                        String[] splitValue = g[1].split("-");                       
+                        String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
+                      
                         arr = acc.ejecutarConsulta(q);
                         acc.desconectar();
                     }
@@ -379,7 +404,8 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     }
 
                 }
-                String entonces = r.getRegla().substring(r.getRegla().indexOf("THEN") + 4);
+                  String entonces = r.getRegla().substring(r.getRegla().indexOf("-") + 4);
+                  
                 AccesoDatos acc = new AccesoDatos();
                 ArrayList a = null;
                 if (acc.conectar()) {
@@ -387,13 +413,51 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     a = acc.ejecutarConsulta(q);
                     acc.desconectar();
                 }
+                String str = Integer.toString(claseSeleccionada);
+                String clase = "H" + str;
+
+                switch (claseSeleccionada) {
+                    case 1:
+                        clase = "Hospital Regional de Río Blanco.";
+                        break;
+                    case 11:
+                        clase = "Hospital General San Juan Bautista Tuxtepec.";
+                        break;
+                    case 12:
+                        clase = "Hospital General de Zona 53.";
+                        break;
+                        default:
+                       clase="Otro hospital";
+                    }    
+               String sonDe = clase;
                 if (interpretacion.length() > 3) {
                     interpretacion = interpretacion.substring(0, interpretacion.length() - 3);
+                    
                 }
+                interpretacion += ", entonces son del hospital" + " " + sonDe;
+                    DecimalFormat df = new DecimalFormat("#.####");
+                    double deviacion = r.getValFuncion();
+                    String truncatedValFuncion = df.format(deviacion);
+                    
                 if (a != null && !a.isEmpty()) {
                     interpretacion += ", entonces " + ((ArrayList) a.get(0)).get(0);
                 }
-                interpretaciones.add(interpretacion + ". \n Esta regla tiene una confianza de:" + r.getValFuncion() + "%");
+                
+                    String medida = null;
+                    
+                    switch (medidaSeleccionada) {
+                    case 1:
+                        medida = "\nEsta regla tiene una presición relativa ponderada de: ";
+                        break;
+                    case 2:
+                        medida = "\nEsta regla tiene una estadística Chi-cuadrada de: ";
+                        break;
+                    case 3:
+                        medida = "\nEsta regla tiene una distribución binomial de: ";
+                        break;
+                        
+                    }  
+                  interpretaciones.add(interpretacion + medida + truncatedValFuncion);
 
             }
 

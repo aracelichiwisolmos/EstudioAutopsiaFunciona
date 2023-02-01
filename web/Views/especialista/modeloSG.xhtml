@@ -215,7 +215,7 @@
                                     Interpretación de las reglas
                                      <h:commandLink>
                                         <p:graphicImage name="/images/pdf1.png" width="40em" />
-                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" />
+                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oSGJB.preProcessPDF}"/>
                                     </h:commandLink>
                                 </f:facet>
                                 <p:column  headerText="No." width="20%" filterBy="#{rowIndex+1}" filterMatchMode="exact">
