@@ -68,7 +68,7 @@ public class subgruposControler extends Model {
     }  
     
     //Metodo que muestra los resultados para cualquier usuario
-     public void mostrarResultadosSG() {
+     public void mostrarResultadosSG() throws Throwable {
     try {        
                 switch (corpusSeleccionado) {
                     case "c":
@@ -108,7 +108,7 @@ public class subgruposControler extends Model {
                                 ruta = "C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\SD\\D\\SDMap\\centro_hospitalario\\vista_minable2.arff";
                                 setReglas2(oSGUtilidades.obtenerModelo(ruta, claseSeleccionada, etiquetaSeleccionada, numeroSeleccionado,
                                         reglasSeleccionadas, medidaSeleccionada, modeloSeleccionado));
-                                reglasPDFA = oSGUtilidades.obtenerReglasD1(getReglas2());
+                                  reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());
 
                                 break;
                             case 2://BSD
@@ -116,7 +116,7 @@ public class subgruposControler extends Model {
                                 ruta = "C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\SD\\D\\BSD\\centro_hospitalario\\vista_minable2.arff";
                                 setReglas2(oSGUtilidades.obtenerModelo(ruta, claseSeleccionada, etiquetaSeleccionada, numeroSeleccionado,
                                         reglasSeleccionadas, medidaSeleccionada, modeloSeleccionado));
-                                reglasPDFA = oSGUtilidades.obtenerReglasD1(getReglas2());
+                                 reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());
 
                                 break;
                             case 3://BS
@@ -124,7 +124,7 @@ public class subgruposControler extends Model {
                                 ruta = "C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\SD\\D\\BeamSearch\\centro_hospitalario\\vista_minable2.arff";
                                 setReglas2(oSGUtilidades.obtenerModelo(ruta, claseSeleccionada, etiquetaSeleccionada, numeroSeleccionado,
                                         reglasSeleccionadas, medidaSeleccionada, modeloSeleccionado));
-                                reglasPDFA = oSGUtilidades.obtenerReglasD1(getReglas2());
+                                 reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());
                                 
                                 break;
                         }
@@ -140,7 +140,7 @@ public class subgruposControler extends Model {
 }
      
          //Crea el modelo que se enviara al framework
-    public void guardarModelo(int calseSeleccionada, int modeloSeleccionado) throws Exception {//recibir reglas  
+    public void guardarModelo(int calseSeleccionada, int modeloSeleccionado) throws Exception, Throwable {//recibir reglas  
         
         System.out.println("\nmodelo Seleccionado: " + getModeloSeleccionado()+" " + "clase: " + getClaseSeleccionada()+" \n");
         List<centroHospitalario> lista = new ArrayList<>();
@@ -206,7 +206,7 @@ public class subgruposControler extends Model {
                                     System.out.println("Entro con SDMap");                                 
                                    setReglas2(oSGUtilidades.obtenerModelo(rutaD, claseSeleccionada, etiquetaSeleccionada, numeroSeleccionado,
                                            reglasSeleccionadas, medidaSeleccionada, getModeloSeleccionado()));
-                                    reglasPDFA = oSGUtilidades.obtenerReglasD1(getReglas2());
+                                     reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());
                                     break;
 
                                  case 2: 
@@ -214,7 +214,7 @@ public class subgruposControler extends Model {
                                     System.out.println("Entro con BSD");
                                     setReglas2(oSGUtilidades.obtenerModelo(rutaD, claseSeleccionada, etiquetaSeleccionada, numeroSeleccionado,
                                             reglasSeleccionadas, medidaSeleccionada, getModeloSeleccionado()));
-                                    reglasPDFA = oSGUtilidades.obtenerReglasD1(getReglas2());
+                                    reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());
                                     break;
                                     
                                  case 3: 
@@ -222,7 +222,7 @@ public class subgruposControler extends Model {
                                     System.out.println("Entro con BeamSearch");
                                    setReglas2(oSGUtilidades.obtenerModelo(rutaD, claseSeleccionada, etiquetaSeleccionada, numeroSeleccionado,
                                            reglasSeleccionadas, medidaSeleccionada, getModeloSeleccionado()));
-                                    reglasPDFA = oSGUtilidades.obtenerReglasD1(getReglas2());
+                                     reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());
                                     break;
 
                                 }

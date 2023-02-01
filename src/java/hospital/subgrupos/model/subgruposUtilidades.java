@@ -342,47 +342,28 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
             }
 
         } catch (IOException e) {            
-                e.printStackTrace();
         }
         return interpretaciones;
     }
      
      
            //--------------------------Aquí empieza la obtencion de reglas conjunto D------------------------
-     
-         public List<String> obtenerReglasD1(List<ReglasSG> reglasSGList) throws Exception {
-             System.out.println("ENTRÉ A 'ObtenerReglasD1'");
+   public List<String> obtenerReglasD1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception {
         ArrayList<String> interpretaciones = new ArrayList<>();
 
-      try {
-            System.out.println("Entro a en Reglas D---\n");
-            int contador1 = 0;
+        try {
+            //  System.out.println("Entro a en Reglas D---");
+
             for (ReglasSG r : reglasSGList) {
-                 contador1++;
-                if (r != null && r.getRegla() != null) {
                 String interpretacion = "Si los médicos ";
                 //String linea = ran.readLine();
-                
-               // String predicados = r.getRegla().substring(r.getRegla().indexOf("IF") + 2, r.getRegla().indexOf("THEN"));
-                     
-              System.out.println("Regla: "+contador1);
-                    int indice =r.getRegla().indexOf("-");
-                    String valorAntes = r.getRegla().substring(0,indice).trim();
-                    System.out.println("Valor antes del caracter -: " + valorAntes);
-                    
-                    int indice1 = r.getRegla().indexOf("(");
-                     String valorEntre = r.getRegla().substring(indice + 1, indice1).trim();
-                     System.out.println("Valor entre el caracter - y (: " + valorEntre);
-                     
-                     String valorDespues = r.getRegla().substring(indice1 + 1, r.getRegla().length() - 1).trim();
-                     System.out.println("Valor después del caracter (: " + valorDespues);
-                     
-                     String predicados = valorAntes+"-"+valorEntre+"("+valorDespues+")";
-                    
-                // System.out.println("\npredicados: " + predicados+"\n\n\n");
-                String[] e = predicados.split("-");
-                 for (int i = 0; i < e.length; i++) {
-                    String[] g = e[i].split("()");
+                String predicados = r.getRegla().substring(r.getRegla().indexOf("IF") + 2, r.getRegla().indexOf("THEN"));
+                // System.out.println("predicados" + predicados);// imprime a partir de p
+                //los divide cuando encuentra un AND
+                String[] e = predicados.split("AND");
+                for (int i = 0; i < e.length; i++) {
+                    //los divide cuando encuentran un =
+                    String[] g = e[i].split("=");
                     // System.out.println("" + g);
                     AccesoDatos acc = new AccesoDatos();
                     ArrayList arr = null;
@@ -412,16 +393,15 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                 if (a != null && !a.isEmpty()) {
                     interpretacion += ", entonces " + ((ArrayList) a.get(0)).get(0);
                 }
-                interpretaciones.add(interpretacion + ". \n Esta regla tiene una desviación de:" + r.getValFuncion());
+                interpretaciones.add(interpretacion + ". \n Esta regla tiene una confianza de:" + r.getValFuncion() + "%");
 
-            }}
+            }
 
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         return interpretaciones;
     }
-   
     //------------------------Aquí termina todo de reglas-----------------------
 
  
