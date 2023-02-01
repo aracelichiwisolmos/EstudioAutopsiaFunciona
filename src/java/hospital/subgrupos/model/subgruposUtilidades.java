@@ -375,7 +375,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     }
                     if (arr != null && !arr.isEmpty()) {
                         interpretacion += ((ArrayList) arr.get(0)).get(0) + " y ";
-
+ 
                     }
 
                 }
