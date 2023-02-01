@@ -31,6 +31,7 @@ import javax.faces.application.FacesMessage;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import static jdk.nashorn.internal.objects.NativeString.replace;
 import keel.Dataset.Attributes;
 import keel.Dataset.DatasetException;
 import keel.Dataset.HeaderFormatException;
@@ -239,7 +240,7 @@ public class subgruposUtilidades {
      
          //--------------------------Aquí empieza la obtencion de reglas conjunto C------------------------
 //Este método recibe la lista de reglas para poder interpretarlas
-public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception {
+public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception, Throwable {
         ArrayList<String> interpretaciones = new ArrayList<>();
         // ReglasSG rsg = new ReglasSG();
         System.out.println("\nENTRÉ A 'ObtenerReglasC1'\n");
@@ -275,15 +276,17 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                 String[] e = predicados.split(",");
 
                 for (int i = 0; i < e.length; i++) {
-                    String[] g = e[i].split("=");
-                    //System.out.println("Valor 1: " + g[0] + " Valor 2: " + g[1]);                
-                
+                    String[] g = e[i].split("=");                       
+                    String column = g[0].trim().toLowerCase().replace("[", "").replace("]", "");                   
+                    String value = g[1].trim().toUpperCase().split("-")[0].replace("[", "").replace("]", "");
+
                      //System.out.println("" + g);
                     AccesoDatos acc = new AccesoDatos();
                     ArrayList arr = null;
                     if (acc.conectar()) {
-                        String q = "select antecedente from interpretacion where descc_columna='" + g[0].trim().toLowerCase() + "' and valor_atributo='" + g[1].trim().toUpperCase() + "'";
-                          
+                        String[] splitValue = g[1].split("-");                       
+                        String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
+                      
                         arr = acc.ejecutarConsulta(q);
                         System.out.println("-"+q);
                         acc.desconectar();
@@ -294,7 +297,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
                     }
                 }
-                String entonces = r.getRegla().substring(r.getRegla().indexOf(",") + 4);
+                String entonces = r.getRegla().substring(r.getRegla().indexOf("-") + 4);
                 String str = Integer.toString(claseSeleccionada);
                 String clase = "H" + str;
 
