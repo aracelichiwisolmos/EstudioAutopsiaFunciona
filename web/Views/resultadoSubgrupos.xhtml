@@ -114,7 +114,7 @@
                                     </p:selectOneMenu>
                                     
                                      <p:outputLabel for="numero" value="Número de atributos:" style="font-weight: bolder"/>
-                                     <p:inputText id="numero" type="number" value="#{oSGJB.numeroSeleccionado}" required="true" style="width:125px" requiredMessage="Campo requerido." onkeydown="return event.keyCode === 69 ? false : true" ></p:inputText>  
+                                     <p:inputText id="numero" type="number" value="#{oSGJB.numeroSeleccionado}" required="true" style="width:125px" requiredMessage="Campo requerido." onkeydown="return event.keyCode === 69 ? false : true" ><f:attribute name="value" value="3" />   </p:inputText>   
                       
                                      
                                     <p:column/> <p:commandButton onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog2').hide()" update="frmReglas:dtReglas" value="Mostrar Reglas" action="#{oSGJB.mostrarResultadosSG()}"/>
@@ -131,17 +131,16 @@
                         <p:column>
                             <h:form id="frmReglas">
                                 <br/>
-                                <p:dataTable id="dtReglas" value="#{oSGJB.reglas2}"
+                                <p:dataTable id="dtReglas" value="#{oSGJB.reglasPDFA}"
                                              var="reglita" emptyMessage="" rowIndexVar="rowIndex" paginator="true" rows="20" style="margin-bottom:20px" rowStyleClass="#{(rowIndex mod 2) eq 0 ? 'alternativa2' : 'alternativa1'}">
 
 
                                     <f:facet name="header">
                                         Interpretación de las reglas
-                                         <h:commandLink>
-                                            <p:graphicImage name="/images/pdf1.png" width="40em" />
-
-                                            <p:dataExporter type="pdf" encoding="ISO-8859-1"  target="dtReglas" fileName="reglas"/>
-                                        </h:commandLink>
+                                        <h:commandLink>
+                                        <p:graphicImage name="/images/pdf1.png" width="40em" />
+                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oSGJB.preProcessPDF}"/>
+                                    </h:commandLink>
                                     </f:facet>
                                     <p:column width="10%">
                                         <p:outputLabel value=" #{rowIndex+1}" />

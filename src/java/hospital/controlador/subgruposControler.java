@@ -94,7 +94,6 @@ public class subgruposControler extends Model {
                                        reglasSeleccionadas, medidaSeleccionada, modeloSeleccionado));//guardar reglas sini interpretar
                                 reglasPDFA = oSGUtilidades.obtenerReglasC1(claseSeleccionada,medidaSeleccionada,getReglas2());//guardar reglas interpretadas
                                 
-                                  //crearPDF(modeloSeleccionado);
                                 
                                 break;
                             case 2://BSD
