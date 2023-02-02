@@ -20,7 +20,9 @@ import java.util.List;
 import java.util.Map;
 import javax.faces.context.FacesContext;
 import hospital.epm.model.Reglas;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -118,11 +120,11 @@ public class subgruposUtilidades {
 
     
      public List<ReglasSG> obtenerModelo(String ruta, int claseSeleccionada, int etiquetaSeleccionada, int numeroSeleccionado, int reglasSeleccionadas, int medidaSeleccionada, int modeloSeleccionado) throws Exception {
-        System.out.println("\nENTRÉ A 'obtenerModelo'\n");
-         System.out.println("_________Obteniendo modelo...___________");
+       // System.out.println("\nENTRÉ A 'obtenerModelo'\n");
+        // System.out.println("_________Obteniendo modelo...___________");
        List<ReglasSG> reglas = new ArrayList<>();
        
-        System.out.println("_________RUTA RECIBIDA___________"+ruta);
+       // System.out.println("_________RUTA RECIBIDA___________"+ruta);
         
        //creando una nueva instancia de la clase "Ontology" utilizando el método "createOntology" 
        //de la clase "DataFactory" pasando una ruta como parámetro.    
@@ -156,17 +158,17 @@ public class subgruposUtilidades {
                  case 1:
                      // establece la función de calidad:
                      task.setQualityFunction(new WRAccQF());
-                     System.out.println("_________entro con la función  WRAccQF___________");
+                     //System.out.println("_________entro con la función  WRAccQF___________");
                      break;
                      
                  case 2:
                      task.setQualityFunction(new ChiSquareQF());
-                     System.out.println("_________entro con la función  ChiSquareQF___________");
+                    // System.out.println("_________entro con la función  ChiSquareQF___________");
                      break;
                      
                  case 3:
                       task.setQualityFunction(new BinomialQF());
-                      System.out.println("_________entro con la función  BinomialQF___________");
+                      //System.out.println("_________entro con la función  BinomialQF___________");
                      break;                     
              }
             
@@ -179,17 +181,17 @@ public class subgruposUtilidades {
                  case 1:
                      // establece el algoritmo de búsqueda:
                      task.setMethodType(SDMap.class);
-                     System.out.println("_________entro con el algoritmo SDMap___________");
+                     //System.out.println("_________entro con el algoritmo SDMap___________");
                      break;
 
                  case 2:
                      task.setMethodType(BSD.class);
-                     System.out.println("_________entro con el algoritmo BSD___________");
+                    // System.out.println("_________entro con el algoritmo BSD___________");
                      break;
                      
                  case 3:
                       task.setMethodType(SDBeamSearch.class);
-                      System.out.println("_________entro con el algoritmo BeamSearch___________");
+                      //System.out.println("_________entro con el algoritmo BeamSearch___________");
                      break;                     
              }
             
@@ -201,9 +203,9 @@ public class subgruposUtilidades {
 
         //Establecemos restricciones a la búsqueda.
         task.setMaxSGCount(reglasSeleccionadas);
-        System.out.println("_________num. reglas seleccionadas_________: "+reglasSeleccionadas);
+    //    System.out.println("_________num. reglas seleccionadas_________: "+reglasSeleccionadas);
         task.setMaxSGDSize(numeroSeleccionado);
-         System.out.println("_________num. atributos seleccionados_________: "+numeroSeleccionado);
+        // System.out.println("_________num. atributos seleccionados_________: "+numeroSeleccionado);
 
         // ejecutar tarea
         //obtengo subgrupos
@@ -236,19 +238,20 @@ public class subgruposUtilidades {
 
 //--------------Termina la obteción de los modelos---------------------------
 
-    
+   
      
          //--------------------------Aquí empieza la obtencion de reglas conjunto C------------------------
 //Este método recibe la lista de reglas para poder interpretarlas
 public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception, Throwable {
         ArrayList<String> interpretaciones = new ArrayList<>();
         // ReglasSG rsg = new ReglasSG();
-        System.out.println("\nENTRÉ A 'ObtenerReglasC1'\n");
+       
+        //System.out.println("\nENTRÉ A 'ObtenerReglasC1'\n");
 
-        System.out.println("____Reglas recibidas____: " + reglasSGList + "\n");
+       // System.out.println("____Reglas recibidas____: " + reglasSGList + "\n");
 
         try {
-            System.out.println("Entro a en Reglas C---\n");
+            //System.out.println("Entro a en Reglas C---\n");
             int contador1 = 0;
             for (ReglasSG r : reglasSGList) {           
                 //contador1++;
@@ -286,9 +289,10 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     if (acc.conectar()) {
                         String[] splitValue = g[1].split("-");                       
                         String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
-                      
+                        
                         arr = acc.ejecutarConsulta(q);
-                        System.out.println("-"+q);
+                        //System.out.println("-"+q);
+                             
                         acc.desconectar();
                         //System.out.println("consulta res: "+arr);
                     }
@@ -337,10 +341,43 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         break;
                         
                     }  
+                    double porcentaje = 0 ;
+                    double porcentajeG =0;
+                    int instancias =289;
+                    int porcentajeEntero=0;
+                    int porcentajeEnteroG=0;
+                    switch(claseSeleccionada){
+                        
+                        case 1:
+                             int HRRB=169;
+                            porcentaje = ((r.getTamaño() / (double) HRRB) * 100);
+                            porcentajeEntero = (int) Math.floor(porcentaje);
+                            porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                            porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                             break;
+                        case 11:
+                               int HSB=64;
+                               porcentaje = ((r.getTamaño() / (double) HSB) * 100);
+                               porcentajeEntero = (int) Math.floor(porcentaje);                               
+                               porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                               porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                            break;
+                         
+                        case 12: 
+                          int  HGZ=57;
+                             porcentaje = ((r.getTamaño() / (double) HGZ) * 100);
+                             porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                             porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                          break;                
+                    }
                     
-                    String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+". ";
-                    
-                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño );
+                       
+
+
+                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+ " ("+porcentajeEntero+"%)";
+                        String global=" y su porcentaje global del: ("+porcentajeEnteroG+"%).";
+                                            
+                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
             
             }
 
@@ -354,12 +391,13 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
    public List<String> obtenerReglasD1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception {
         ArrayList<String> interpretaciones = new ArrayList<>();
         // ReglasSG rsg = new ReglasSG();
-        System.out.println("\nENTRÉ A 'ObtenerReglasD1'\n");
+       
+      //  System.out.println("\nENTRÉ A 'ObtenerReglasD1'\n");
 
-        System.out.println("____Reglas recibidas____: " + reglasSGList + "\n");
+        //System.out.println("____Reglas recibidas____: " + reglasSGList + "\n");
 
         try {
-            System.out.println("Entro a en Reglas D---\n");
+            //System.out.println("Entro a en Reglas D---\n");
             int contador1 = 0;
             for (ReglasSG r : reglasSGList) {           
                 //contador1++;
@@ -393,13 +431,16 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
                     // System.out.println("" + g);
                     AccesoDatos acc = new AccesoDatos();
+                    
                     ArrayList arr = null;
                     if (acc.conectar()) {
                         String[] splitValue = g[1].split("-");                       
                         String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
-                      
+                                       
+
                         arr = acc.ejecutarConsulta(q);
-                        System.out.println("-"+q);                        
+                      
+                        //System.out.println("-"+q);                             
                         acc.desconectar();
                     }
                     if (arr != null && !arr.isEmpty()) {
@@ -411,9 +452,11 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                   String entonces = r.getRegla().substring(r.getRegla().indexOf("-") + 4);
                   
                 AccesoDatos acc = new AccesoDatos();
+                
+
                 ArrayList a = null;
                 if (acc.conectar()) {
-                    String q = "select antecedente from interpretacion where atributo='" + entonces.trim() + "'";
+                    String q = "select antecedente from interpretacion where atributo='" + entonces.trim() + "'";                                          
                     a = acc.ejecutarConsulta(q);
                     acc.desconectar();
                 }
@@ -461,10 +504,43 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         break;
                         
                     }  
-                  String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+". ";
+                     double porcentaje = 0 ;
+                    double porcentajeG =0;
+                    int instancias =47093;
+                    int porcentajeEntero=0;
+                    int porcentajeEnteroG=0;
+                    switch(claseSeleccionada){
+                        
+                        case 1:
+                             int HRRB=169;
+                            porcentaje = ((r.getTamaño() / (double) HRRB) * 100);
+                            porcentajeEntero = (int) Math.floor(porcentaje);
+                            porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                            porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                             break;
+                        case 11:
+                               int HSB=64;
+                               porcentaje = ((r.getTamaño() / (double) HSB) * 100);
+                               porcentajeEntero = (int) Math.floor(porcentaje);                               
+                               porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                               porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                            break;
+                         
+                        case 12: 
+                          int  HGZ=57;
+                             porcentaje = ((r.getTamaño() / (double) HGZ) * 100);
+                             porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                             porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                          break;                
+                    }
                     
-                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño );
+                       
 
+
+                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+ " ("+porcentajeEntero+"%)";
+                        String global=" y su porcentaje global del: ("+porcentajeEnteroG+"%).";
+                                            
+                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
             }
 
         } catch (IOException ex) {
@@ -474,117 +550,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
     }
     //------------------------Aquí termina todo de reglas-----------------------
 
- 
-    public void crearModelo(String clase, String query) throws Exception {
-        System.out.println("Entro a crear modelo C ");
 
-        FileWriter fichero = null;
-        PrintWriter pw = null;
-
-        switch (modeloSeleccionado) {
-            case 1: //Frm_sol_aut
-                fichero = new FileWriter("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\EPM\\C\\iEPMiner\\Frm_sol_aut\\modelo.dat");
-                pw = new PrintWriter(fichero);
-                try {
-                    sQuery = query;
-
-                    ArrayList res1 = null;
-                    ArrayList atributos = null;
-                    if (oAD == null) {
-                        oAD = new AccesoDatos();
-
-                        if (oAD.conectar()) {
-                            atributos = oAD.atributos("encuesta", "matriz_binaria");
-                            resultado = oAD.ejecutarConsulta(sQuery);
-                            res1 = oAD.ejecutarConsulta(sQuery);
-                            oAD.desconectar();
-                        }
-                        oAD = null;
-                    } else {
-                        atributos = oAD.atributos("encuesta", "matriz_binaria");
-                        resultado = oAD.ejecutarConsulta(sQuery);
-                        res1 = oAD.ejecutarConsulta(sQuery);
-                        oAD.desconectar();
-                    }
-                    String cabecera = "";
-                    if (atributos != null) {
-                        for (int u = 1; u < 18; u++) {
-                            int y = 0;
-                            for (int i = 0; i < atributos.size(); i++) {
-                                String[] t = ("" + atributos.get(i)).split(":");
-                                if (t[0].contains("p" + u + "_")) {
-                                    y++;
-                                }
-                            }
-                            for (int i = 1; i < (y + 1); i++) {
-                                cabecera += "@attribute p" + u + "_" + i + " {S,N}\n";
-                            }
-                        }
-                    }
-                    //System.out.println(cabecera);
-                    String dataSet = "@relation InformaciónEncuestas(84)-weka.filters.unsupervised.attribute.Remove-R116\n\n";
-                    dataSet += cabecera;
-                    dataSet += "@attribute clase {1,2,3}\n\n@data\n";
-                    pw.print(dataSet + "\n");
-
-                    for (int i = 0; i < 88; i++) {
-                        ArrayList im2 = (ArrayList) res1.get(i);
-                        String modelo6 = "";
-                        for (int p = 0; p < (im2).size(); p++) {
-
-                            modelo6 += "" + ((("" + (im2.get(p))).isEmpty()) ? "?" : "S") + ",";
-                        }
-
-                        pw.println(modelo6 + "1");
-
-                    }
-                    for (int j = 88; j < res1.size(); j++) {
-                        ArrayList im2 = (ArrayList) res1.get(j);
-                        String modelo6 = "";
-                        //System.out.println(im2.size());
-                        for (int p = 0; p < (im2).size(); p++) {
-
-                            modelo6 += "" + ((("" + (im2.get(p))).isEmpty()) ? "?" : "S") + ",";
-                        }
-
-                        pw.println(modelo6 + "2");
-                    }
-
-//  //conjunto 3
-                    for (int y = 93; y < res1.size(); y++) {
-                        ArrayList im2 = (ArrayList) res1.get(y);
-                        String modelo6 = "";
-                        //System.out.println(im2.size());
-                        for (int p = 0; p < (im2).size(); p++) {
-
-                            modelo6 += "" + ((("" + (im2.get(p))).isEmpty()) ? "?" : "S") + ",";
-                        }
-
-                        pw.println(modelo6 + "3");
-                    }
-//
-                    //   pw.println(dataSet);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    try {
-                        // Nuevamente aprovechamos el finally para
-                        // asegurarnos que se cierra el fichero.
-                        if (null != fichero) {
-                            fichero.close();
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-                break;
-            
-        }
-
-    }
-
-    
-    
     
     
     

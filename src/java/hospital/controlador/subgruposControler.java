@@ -248,513 +248,6 @@ public class subgruposControler extends Model {
         }
     }
     
-    
-       public void crearPDF(int modeloseleccionado, List<ReglasSG> reglasSGList) throws DocumentException, FileNotFoundException {
-
-        //FileOutputStream pdf = new FileOutputStream("D:\\Escritorio\\Reglas\\Reglas.pdf");
-        FileOutputStream pdf = new FileOutputStream("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\Reglas\\Reglas.pdf");
-        int algoritmo = modeloseleccionado;
-        System.out.println("corpues : " + corpusSeleccionado + "  Algoritmo: " + modeloSeleccionado);
-//
-        try {
-            switch (claseSeleccionada) {
-                case 1:
-                    switch (corpusSeleccionado) {
-
-                        case "c":
-                            System.out.println("Corpus: " + corpusSeleccionado);
-                            switch (algoritmo) {
-                                case 1:
-                                    System.out.println("Entro a SDMap" + algoritmo);
-                                    Document documento = new Document(PageSize.LETTER, 80, 80, 75, 75);
-//
-                                    PdfWriter.getInstance(documento, pdf).setInitialLeading(20);
-
-                                    //Abrir documento a editar.
-                                    documento.open();
-
-                                    System.out.println("Esta entrando...");
-
-                                    Paragraph espacio = new Paragraph();
-                                    espacio.add("\n\n");
-                                    documento.add(espacio);
-
-                                    Paragraph titulo = new Paragraph();
-                                    titulo.setAlignment(Paragraph.ALIGN_CENTER);
-                                    titulo.setFont(FontFactory.getFont("Times New Roman", 24, Font.BOLD));
-                                    titulo.add("REGLAS OBTENIDAS");
-
-                                    try {
-                                        //Se agrega el titulo al documento.
-                                        documento.add(titulo);
-                                    } catch (DocumentException ex) {
-                                        ex.getMessage();
-                                    }
-
-                                    Paragraph espacio2 = new Paragraph();
-                                    espacio2.add("\n\n");
-                                    documento.add(espacio2);
-                                    //Columnas
-                                    PdfPTable tabla = new PdfPTable(2);
-                                    //Porcentaje a la tabla (tamaño ancho).
-                                    tabla.setWidthPercentage(100);
-                                    //Ancho de cada columna.
-                                    tabla.setWidths(new float[]{15, 40});
-                                    Paragraph column1 = new Paragraph("No. Regla");
-                                    column1.getFont().setStyle(Font.BOLD);
-                                    column1.getFont().setSize(10);
-                                    tabla.addCell(column1);
-
-                                    Paragraph column2 = new Paragraph("Regla");
-                                    column2.getFont().setStyle(Font.BOLD);
-                                    column2.getFont().setSize(10);
-                                    tabla.addCell(column2);
-
-                                    Paragraph texto = new Paragraph();
-                                    texto.add("Conjunto de datos: C" + "\n");
-                                    texto.add("Algoritmo: SDMap" + "\n");
-                                    texto.add("Función de calidad: " + this.medidaSeleccionada+ "\n");
-                                    texto.add("Hospital: " + this.etiquetaSeleccionada + "\n");
-                                    texto.add("Numero de subgrupos: " + this.numeroSeleccionado + "\n");
-
-                                    texto.setAlignment(Paragraph.ALIGN_CENTER);
-                                    texto.setFont(FontFactory.getFont("Times New Roman", 12, Font.BOLD));
-                                    texto.add("Reglas interpretadas en lenguaje natural");
-                                    documento.add(texto);
-                                    Paragraph espacio3 = new Paragraph();
-                                    espacio3.add("\n\n");
-                                    documento.add(espacio3);
-
-                                   
-                                    
-                                    //escribe la regla en la tabla
-                                    for (int i = 0; i < reglasPDFA.size(); i++) {
-
-                                        
-                                        tabla.addCell(reglasPDFA.get(i));
-
-                                    }
-                                    documento.add(tabla);
-                                    //se cierra el documento.
-                                    documento.close();
-
-                                    break;
-
-                                case 2://--------------------------------------------
-
-                                    System.out.println("Entro a BSD: " + algoritmo);
-                                    Document documento2 = new Document(PageSize.LETTER, 80, 80, 75, 75);
-//                            //writer es declarado como el método utilizado para escribir en el archivo.
-//                            PdfWriter writer = null;
-                                    PdfWriter.getInstance(documento2, pdf).setInitialLeading(20);
-
-                                    //Abrir documento a editar.
-                                    documento2.open();
-
-                                    System.out.println("Esta entrando...");
-
-                                    Paragraph espacioC = new Paragraph();
-                                    espacioC.add("\n\n");
-                                    documento2.add(espacioC);
-
-                                    Paragraph titulo1 = new Paragraph();
-                                    titulo1.setAlignment(Paragraph.ALIGN_CENTER);
-                                    titulo1.setFont(FontFactory.getFont("Times New Roman", 24, Font.BOLD));
-                                    titulo1.add("REGLAS OBTENIDAS");
-
-                                    try {
-                                        //Se agrega el titulo al documento.
-                                        documento2.add(titulo1);
-                                    } catch (DocumentException ex) {
-                                        ex.getMessage();
-                                    }
-
-                                    Paragraph espacioC2 = new Paragraph();
-                                    espacioC2.add("\n\n");
-                                    documento2.add(espacioC2);
-                                    //Columnas
-                                    PdfPTable tabla2 = new PdfPTable(2);
-                                    //Porcentaje a la tabla (tamaño ancho).
-                                    tabla2.setWidthPercentage(100);
-                                    //Ancho de cada columna.
-                                    tabla2.setWidths(new float[]{15, 40});
-                                    Paragraph columna1 = new Paragraph("No. Regla");
-                                    columna1.getFont().setStyle(Font.BOLD);
-                                    columna1.getFont().setSize(10);
-                                    tabla2.addCell(columna1);
-
-                                    Paragraph columna2 = new Paragraph("Regla");
-                                    columna2.getFont().setStyle(Font.BOLD);
-                                    columna2.getFont().setSize(10);
-                                    tabla2.addCell(columna2);
-
-                                    Paragraph texto1 = new Paragraph();
-                                    texto1.add("Conjunto de datos: C" + "\n");
-                                    texto1.add("Algoritmo: SDMap" + "\n");
-                                    texto1.add("Función de calidad: " + this.medidaSeleccionada+ "\n");
-                                    texto1.add("Hospital: " + this.etiquetaSeleccionada + "\n");
-                                    texto1.add("Numero de subgrupos: " + this.numeroSeleccionado + "\n");
-
-                                    texto1.setAlignment(Paragraph.ALIGN_CENTER);
-                                    texto1.setFont(FontFactory.getFont("Times New Roman", 12, Font.BOLD));
-                                    texto1.add("Reglas interpretadas en lenguaje natural");
-                                    documento2.add(texto1);
-                                    Paragraph espacio4 = new Paragraph();
-                                    espacio4.add("\n\n");
-                                    documento2.add(espacio4);
-                                    int y2 = 0;
-
-                                    //escribe la regla en la tabla
-                                    for (int i = 0; i < reglasPDFA.size(); i++) {
-                                        y2 = i + 1;
-
-                                        tabla2.addCell("" + y2);
-                                        tabla2.addCell(reglasPDFA.get(i));
-
-                                    }
-                                    documento2.add(tabla2);
-                                    //Cierra el documento.
-                                    documento2.close();
-
-                                    break;
-
-                            
-                               case 3://--------------------------------------------
-
-                                    System.out.println("Entro a BeamSearch: " + algoritmo);
-                                    Document documento3 = new Document(PageSize.LETTER, 80, 80, 75, 75);
-//                            //writer es declarado como el método utilizado para escribir en el archivo.
-//                            PdfWriter writer = null;
-                                    PdfWriter.getInstance(documento3, pdf).setInitialLeading(20);
-
-                                    //Abrir documento a editar.
-                                    documento3.open();
-
-                                    System.out.println("Esta entrando...");
-
-                                    Paragraph espacioD = new Paragraph();
-                                    espacioD.add("\n\n");
-                                    documento3.add(espacioD);
-
-                                    Paragraph titulo3 = new Paragraph();
-                                    titulo3.setAlignment(Paragraph.ALIGN_CENTER);
-                                    titulo3.setFont(FontFactory.getFont("Times New Roman", 24, Font.BOLD));
-                                    titulo3.add("REGLAS OBTENIDAS");
-
-                                    try {
-                                        //Se agrega el titulo al documento.
-                                        documento3.add(titulo3);
-                                    } catch (DocumentException ex) {
-                                        ex.getMessage();
-                                    }
-
-                                    Paragraph espacioD2 = new Paragraph();
-                                    espacioD2.add("\n\n");
-                                    documento3.add(espacioD2);
-                                    //Columnas
-                                    PdfPTable tabla3 = new PdfPTable(2);
-                                    //Porcentaje a la tabla (tamaño ancho).
-                                    tabla3.setWidthPercentage(100);
-                                    //Ancho de cada columna.
-                                    tabla3.setWidths(new float[]{15, 40});
-                                    Paragraph columna3 = new Paragraph("No. Regla");
-                                    columna3.getFont().setStyle(Font.BOLD);
-                                    columna3.getFont().setSize(10);
-                                    tabla3.addCell(columna3);
-
-                                    Paragraph columna4 = new Paragraph("Regla");
-                                    columna4.getFont().setStyle(Font.BOLD);
-                                    columna4.getFont().setSize(10);
-                                    tabla3.addCell(columna4);
-
-                                    Paragraph texto2 = new Paragraph();
-                                    texto2.add("Conjunto de datos: C" + "\n");
-                                    texto2.add("Algoritmo: BeamSearch" + "\n");
-                                    texto2.add("Función de calidad: " + this.medidaSeleccionada+ "\n");
-                                    texto2.add("Hospital seleccionado: " + this.etiquetaSeleccionada + "\n");
-                                    texto2.add("Numero de subgrupos: " + this.numeroSeleccionado + "\n");
-
-                                    texto2.setAlignment(Paragraph.ALIGN_CENTER);
-                                    texto2.setFont(FontFactory.getFont("Times New Roman", 12, Font.BOLD));
-                                    texto2.add("Reglas interpretadas en lenguaje natural");
-                                    documento3.add(texto2);
-                                    Paragraph espacio5 = new Paragraph();
-                                    espacio5.add("\n\n");
-                                    documento3.add(espacio5);
-                                    int y3 = 0;
-
-                                    //escribe la regla en la tabla
-                                    for (int i = 0; i < reglasPDFA.size(); i++) {
-                                        y3 = i + 1;
-
-                                        tabla3.addCell("" + y3);
-                                        tabla3.addCell(reglasPDFA.get(i));
-
-                                    }
-                                    documento3.add(tabla3);
-                                    //Cierra el documento.
-                                    documento3.close();
-
-                                    break;
-
-                    
-                            }
-                            break;
-                        case "d":
-                            System.out.println("Corpus: " + corpusSeleccionado);
-                            switch (algoritmo) {
-                                case 1:
-                                    System.out.println("Entro a D SDMap" + algoritmo);
-                                    Document documento = new Document(PageSize.LETTER, 80, 80, 75, 75);
-//                            //writer es declarado como el método utilizado para escribir en el archivo.
-//                            PdfWriter writer = null;
-                                    PdfWriter.getInstance(documento, pdf).setInitialLeading(20);
-
-                                    //Abrir documento a editar.
-                                    documento.open();
-
-                                    System.out.println("Esta entrando...");
-
-                                    Paragraph espacio = new Paragraph();
-                                    espacio.add("\n\n");
-                                    documento.add(espacio);
-
-                                    Paragraph titulo = new Paragraph();
-                                    titulo.setAlignment(Paragraph.ALIGN_CENTER);
-                                    titulo.setFont(FontFactory.getFont("Times New Roman", 24, Font.BOLD));
-                                    titulo.add("REGLAS OBTENIDAS");
-
-                                    try {
-                                        //Se agrega el titulo al documento.
-                                        documento.add(titulo);
-                                    } catch (DocumentException ex) {
-                                        ex.getMessage();
-                                    }
-
-                                    Paragraph espacio2 = new Paragraph();
-                                    espacio2.add("\n\n");
-                                    documento.add(espacio2);
-                                    //Columnas
-                                    PdfPTable tabla = new PdfPTable(2);
-                                    //Porcentaje a la tabla (tamaño ancho).
-                                    tabla.setWidthPercentage(100);
-                                    //Ancho de cada columna.
-                                    tabla.setWidths(new float[]{15, 40});
-                                    Paragraph column1 = new Paragraph("No. Regla");
-                                    column1.getFont().setStyle(Font.BOLD);
-                                    column1.getFont().setSize(10);
-                                    tabla.addCell(column1);
-
-                                    Paragraph column2 = new Paragraph("Regla");
-                                    column2.getFont().setStyle(Font.BOLD);
-                                    column2.getFont().setSize(10);
-                                    tabla.addCell(column2);
-
-                                    Paragraph texto = new Paragraph();
-                                     texto.add("Conjunto de datos: D" + "\n");
-                                    texto.add("Algoritmo: BeamSearch" + "\n");
-                                    texto.add("Función de calidad: " + this.medidaSeleccionada+ "\n");
-                                    texto.add("Hospital seleccionado: " + this.etiquetaSeleccionada + "\n");
-                                    texto.add("Numero de subgrupos: " + this.numeroSeleccionado + "\n");
-
-
-                                    texto.setAlignment(Paragraph.ALIGN_CENTER);
-                                    texto.setFont(FontFactory.getFont("Times New Roman", 12, Font.BOLD));
-                                    texto.add("Reglas interpretadas en lenguaje natural");
-                                    documento.add(texto);
-                                    Paragraph espacio3 = new Paragraph();
-                                    espacio3.add("\n\n");
-                                    documento.add(espacio3);
-
-                                    int y = 0;
-
-                                    //escribe la regla en la tabla
-                                    for (int i = 0; i < reglasPDFA.size(); i++) {
-                                        y = i + 1;
-
-                                        tabla.addCell("" + y);
-                                        tabla.addCell(reglasPDFA.get(i));
-
-                                    }
-                                    documento.add(tabla);
-                                    //se cierra el documento.
-                                    documento.close();
-
-                                    break;
-                                case 2://---------------------------------------------
-                                    System.out.println("Entro a D BSD: " + algoritmo);
-                                    Document documento2 = new Document(PageSize.LETTER, 80, 80, 75, 75);
-//                            //writer es declarado como el método utilizado para escribir en el archivo.
-//                            PdfWriter writer = null;
-                                    PdfWriter.getInstance(documento2, pdf).setInitialLeading(20);
-
-                                    //Abrir documento a editar.
-                                    documento2.open();
-
-                                    System.out.println("Esta entrando ...");
-
-                                    Paragraph espacioC = new Paragraph();
-                                    espacioC.add("\n\n");
-                                    documento2.add(espacioC);
-
-                                    Paragraph titulo1 = new Paragraph();
-                                    titulo1.setAlignment(Paragraph.ALIGN_CENTER);
-                                    titulo1.setFont(FontFactory.getFont("Times New Roman", 24, Font.BOLD));
-                                    titulo1.add("REGLAS OBTENIDAS");
-
-                                    try {
-                                        //Se agrega el titulo al documento.
-                                        documento2.add(titulo1);
-                                    } catch (DocumentException ex) {
-                                        ex.getMessage();
-                                    }
-
-                                    Paragraph espacioC2 = new Paragraph();
-                                    espacioC2.add("\n\n");
-                                    documento2.add(espacioC2);
-                                    //Columnas
-                                    PdfPTable tabla2 = new PdfPTable(2);
-                                    //Porcentaje a la tabla (tamaño ancho).
-                                    tabla2.setWidthPercentage(100);
-                                    //Ancho de cada columna.
-                                    tabla2.setWidths(new float[]{15, 40});
-                                    Paragraph columna1 = new Paragraph("No. Regla");
-                                    columna1.getFont().setStyle(Font.BOLD);
-                                    columna1.getFont().setSize(10);
-                                    tabla2.addCell(columna1);
-
-                                    Paragraph columna2 = new Paragraph("Regla");
-                                    columna2.getFont().setStyle(Font.BOLD);
-                                    columna2.getFont().setSize(10);
-                                    tabla2.addCell(columna2);
-
-                                    Paragraph texto1 = new Paragraph();
-                                      texto1.add("Conjunto de datos: D" + "\n");
-                                    texto1.add("Algoritmo: BeamSearch" + "\n");
-                                    texto1.add("Función de calidad: " + this.medidaSeleccionada+ "\n");
-                                    texto1.add("Hospital seleccionado: " + this.etiquetaSeleccionada + "\n");
-                                    texto1.add("Numero de subgrupos: " + this.numeroSeleccionado + "\n");
-
-
-                                    texto1.setAlignment(Paragraph.ALIGN_CENTER);
-                                    texto1.setFont(FontFactory.getFont("Times New Roman", 12, Font.BOLD));
-                                    texto1.add("Reglas interpretadas en lenguaje natural");
-                                    documento2.add(texto1);
-                                    Paragraph espacio4 = new Paragraph();
-                                    espacio4.add("\n\n");
-                                    documento2.add(espacio4);
-
-                                    int y2 = 0;
-
-                                    //escribe la regla en la tabla
-                                    for (int i = 0; i < reglasPDFA.size(); i++) {
-                                        y2 = i + 1;
-
-                                        tabla2.addCell("" + y2);
-                                        tabla2.addCell(reglasPDFA.get(i));
-
-                                    }
-                                    documento2.add(tabla2);
-                                    //Cierra el documento.
-                                    documento2.close();
-
-                                    break;
-                                    
-                                     case 3://---------------------------------------------
-                                    System.out.println("Entro a D BeamSearch: " + algoritmo);
-                                    Document documento3 = new Document(PageSize.LETTER, 80, 80, 75, 75);
-//                            //writer es declarado como el método utilizado para escribir en el archivo.
-//                            PdfWriter writer = null;
-                                    PdfWriter.getInstance(documento3, pdf).setInitialLeading(20);
-
-                                    //Abrir documento a editar.
-                                    documento3.open();
-
-                                    System.out.println("Esta entrando ...");
-
-                                    Paragraph espacioC1 = new Paragraph();
-                                    espacioC1.add("\n\n");
-                                    documento3.add(espacioC1);
-
-                                    Paragraph titulo2 = new Paragraph();
-                                    titulo2.setAlignment(Paragraph.ALIGN_CENTER);
-                                    titulo2.setFont(FontFactory.getFont("Times New Roman", 24, Font.BOLD));
-                                    titulo2.add("REGLAS OBTENIDAS");
-
-                                    try {
-                                        //Se agrega el titulo al documento.
-                                        documento3.add(titulo2);
-                                    } catch (DocumentException ex) {
-                                        ex.getMessage();
-                                    }
-
-                                    Paragraph espacioD = new Paragraph();
-                                    espacioD.add("\n\n");
-                                    documento3.add(espacioD);
-                                    //Columnas
-                                    PdfPTable tabla3 = new PdfPTable(2);
-                                    //Porcentaje a la tabla (tamaño ancho).
-                                    tabla3.setWidthPercentage(100);
-                                    //Ancho de cada columna.
-                                    tabla3.setWidths(new float[]{15, 40});
-                                    Paragraph columna3 = new Paragraph("No. Regla");
-                                    columna3.getFont().setStyle(Font.BOLD);
-                                    columna3.getFont().setSize(10);
-                                    tabla3.addCell(columna3);
-
-                                    Paragraph columna4 = new Paragraph("Regla");
-                                    columna4.getFont().setStyle(Font.BOLD);
-                                    columna4.getFont().setSize(10);
-                                    tabla3.addCell(columna4);
-
-                                    Paragraph texto2 = new Paragraph();
-                                      texto2.add("Conjunto de datos: D" + "\n");
-                                    texto2.add("Algoritmo: BeamSearch" + "\n");
-                                    texto2.add("Función de calidad: " + this.medidaSeleccionada+ "\n");
-                                    texto2.add("Hospital seleccionado: " + this.etiquetaSeleccionada + "\n");
-                                    texto2.add("Numero de subgrupos: " + this.numeroSeleccionado + "\n");
-
-
-                                    texto2.setAlignment(Paragraph.ALIGN_CENTER);
-                                    texto2.setFont(FontFactory.getFont("Times New Roman", 12, Font.BOLD));
-                                    texto2.add("Reglas interpretadas en lenguaje natural");
-                                    documento3.add(texto2);
-                                    Paragraph espacio5 = new Paragraph();
-                                    espacio5.add("\n\n");
-                                    documento3.add(espacio5);
-
-                                    int y3 = 0;
-
-                                    //escribe la regla en la tabla
-                                    for (int i = 0; i < reglasPDFA.size(); i++) {
-                                        y3 = i + 1;
-
-                                        tabla3.addCell("" + y3);
-                                        tabla3.addCell(reglasPDFA.get(i));
-
-                                    }
-                                    documento3.add(tabla3);
-                                    //Cierra el documento.
-                                    documento3.close();
-
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-
-               
-                   
-
-                //--------------------------------
-            }
-            //pdf.add(phrase);
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
-
-        }
-    }
-       
     public void preProcessPDF(Object document) throws IOException, BadElementException, DocumentException {
         Document pdf = (Document) document;
         pdf.open();
@@ -763,80 +256,81 @@ public class subgruposControler extends Model {
         int algoritmos = getModeloSeleccionado();
         System.out.println("Algoritmo: " + algoritmos);
         try {
-            switch (claseSeleccionada) {
-                
-                case 1:
-
+            phrase.add("__________________Detalle de las reglas obtenidas____________________" + "\n" + "\n");
+           
+           
                     switch (corpusSeleccionado) {
                         case "c":
-                            switch (medidaSeleccionada) {
+                             phrase.add("                  Conjunto de datos: C" + "\n");
+                            switch (modeloSeleccionado) {
                                 case 1:
-                                    phrase.add("__________________Detalles de para la interpretación____________________" + "\n" + "\n");
-                                    phrase.add("                  Conjunto de datos: " + corpusSeleccionado + "\n");
-                                    phrase.add("                  Algoritmo: SDMap" + "\n");
-                                    phrase.add("                  Medida de interés: WRAccQF" +  "\n");
-                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
-                                    phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
-                                    break;
-                                case 2:
-                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
-                                    phrase.add("                   Conjunto de datos: C" + "\n");
-                                    phrase.add("                   Algoritmo: BSD" + "\n");
-                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
-                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
-                                    phrase.add("                   Numero de atributos: " + this.numeroSeleccionado + "\n");
 
+                                    phrase.add("                  Algoritmo: SDMap" + "\n");
                                     break;
                                     
-                                 case 3:
-                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
-                                    phrase.add("                   Conjunto de datos: C" + "\n");
+                                case 2:
+                                    phrase.add("                   Algoritmo: BSD" + "\n");
+                                    break;
+
+                                case 3:
                                     phrase.add("                   Algoritmo: BeamSearch" + "\n");
-                                    phrase.add("                  Función de calidad: BinomialQF" + "\n");
-                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
-                                    phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
 
                                     break;
 
                             }
+                            switch (medidaSeleccionada) {
+                                case 1:
+                                    phrase.add("                  Medida de interés: WRAccQF" + "\n");
+                                    break;
 
+                                case 2:
+                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
+                                    break;
+
+                                case 3:
+                                    phrase.add("                  Medida de interés: BeamSearch" + "\n");
+                                    break;
+
+                            }
                             break;
-                       
-                        
-                    case "d":
-                            switch (medidaSeleccionada) {
+                        case "d":     
+                         phrase.add("                  Conjunto de datos: D" + "\n");
+                        switch (modeloSeleccionado) {
                                 case 1:
-                                    phrase.add("__________________Detalles de para la interpretación____________________" + "\n" + "\n");
-                                    phrase.add("                  Conjunto de datos: D" + "\n");
-                                    phrase.add("                  Algoritmo: SDMap" + "\n");
-                                    phrase.add("                  Medida de interés: WRAccQF" +  "\n");
-                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
-                                    phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
-                                    break;
-                                case 2:
-                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
-                                    phrase.add("                   Conjunto de datos: D" + "\n");
-                                    phrase.add("                   Algoritmo: BSD" + "\n");
-                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
-                                    phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");                                    
-                                    phrase.add("                   Numero de atributos: " + this.numeroSeleccionado + "\n");
 
+                                    phrase.add("                  Algoritmo: SDMap" + "\n");
                                     break;
                                     
-                                 case 3:
-                                    phrase.add("___________________Detalles de para la interpretación_____________" + "\n" + "\n");
-                                    phrase.add("                   Conjunto de datos: D" + "\n");
+                                case 2:
+                                    phrase.add("                   Algoritmo: BSD" + "\n");
+                                    break;
+
+                                case 3:
                                     phrase.add("                   Algoritmo: BeamSearch" + "\n");
-                                    phrase.add("                  Función de calidad: BinomialQF" + "\n");
-                                    phrase.add("                  Medida de interés: " + this.reglasSeleccionadas + "\n");                                    
-                                    phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
 
                                     break;
 
                             }
-}
+                            switch (medidaSeleccionada) {
+                                case 1:
+                                    phrase.add("                  Medida de interés: WRAccQF" + "\n");
+                                    break;
 
+                                case 2:
+                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
+                                    break;
+
+                                case 3:
+                                    phrase.add("                  Medida de interés: BeamSearch" + "\n");
+                                    break;
+                    
+                            }
+                    
+                       
+                     
             }
+            phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");
+            phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
             phrase.add("_______________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");
             pdf.add(phrase);
 
@@ -846,6 +340,7 @@ public class subgruposControler extends Model {
         }
     }
     
+
 
     
      //-------------------------------------------------------
