@@ -180,11 +180,12 @@
                                             <p:column headerText="No. Regla" width="60%" filterBy="#{rowIndex+1}">
                                                 <h:outputText value="#{rowIndex+1}" />
                                             </p:column>
-                                            <p:column headerText="Regla" width="60%">
+                                            <p:column headerText="Regla" width="60%" >
                                                 <p:outputLabel value="#{reglita2.descripcion}"/>
+                                               
                                             </p:column>
-                                            <p:column headerText="Tamaño" width="60%">
-                                                <p:outputLabel value="#{reglita2.tamaño}"/>
+                                            <p:column headerText="Tamaño" width="60%" filterBy="#{reglita2.tamaño}">
+                                                <p:outputLabel value="#{reglita2.tamaño}" />
                                             </p:column>
                                             <p:column headerText="Valor de función de calidad" width="60%" filterBy="#{reglita2.valFuncion}">
                                                 <p:outputLabel value="#{reglita2.valFuncion}"  />

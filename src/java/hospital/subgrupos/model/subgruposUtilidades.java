@@ -337,7 +337,10 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         break;
                         
                     }  
-                interpretaciones.add(interpretacion + medida + truncatedValFuncion);//cambiar por el valor de la finción
+                    
+                    String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+". ";
+                    
+                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño );
             
             }
 
@@ -458,7 +461,9 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         break;
                         
                     }  
-                  interpretaciones.add(interpretacion + medida + truncatedValFuncion);
+                  String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+". ";
+                    
+                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño );
 
             }
 
