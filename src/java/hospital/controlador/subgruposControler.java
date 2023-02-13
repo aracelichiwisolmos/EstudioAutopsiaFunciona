@@ -281,14 +281,23 @@ public class subgruposControler extends Model {
                             switch (medidaSeleccionada) {
                                 case 1:
                                     phrase.add("                  Medida de interés: WRAccQF" + "\n");
+                                    phrase.add("                  La precisión relativa ponderada puede describirse como el equilibrio " + "\n");
+                                    phrase.add("                  entre la cobertura de una regla y su ganancia en precisión."+ "\n");
+                                    
                                     break;
 
                                 case 2:
-                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
+                                    phrase.add("                  Medida de interés: ChiSquareQF" + "\n");
+                                    phrase.add("                  La función de Chi cuadrado utiliza una aproximación a la distribución Chi cuadrado, " + "\n");
+                                    phrase.add("                  para evaluar la probabilidad de una discrepancia el Chi-cuadrado brindan información" + "\n");
+                                    phrase.add("                  considerable sobre cómo se desempeñó cada uno de los grupos en el estudio. \n");
+                                    
                                     break;
 
                                 case 3:
-                                    phrase.add("                  Medida de interés: BeamSearch" + "\n");
+                                    phrase.add("                  Medida de interés: BinomialQF" + "\n");
+                                    phrase.add("                  La finalidad de la distribución binomial es visualizar la probabilidad de que ocurran"+ "\n");
+                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular qué tan probable es que ocurra una cosa u otra. " + "\n");
                                     break;
 
                             }
@@ -314,14 +323,23 @@ public class subgruposControler extends Model {
                             switch (medidaSeleccionada) {
                                 case 1:
                                     phrase.add("                  Medida de interés: WRAccQF" + "\n");
+                                    phrase.add("                  La precisión relativa ponderada puede describirse como el equilibrio " + "\n");
+                                    phrase.add("                  entre la cobertura de una regla y su ganancia en precisión."+ "\n");
+                                    
                                     break;
 
                                 case 2:
                                     phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
+                                    phrase.add("                   La función de Chi cuadrado utiliza una aproximación a la distribución Chi cuadrado, " + "\n");
+                                    phrase.add("                   para evaluar la probabilidad de una discrepancia el Chi-cuadrado brindan información" + "\n");
+                                    phrase.add("                   considerable sobre cómo se desempeñó cada uno de los grupos en el estudio. \n");
                                     break;
 
                                 case 3:
-                                    phrase.add("                  Medida de interés: BeamSearch" + "\n");
+                                    phrase.add("                  Medida de interés: BinomialQF" + "\n");
+                                    phrase.add("                  La finalidad de la distribución binomial es visualizar la probabilidad de que ocurran"+ "\n");
+                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular qué tan probable es que ocurra una cosa u otra. " + "\n");
+                                   
                                     break;
                     
                             }
@@ -329,8 +347,8 @@ public class subgruposControler extends Model {
                        
                      
             }
-            phrase.add("                  Numero de subgrupos: " + this.reglasSeleccionadas + "\n");
-            phrase.add("                  Numero de atributos: " + this.numeroSeleccionado + "\n");
+            phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+            phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
             phrase.add("_______________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");
             pdf.add(phrase);
 

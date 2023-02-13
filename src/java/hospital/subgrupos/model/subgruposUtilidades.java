@@ -291,7 +291,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
                         
                         arr = acc.ejecutarConsulta(q);
-                        //System.out.println("-"+q);
+                        System.out.println("-"+q);
                              
                         acc.desconectar();
                         //System.out.println("consulta res: "+arr);
@@ -360,8 +360,8 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                                porcentaje = ((r.getTamaño() / (double) HSB) * 100);
                                porcentajeEntero = (int) Math.floor(porcentaje);                               
                                porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
-                               porcentajeEnteroG = (int) Math.floor(porcentajeG);
-                            break;
+                                porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                             break;
                          
                         case 12: 
                           int  HGZ=57;
@@ -375,7 +375,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
 
                         String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+ " ("+porcentajeEntero+"%)";
-                        String global=" y su porcentaje global del: ("+porcentajeEnteroG+"%).";
+                        String global=" y su porcentaje global del: "+porcentajeEnteroG+"%.";
                                             
                 interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
             
@@ -538,7 +538,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
 
                         String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+ " ("+porcentajeEntero+"%)";
-                        String global=" y su porcentaje global del: ("+porcentajeEnteroG+"%).";
+                        String global=" y su porcentaje global del: "+porcentajeEnteroG+"%.";
                                             
                 interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
             }

@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:p="http://primefaces.org/ui"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:p="http://primefaces.org/ui"
+          xmlns:f="http://xmlns.jcp.org/jsf/core" >
 
    
     <body>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
         <script type="text/javascript">
             //<![CDATA[
             function start() {
@@ -35,6 +36,10 @@
             }
             //]]>
         </script>
+        
+        
+        
+        
         <p:growl id="growl" sticky="true" showDetail="true"/>
         <ui:composition template="./../../Template/plantillaBase.xhtml">
             <ui:define name="top">
@@ -150,11 +155,9 @@
                                              <f:attribute name="value" value="3" />   </p:inputText>  
 
                                      
-                                     <p:column/> <p:commandButton  onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog2').hide()" update="frmReglas:dtReglas" value="Mostrar Reglas" action="#{oSGJB.mostrarResultadosSG()}">
-                                     
-                                     </p:commandButton>
+                                     <p:column/>  <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
                                     <p:column/>                                
-                                    <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
+                                   
 
 
                                     <p:dialog widgetVar="statusDialog2" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
@@ -170,7 +173,7 @@
                     </p:column>
                     <p:column>
                         <h:form id="frmReglas" >
-                            <p:panelGrid id="dgReglas2" columns="2" style="vertical-align: top" styleClass="noBordes">
+                            <p:panelGrid id="dgReglas2" columns="2" style="vertical-align: top" styleClass="noBordes" >
                                 <p:fieldset collapsed="true" legend="Reglas sin interpretar" toggleable="true">
 
                                     <p:column width="20%">
@@ -200,7 +203,50 @@
 
                             </p:panelGrid>
                             <br/>
+                            
+                                 <p:column>
+                        <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl" collapsed="true"  legend="Análisis Visual" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="width:600px;">
+                                        <p:chart id="chtMod1" type="bar" model="#{chartView.animatedModel2}" />
+                                        <p:chart id="chtMod2" type="bar" model="#{chartView.animatedModelCasos}"/>
 
+                                    </p:panelGrid>
+                                </div>
+                                <br/>
+                                <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="width:100%">
+                                    <p:column>
+                                        <p:outputLabel style="font-weight: bolder" value="Nuevas encuestas: "/>
+                                        <p:outputLabel id="lEncuesta" value="#{oAsociacionJB.nuevasEncuestas} "/>
+                                        <br/>
+                                        <p:commandButton value="Actualizar datasets" >
+                                            <p:ajax update="growl, chtMod1, chtMod2, lEncuesta" listener="#{oAsociacionJB.actualizaDatasets()}" oncomplete="handleForm(xhr, status, args)"/>
+                                        </p:commandButton>
+                                    </p:column>
+                                    <p:column>
+                                        <p:ajaxStatus>
+                                            <f:facet name="start">
+                                                <p:panelGrid columns="3" styleClass="noBordes" columnClasses="ui-grid-col-3, ui-grid-col-3, ui-grid-col-6" layout="grid"  style="width:100%">
+                                                    <p:column/>
+                                                    <p:graphicImage  url="/resources/images/load.gif" width="40em"/>
+                                                    <p:column/>
+                                                </p:panelGrid>
+                                                <p:panelGrid columns="1" styleClass="noBordes" columnClasses="ui-grid-col-12" layout="grid"  style="width:100%">
+                                                    <p:outputLabel value="Espere unos minutos, por favor..." style="font-weight: bold"/>
+                                                </p:panelGrid>
+
+                                            </f:facet>
+                                        </p:ajaxStatus>
+                                    </p:column>
+                                </p:panelGrid>
+
+                            </p:fieldset>
+                        </h:form>
+                    </p:column>
+
+                      
                             <style type="text/css">
                                 .ui-paginator a {
                                     margin-right: 5px;
@@ -229,7 +275,8 @@
 
 
                             </p:dataTable>
-
+                            
+                      
                         </h:form>
                     </p:column>
                 </p:panelGrid>
@@ -238,6 +285,7 @@
 
         </ui:composition>
 
+        
     </body>
 </html>
 
