@@ -374,8 +374,8 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                        
 
 
-                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+ " ("+porcentajeEntero+"%)";
-                        String global=" y su porcentaje global del: "+porcentajeEnteroG+"%.";
+                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño();
+                        String global=" y su porcentaje global de: "+porcentajeEnteroG+"%.";
                                             
                 interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
             
@@ -537,8 +537,8 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                        
 
 
-                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño()+ " ("+porcentajeEntero+"%)";
-                        String global=" y su porcentaje global del: "+porcentajeEnteroG+"%.";
+                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño();
+                        String global=" y su porcentaje global de: "+porcentajeEnteroG+"%.";
                                             
                 interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
             }

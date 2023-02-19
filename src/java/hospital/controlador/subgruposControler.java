@@ -252,7 +252,7 @@ public class subgruposControler extends Model {
         Document pdf = (Document) document;
         pdf.open();
         pdf.setPageSize(PageSize.A4);
-        Phrase phrase = new Phrase();
+        Phrase phrase = new Phrase();       
         int algoritmos = getModeloSeleccionado();
         System.out.println("Algoritmo: " + algoritmos);
         try {
@@ -297,7 +297,8 @@ public class subgruposControler extends Model {
                                 case 3:
                                     phrase.add("                  Medida de interés: BinomialQF" + "\n");
                                     phrase.add("                  La finalidad de la distribución binomial es visualizar la probabilidad de que ocurran"+ "\n");
-                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular qué tan probable es que ocurra una cosa u otra. " + "\n");
+                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular  " + "\n");
+                                    phrase.add("                  qué tan probable es que ocurra una cosa u otra.  " + "\n");
                                     break;
 
                             }
@@ -338,8 +339,8 @@ public class subgruposControler extends Model {
                                 case 3:
                                     phrase.add("                  Medida de interés: BinomialQF" + "\n");
                                     phrase.add("                  La finalidad de la distribución binomial es visualizar la probabilidad de que ocurran"+ "\n");
-                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular qué tan probable es que ocurra una cosa u otra. " + "\n");
-                                   
+                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular  " + "\n");
+                                    phrase.add("                  qué tan probable es que ocurra una cosa u otra.  " + "\n");        
                                     break;
                     
                             }
