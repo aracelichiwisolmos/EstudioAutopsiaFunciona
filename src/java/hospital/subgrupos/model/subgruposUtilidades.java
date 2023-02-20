@@ -204,6 +204,8 @@ public class subgruposUtilidades {
         //Establecemos restricciones a la búsqueda.
         task.setMaxSGCount(reglasSeleccionadas);
     //    System.out.println("_________num. reglas seleccionadas_________: "+reglasSeleccionadas);
+    
+       // buscar solo conjunciones de al menos n expresiones de selección
         task.setMaxSGDSize(numeroSeleccionado);
         // System.out.println("_________num. atributos seleccionados_________: "+numeroSeleccionado);
 
