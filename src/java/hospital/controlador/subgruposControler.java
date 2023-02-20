@@ -256,7 +256,7 @@ public class subgruposControler extends Model {
         int algoritmos = getModeloSeleccionado();
         System.out.println("Algoritmo: " + algoritmos);
         try {
-            phrase.add("__________________Detalle de las reglas obtenidas____________________" + "\n" + "\n");
+            phrase.add("____________________Detalle de las reglas obtenidas______________________" + "\n" + "\n");
            
            
                     switch (corpusSeleccionado) {
@@ -281,27 +281,67 @@ public class subgruposControler extends Model {
                             switch (medidaSeleccionada) {
                                 case 1:
                                     phrase.add("                  Medida de interés: WRAccQF" + "\n");
-                                    phrase.add("                  La precisión relativa ponderada puede describirse como el equilibrio " + "\n");
-                                    phrase.add("                  entre la cobertura de una regla y su ganancia en precisión."+ "\n");
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+                                    phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
                                     
                                     break;
 
                                 case 2:
                                     phrase.add("                  Medida de interés: ChiSquareQF" + "\n");
-                                    phrase.add("                  La función de Chi cuadrado utiliza una aproximación a la distribución Chi cuadrado, " + "\n");
-                                    phrase.add("                  para evaluar la probabilidad de una discrepancia el Chi-cuadrado brindan información" + "\n");
-                                    phrase.add("                  considerable sobre cómo se desempeñó cada uno de los grupos en el estudio. \n");
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+                                    phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
                                     
                                     break;
 
                                 case 3:
                                     phrase.add("                  Medida de interés: BinomialQF" + "\n");
-                                    phrase.add("                  La finalidad de la distribución binomial es visualizar la probabilidad de que ocurran"+ "\n");
-                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular  " + "\n");
-                                    phrase.add("                  qué tan probable es que ocurra una cosa u otra.  " + "\n");
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+                                    phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
+                                 
                                     break;
 
                             }
+                            switch (medidaSeleccionada) {
+                                case 1:
+                                      phrase.add("                  \n");
+                                      phrase.add("                  Nota: La precisión relativa ponderada mide qué tan inusual es una regla, se define " + "\n");
+                                      phrase.add("                  como el balance entre su cobertura (porcentaje de médicos con estas opiniones) y su " + "\n");
+                                      phrase.add("                  ganancia de precisión. Se calcula con la siguiente ecuación: " + "\n");
+                                      phrase.add("                  WRAccQF= n/N * (p-p0))" + "\n");
+                                      phrase.add("                  Donde p es la frecuencia relativa de la variable de interés (hospital seleccionado) " + "\n");
+                                      phrase.add("                  en el subgrupo (médicos con esas opiniones), p0 es la frecuencia relativa de la  " + "\n");
+                                      phrase.add("                  variable de interés en la población total, N es el tamaño de la población total y n es " + "\n");
+                                      phrase.add("                  el tamaño del subgrupo." + "\n\n");
+
+                                      break;
+
+                                  case 2:
+                                      phrase.add("                   \n");
+                                      phrase.add("                   Nota: La función de calidad basada en Chi cuadrada se obtiene con la siguiente  " + "\n");
+                                      phrase.add("                   ecuación: ChiSquareQF=n/N-n * cuadrado(p-p0)" + "\n");
+                                      phrase.add("                   Donde n es el tamaño del subgrupo, N es el tamaño de la población total. p es el  \n");
+                                      phrase.add("                   valor promedio de un concepto de interés dado (hospital seleccionado) en el  \n");
+                                      phrase.add("                   subgrupo identificado por las características (opiniones) y p0 es el valor promedio   \n");
+                                      phrase.add("                   de un concepto de interés dado en la población general, cuadrado se refiere a la   \n");
+                                      phrase.add("                   elevación al cuadrado.  \n\n");
+                                      break;
+
+                                  case 3:
+                                      phrase.add("                 \n");
+                                      phrase.add("                  Nota: La Función de calidad de prueba binomial compara las frecuencias " + "\n");
+                                      phrase.add("                  observadas (opiniones) de las dos categorías de una variable dicotómica (hospital   " + "\n");
+                                      phrase.add("                  seleccionado vs otros hospitales) con las frecuencias esperadas en una distribución   " + "\n");
+                                      phrase.add("                  binomial con un parámetro de probabilidad especificado de 0.5 (opiniones iguales). " + "\n");
+                                      phrase.add("                  BinomialQF=((p-p0) * raíz(n))/raíz(p0*(1-p0))*raíz(N/(N-n))  " + "\n");
+                                      phrase.add("                  Donde n es el tamaño del subgrupo, N es el tamaño de la población total. p es el  " + "\n");
+                                      phrase.add("                  valor promedio de un concepto de interés dado (hospital seleccionado) en el " + "\n");
+                                      phrase.add("                  subgrupo identificado por las características (opiniones) y p0 es el valor promedio  " + "\n");
+                                      phrase.add("                  de un concepto de interés dado en la población general, raíz se refiere a la raíz  " + "\n");
+                                      phrase.add("                  cuadrada.  " + "\n\n");
+                                      break;
+                    
+                            }
+                            
                             break;
                         case "d":     
                          phrase.add("                  Conjunto de datos: D" + "\n");
@@ -324,32 +364,70 @@ public class subgruposControler extends Model {
                             switch (medidaSeleccionada) {
                                 case 1:
                                     phrase.add("                  Medida de interés: WRAccQF" + "\n");
-                                    phrase.add("                  La precisión relativa ponderada puede describirse como el equilibrio " + "\n");
-                                    phrase.add("                  entre la cobertura de una regla y su ganancia en precisión."+ "\n");
-                                    
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+                                    phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
+
                                     break;
 
                                 case 2:
-                                    phrase.add("                   Medida de interés: ChiSquareQF" + "\n");
-                                    phrase.add("                   La función de Chi cuadrado utiliza una aproximación a la distribución Chi cuadrado, " + "\n");
-                                    phrase.add("                   para evaluar la probabilidad de una discrepancia el Chi-cuadrado brindan información" + "\n");
-                                    phrase.add("                   considerable sobre cómo se desempeñó cada uno de los grupos en el estudio. \n");
+                                    phrase.add("                  Medida de interés: ChiSquareQF" + "\n");
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+                                    phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
                                     break;
 
                                 case 3:
                                     phrase.add("                  Medida de interés: BinomialQF" + "\n");
-                                    phrase.add("                  La finalidad de la distribución binomial es visualizar la probabilidad de que ocurran"+ "\n");
-                                    phrase.add("                  un cierto número de éxitos y es una de las fórmulas que más se utilizan para calcular  " + "\n");
-                                    phrase.add("                  qué tan probable es que ocurra una cosa u otra.  " + "\n");        
+                                    phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
+                                    phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
                                     break;
+
+                            }
+
+                              switch (medidaSeleccionada) {
+                                case 1:
+                                      phrase.add("                  \n");
+                                      phrase.add("                  Nota: La precisión relativa ponderada mide qué tan inusual es una regla, se define " + "\n");
+                                      phrase.add("                  como el balance entre su cobertura (porcentaje de médicos con estas opiniones) y su " + "\n");
+                                      phrase.add("                  ganancia de precisión. Se calcula con la siguiente ecuación: " + "\n");
+                                      phrase.add("                  WRAccQF= n/N * (p-p0))" + "\n");
+                                      phrase.add("                  Donde p es la frecuencia relativa de la variable de interés (hospital seleccionado) " + "\n");
+                                      phrase.add("                  en el subgrupo (médicos con esas opiniones), p0 es la frecuencia relativa de la  " + "\n");
+                                      phrase.add("                  variable de interés en la población total, N es el tamaño de la población total y n es " + "\n");
+                                      phrase.add("                  el tamaño del subgrupo." + "\n\n");
+
+                                      break;
+
+                                  case 2:
+                                      phrase.add("                   \n");
+                                      phrase.add("                   Nota: La función de calidad basada en Chi cuadrada se obtiene con la siguiente  " + "\n");
+                                      phrase.add("                   ecuación: ChiSquareQF=n/N-n * cuadrado(p-p0)" + "\n");
+                                      phrase.add("                   Donde n es el tamaño del subgrupo, N es el tamaño de la población total. p es el  \n");
+                                      phrase.add("                   valor promedio de un concepto de interés dado (hospital seleccionado) en el  \n");
+                                      phrase.add("                   subgrupo identificado por las características (opiniones) y p0 es el valor promedio   \n");
+                                      phrase.add("                   de un concepto de interés dado en la población general, cuadrado se refiere a la   \n");
+                                      phrase.add("                   elevación al cuadrado.  \n\n");
+                                      break;
+
+                                  case 3:
+                                      phrase.add("                 \n");
+                                      phrase.add("                  Nota: La Función de calidad de prueba binomial compara las frecuencias " + "\n");
+                                      phrase.add("                  observadas (opiniones) de las dos categorías de una variable dicotómica (hospital   " + "\n");
+                                      phrase.add("                  seleccionado vs otros hospitales) con las frecuencias esperadas en una distribución   " + "\n");
+                                      phrase.add("                  binomial con un parámetro de probabilidad especificado de 0.5 (opiniones iguales). " + "\n");
+                                      phrase.add("                  BinomialQF=((p-p0) * raíz(n))/raíz(p0*(1-p0))*raíz(N/(N-n))  " + "\n");
+                                      phrase.add("                  Donde n es el tamaño del subgrupo, N es el tamaño de la población total. p es el  " + "\n");
+                                      phrase.add("                  valor promedio de un concepto de interés dado (hospital seleccionado) en el " + "\n");
+                                      phrase.add("                  subgrupo identificado por las características (opiniones) y p0 es el valor promedio  " + "\n");
+                                      phrase.add("                  de un concepto de interés dado en la población general, raíz se refiere a la raíz  " + "\n");
+                                      phrase.add("                  cuadrada.  " + "\n\n");
+                                      break;
                     
                             }
                     
                        
                      
             }
-            phrase.add("                  Número de subgrupos: " + this.reglasSeleccionadas + "\n");
-            phrase.add("                  Número de atributos: " + this.numeroSeleccionado + "\n");
+        
             phrase.add("_______________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");
             pdf.add(phrase);
 

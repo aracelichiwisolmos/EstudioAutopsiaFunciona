@@ -202,6 +202,7 @@ public class subgruposUtilidades {
         
 
         //Establecemos restricciones a la búsqueda.
+        //calcular los n mejores subgrupos de acuerdo con nuestra medida de interés
         task.setMaxSGCount(reglasSeleccionadas);
     //    System.out.println("_________num. reglas seleccionadas_________: "+reglasSeleccionadas);
     
