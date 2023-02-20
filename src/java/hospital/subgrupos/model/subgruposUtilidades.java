@@ -244,6 +244,8 @@ public class subgruposUtilidades {
 //Este método recibe la lista de reglas para poder interpretarlas
 public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception, Throwable {
         ArrayList<String> interpretaciones = new ArrayList<>();
+        Ontology onto2 = DataFactory.createOntology(new File("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\SD\\C\\SDMap\\centro_hospitalario\\matriz_binaria3.arff"));
+        System.out.println("Instancias en conjunto de datos: " + onto2.getNumInstances());
         // ReglasSG rsg = new ReglasSG();
        
         //System.out.println("\nENTRÉ A 'ObtenerReglasC1'\n");
@@ -343,7 +345,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     }  
                     double porcentaje = 0 ;
                     double porcentajeG =0;
-                    int instancias =289;
+                    int instancias =onto2.getNumInstances();
                     int porcentajeEntero=0;
                     int porcentajeEnteroG=0;
                     switch(claseSeleccionada){
@@ -390,6 +392,9 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
            //--------------------------Aquí empieza la obtencion de reglas conjunto D------------------------
    public List<String> obtenerReglasD1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception {
         ArrayList<String> interpretaciones = new ArrayList<>();
+   
+    Ontology onto = DataFactory.createOntology(new File("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\\\SD\\D\\SDMap\\centro_hospitalario\\vista_minable2.arff"));
+    System.out.println("Instancias en conjunto de datos: " + onto.getNumInstances());
         // ReglasSG rsg = new ReglasSG();
        
       //  System.out.println("\nENTRÉ A 'ObtenerReglasD1'\n");
@@ -436,18 +441,14 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     if (acc.conectar()) {
                         String[] splitValue = g[1].split("-");                       
                         String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
-                                       
-
                         arr = acc.ejecutarConsulta(q);
-                      
-                        //System.out.println("-"+q);                             
+                       
                         acc.desconectar();
                     }
                     if (arr != null && !arr.isEmpty()) {
                         interpretacion += ((ArrayList) arr.get(0)).get(0) + " y ";
  
                     }
-
                 }
                   String entonces = r.getRegla().substring(r.getRegla().indexOf("-") + 4);
                   
@@ -456,7 +457,8 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
                 ArrayList a = null;
                 if (acc.conectar()) {
-                    String q = "select antecedente from interpretacion where atributo='" + entonces.trim() + "'";                                          
+                    String q = "select antecedente from interpretacion where atributo='" + entonces.trim() + "'"; 
+                   
                     a = acc.ejecutarConsulta(q);
                     acc.desconectar();
                 }
@@ -465,7 +467,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
                 switch (claseSeleccionada) {
                     case 1:
-                        clase = "Hospital Regional de Río Blanco.";
+                        clase = "Hospital Regional Río Blanco.";
                         break;
                     case 11:
                         clase = "Hospital General San Juan Bautista Tuxtepec.";
@@ -506,7 +508,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                     }  
                      double porcentaje = 0 ;
                     double porcentajeG =0;
-                    int instancias =47093;
+                    int instancias=onto.getNumInstances();
                     int porcentajeEntero=0;
                     int porcentajeEnteroG=0;
                     switch(claseSeleccionada){

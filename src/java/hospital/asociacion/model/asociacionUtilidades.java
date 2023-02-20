@@ -812,7 +812,7 @@ public class asociacionUtilidades {
                 if (oAD.conectar()) {
                     resultado = oAD.ejecutarConsulta(sQuery);
                     resultadoSG = oAD.ejecutarConsulta(sQuerySG);
-                    System.out.println("se actualizó DatasetD");
+                    System.out.println("se actualizó DatasetD");                    
                     oAD.desconectar();
                 }
                 oAD = null;
