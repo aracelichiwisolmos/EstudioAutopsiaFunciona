@@ -48,7 +48,7 @@ public class filtro implements Filter {
 
             } else {
                 if (userInSession.getTipo().equals("E")) {
-                    if (!(path[path.length - 1].equals("actualizar_e.xhtml") || path[path.length - 1].equals("consultar_encuesta.xhtml")|| path[path.length - 1].equals("graficas.xhtml") || path[path.length - 1].equals("encuesta.xhtml") || path[path.length - 1].equals("modelo.xhtml") || path[path.length - 1].equals("modeloEPM.xhtml") || path[path.length - 1].equals("modeloSG.xhtml") || path[path.length - 1].equals("modeloBayes.xhtml") || path[path.length - 1].equals("datasets.xhtml") || path[path.length - 1].equals("algorithms.xml") || path[path.length - 1].equals("graficas.xhtml"))) {
+                    if (!(path[path.length - 1].equals("actualizar_e.xhtml") || path[path.length - 1].equals("consultar_encuesta.xhtml")|| path[path.length - 1].equals("graficas.xhtml")|| path[path.length - 1].equals("grafica.xhtml") || path[path.length - 1].equals("encuesta.xhtml") || path[path.length - 1].equals("modelo.xhtml") || path[path.length - 1].equals("modeloEPM.xhtml") || path[path.length - 1].equals("modeloSG.xhtml") || path[path.length - 1].equals("modeloBayes.xhtml") || path[path.length - 1].equals("datasets.xhtml") || path[path.length - 1].equals("algorithms.xml") || path[path.length - 1].equals("graficas.xhtml"))) {
                         req.getRequestDispatcher("/faces/Views/denegado.xhtml").forward(request, response);
                         return;
                     }

@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-          xmlns:h="http://xmlns.jcp.org/jsf/html"
-          xmlns:p="http://primefaces.org/ui"
-          xmlns:f="http://xmlns.jcp.org/jsf/core" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" >
 
-   
+
     <body>
-        <script src="https://d3js.org/d3.v7.min.js"></script>
+
         <script type="text/javascript">
             //<![CDATA[
             function start() {
@@ -36,10 +36,8 @@
             }
             //]]>
         </script>
-        
-        
-        
-        
+
+
         <p:growl id="growl" sticky="true" showDetail="true"/>
         <ui:composition template="./../../Template/plantillaBase.xhtml">
             <ui:define name="top">
@@ -104,68 +102,67 @@
                                 <h:form id="formAlg2">
                                     <p:growl id="growl" showDetail="true"/>
                                     <p:messages id="mensaje"/>
-                                 <h:panelGrid columns="2" cellpadding="10">
+                                    <h:panelGrid columns="2" cellpadding="10">
 
 
-                                    <p:outputLabel for="algoritmo" value="Algoritmo:" style="font-weight: bolder"/>
+                                        <p:outputLabel for="algoritmo" value="Algoritmo:" style="font-weight: bolder"/>
 
 
 
-                                    <p:selectOneMenu id="algoritmo" value="#{oSGJB.modeloSeleccionado}" required="true" style="width:125px">
-                                        <f:selectItem itemLabel="SDMap" itemValue="1" />
-                                        <f:selectItem itemLabel="BSD" itemValue="2" />
-                                        <f:selectItem itemLabel="BeamSearch" itemValue="3" />
+                                        <p:selectOneMenu id="algoritmo" value="#{oSGJB.modeloSeleccionado}" required="true" style="width:125px">
+                                            <f:selectItem itemLabel="SDMap" itemValue="1" />
+                                            <f:selectItem itemLabel="BSD" itemValue="2" />
+                                            <f:selectItem itemLabel="BeamSearch" itemValue="3" />
 
-                                    </p:selectOneMenu>
-                                    
-                                    <p:outputLabel for="conjunto" value="Dataset:" style="font-weight: bolder"/>
-                                    <p:selectOneRadio id="conjunto" layout="grid" columns="1" value="#{oSGJB.corpusSeleccionado}" required="true">
-                                        <f:selectItem itemLabel="Conjunto C" itemValue="c" />
-                                        <f:selectItem itemLabel="Conjunto D" itemValue="d" />
-                                    </p:selectOneRadio>
-                                    
-                                   
-                                     
-                                      <p:outputLabel for="medida" value="Medida de interés:" style="font-weight: bolder"/>
-                                      <p:selectOneMenu id="medida" value="#{oSGJB.medidaSeleccionada}" required="true" style="width:125px">
-                                        <f:selectItem itemLabel="WRAccQF" itemValue="1"  />
-                                        <f:selectItem itemLabel="ChiSquareQF" itemValue="2"/>
-                                        <f:selectItem itemLabel="BinomialQF" itemValue="3"  />
+                                        </p:selectOneMenu>
 
-                                    </p:selectOneMenu>
-                                      
-                                      
-                                      
-                                    <p:outputLabel for="Etiqueta_clase" value="Etiqueta de clase:" style="font-weight: bolder"/>
-                                    <p:selectOneMenu id="Etiqueta_clase" value="#{oSGJB.claseSeleccionada}" required="true" style="width:125px">
-                                        <f:selectItems  value="#{oSGJB.lista_hospitales}" var="hospital" itemValue="#{hospital.claveCH}" itemLabel="#{hospital.nombreCH}" /> 
-                                    </p:selectOneMenu>
-                                    
-                                    <p:outputLabel for="reglas" value="Número de reglas:" style="font-weight: bolder"/>
-                                    <p:selectOneMenu id="reglas" value="#{oSGJB.reglasSeleccionadas}" required="true" style="width:125px">
-                                        <f:selectItem itemLabel="20" itemValue="20"/>
-                                        <f:selectItem itemLabel="50" itemValue="50"/>
-                                        
-
-                                    </p:selectOneMenu>
-                                    
-                                     <p:outputLabel for="numero" value="Número de atributos:" style="font-weight: bolder"/>
-                                     <p:inputText id="numero" type="number" value="#{oSGJB.numeroSeleccionado}" required="true"  style="width:125px" requiredMessage="Campo requerido." onkeydown="return event.keyCode === 69 ? false : true" >
-                                        
-                                             <f:attribute name="value" value="3" />   </p:inputText>  
-
-                                     
-                                     <p:column/>  <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
-                                    <p:column/>                                
-                                   
+                                        <p:outputLabel for="conjunto" value="Dataset:" style="font-weight: bolder"/>
+                                        <p:selectOneRadio id="conjunto" layout="grid" columns="1" value="#{oSGJB.corpusSeleccionado}" required="true">
+                                            <f:selectItem itemLabel="Conjunto C" itemValue="c" />
+                                            <f:selectItem itemLabel="Conjunto D" itemValue="d" />
+                                        </p:selectOneRadio>
 
 
-                                    <p:dialog widgetVar="statusDialog2" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
-                                        <p:graphicImage name="/images/load.gif" />
-                                    </p:dialog>
-                                </h:panelGrid>
+
+                                        <p:outputLabel for="medida" value="Medida de interés:" style="font-weight: bolder"/>
+                                        <p:selectOneMenu id="medida" value="#{oSGJB.medidaSeleccionada}" required="true" style="width:125px">
+                                            <f:selectItem itemLabel="WRAccQF" itemValue="1"  />
+                                            <f:selectItem itemLabel="ChiSquareQF" itemValue="2"/>
+                                            <f:selectItem itemLabel="BinomialQF" itemValue="3"  />
+
+                                        </p:selectOneMenu>
+
+
+
+                                        <p:outputLabel for="Etiqueta_clase" value="Etiqueta de clase:" style="font-weight: bolder"/>
+                                        <p:selectOneMenu id="Etiqueta_clase" value="#{oSGJB.claseSeleccionada}" required="true" style="width:125px">
+                                            <f:selectItems  value="#{oSGJB.lista_hospitales}" var="hospital" itemValue="#{hospital.claveCH}" itemLabel="#{hospital.nombreCH}" /> 
+                                        </p:selectOneMenu>
+
+                                        <p:outputLabel for="reglas" value="Número de reglas:" style="font-weight: bolder"/>
+                                        <p:selectOneMenu id="reglas" value="#{oSGJB.reglasSeleccionadas}" required="true" style="width:125px">
+                                            <f:selectItem itemLabel="20" itemValue="20"/>
+                                            <f:selectItem itemLabel="50" itemValue="50"/>
+
+
+                                        </p:selectOneMenu>
+
+                                        <p:outputLabel for="numero" value="Número de atributos:" style="font-weight: bolder"/>
+                                        <p:inputText id="numero" type="number" value="#{oSGJB.numeroSeleccionado}" required="true"  style="width:125px" requiredMessage="Campo requerido." onkeydown="return event.keyCode === 69 ? false : true" >
+
+                                            <f:attribute name="value" value="3" />   </p:inputText>  
+
+
+                                        <p:column/>  <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
+                                        <p:column/>                                
+
+                                  
+
+                                        <p:dialog widgetVar="statusDialog2" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                                            <p:graphicImage name="/images/load.gif" />
+                                        </p:dialog>
+                                    </h:panelGrid>
                                 </h:form>
-
                                         </p:tab>
                                     
                                 </p:accordionPanel>
@@ -185,7 +182,7 @@
                                             </p:column>
                                             <p:column headerText="Regla" width="60%" >
                                                 <p:outputLabel value="#{reglita2.descripcion}"/>
-                                               
+
                                             </p:column>
                                             <p:column headerText="Tamaño" width="60%" filterBy="#{reglita2.tamaño}">
                                                 <p:outputLabel value="#{reglita2.tamaño}" />
@@ -203,50 +200,41 @@
 
                             </p:panelGrid>
                             <br/>
-                            
-                                 <p:column>
-                        <h:form>
-                            <p:growl id="growl" showDetail="true" showSummary=""/>
-                            <p:fieldset id="pnl" collapsed="true"  legend="Análisis Visual" toggleable="true" class="siBordes">
-                                <div id="graficos">
-                                    <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="width:600px;">
-                                        <p:chart id="chtMod1" type="bar" model="#{chartView.animatedModel2}" />
-                                        <p:chart id="chtMod2" type="bar" model="#{chartView.animatedModelCasos}"/>
 
-                                    </p:panelGrid>
-                                </div>
-                                <br/>
-                                <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="width:100%">
-                                    <p:column>
-                                        <p:outputLabel style="font-weight: bolder" value="Nuevas encuestas: "/>
-                                        <p:outputLabel id="lEncuesta" value="#{oAsociacionJB.nuevasEncuestas} "/>
+                            <p:column>
+                                <h:form>
+                                    <p:growl id="growl" showDetail="true" showSummary=""/>
+                                    <p:fieldset id="pnl" collapsed="true"  legend="Análisis Visual" toggleable="true" class="siBordes">
+                                        <div id="graficos">
+                                            <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style="width:600px;">
+                                                <p:chart type="bar" id="chart" model="#{oSGJB.barModel}"  style="height: 1600px"/>
+                                            </p:panelGrid>
+                                        </div>
                                         <br/>
-                                        <p:commandButton value="Actualizar datasets" >
-                                            <p:ajax update="growl, chtMod1, chtMod2, lEncuesta" listener="#{oAsociacionJB.actualizaDatasets()}" oncomplete="handleForm(xhr, status, args)"/>
-                                        </p:commandButton>
-                                    </p:column>
-                                    <p:column>
-                                        <p:ajaxStatus>
-                                            <f:facet name="start">
-                                                <p:panelGrid columns="3" styleClass="noBordes" columnClasses="ui-grid-col-3, ui-grid-col-3, ui-grid-col-6" layout="grid"  style="width:100%">
-                                                    <p:column/>
-                                                    <p:graphicImage  url="/resources/images/load.gif" width="40em"/>
-                                                    <p:column/>
-                                                </p:panelGrid>
-                                                <p:panelGrid columns="1" styleClass="noBordes" columnClasses="ui-grid-col-12" layout="grid"  style="width:100%">
-                                                    <p:outputLabel value="Espere unos minutos, por favor..." style="font-weight: bold"/>
-                                                </p:panelGrid>
+                                        <p:panelGrid columns="2" styleClass="noBordes" columnClasses="left,right" style="width:100%">
 
-                                            </f:facet>
-                                        </p:ajaxStatus>
-                                    </p:column>
-                                </p:panelGrid>
+                                            <p:column>
+                                                <p:ajaxStatus>
+                                                    <f:facet name="start">
+                                                        <p:panelGrid columns="3" styleClass="noBordes" columnClasses="ui-grid-col-3, ui-grid-col-3, ui-grid-col-6" layout="grid"  style="width:100%">
+                                                            <p:column/>
+                                                            <p:graphicImage  url="/resources/images/load.gif" width="40em"/>
+                                                            <p:column/>
+                                                        </p:panelGrid>
+                                                        <p:panelGrid columns="1" styleClass="noBordes" columnClasses="ui-grid-col-12" layout="grid"  style="width:100%">
+                                                            <p:outputLabel value="Espere unos minutos, por favor..." style="font-weight: bold"/>
+                                                        </p:panelGrid>
 
-                            </p:fieldset>
-                        </h:form>
-                    </p:column>
+                                                    </f:facet>
+                                                </p:ajaxStatus>
+                                            </p:column>
+                                        </p:panelGrid>
 
-                      
+                                    </p:fieldset>
+                                </h:form>
+                            </p:column>
+
+
                             <style type="text/css">
                                 .ui-paginator a {
                                     margin-right: 5px;
@@ -275,8 +263,8 @@
 
 
                             </p:dataTable>
-                            
-                      
+
+
                         </h:form>
                     </p:column>
                 </p:panelGrid>
@@ -285,7 +273,6 @@
 
         </ui:composition>
 
-        
     </body>
 </html>
 

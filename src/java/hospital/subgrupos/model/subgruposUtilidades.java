@@ -243,10 +243,170 @@ public class subgruposUtilidades {
 
    
      
+     public List<datosGrafica> obtenerDatosGrafico(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception, Throwable {
+        ArrayList<String> interpretaciones = new ArrayList<>();
+        ArrayList<datosGrafica> datos = new ArrayList<>();
+        
+        Ontology onto2 = DataFactory.createOntology(new File("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\SD\\C\\SDMap\\centro_hospitalario\\matriz_binaria3.arff"));
+        System.out.println("Instancias en conjunto de datos: " + onto2.getNumInstances());
+        // ReglasSG rsg = new ReglasSG();
+       
+        //System.out.println("\nENTRÉ A 'ObtenerReglasC1'\n");
+
+       // System.out.println("____Reglas recibidas____: " + reglasSGList + "\n");
+
+        try {
+            //System.out.println("Entro a en Reglas C---\n");
+            int contador1 = 0;
+            for (ReglasSG r : reglasSGList) {           
+                contador1++;
+
+                String interpretacion = "Si los médicos   ";
+                //String linea = ran.readLine();
+
+                //System.out.println("Regla: "+contador1);
+                int indice = r.getRegla().indexOf("-");
+                String valorAntes = r.getRegla().substring(0, indice).trim();
+                // System.out.println("Valor antes del caracter -: " + valorAntes);
+
+                int indice1 = r.getRegla().indexOf("(");
+                String valorEntre = r.getRegla().substring(indice + 1, indice1).trim();
+                // System.out.println("Valor entre el caracter - y (: " + valorEntre);
+
+                String valorDespues = r.getRegla().substring(indice1 + 1, r.getRegla().length() - 1).trim();
+                // System.out.println("Valor después del caracter (: " + valorDespues);
+
+                String predicados = valorAntes + "-" + valorEntre + "(" + valorDespues + ")";
+
+             //   System.out.println("\npredicados: " + predicados + "\n\n\n");
+
+                //los divide cuando encuentra una ,
+                String[] e = predicados.split(",");
+
+                for (int i = 0; i < e.length; i++) {
+                    String[] g = e[i].split("=");                       
+                    String column = g[0].trim().toLowerCase().replace("[", "").replace("]", "");                   
+                    String value = g[1].trim().toUpperCase().split("-")[0].replace("[", "").replace("]", "");
+
+                     //System.out.println("" + g);
+                    AccesoDatos acc = new AccesoDatos();
+                    ArrayList arr = null;
+                    if (acc.conectar()) {
+                        String[] splitValue = g[1].split("-");                       
+                        String q = "SELECT antecedente FROM interpretacion WHERE descc_columna='" + column + "' AND valor_atributo='" + value + "'";
+                        
+                        arr = acc.ejecutarConsulta(q);
+                        System.out.println("-"+q);
+                             
+                        acc.desconectar();
+                        //System.out.println("consulta res: "+arr);
+                    }
+                    if (arr != null && !arr.isEmpty()) {
+                        interpretacion += ((ArrayList) arr.get(0)).get(0) + " y ";
+
+                    }
+                }
+                String entonces = r.getRegla().substring(r.getRegla().indexOf("-") + 4);
+                String str = Integer.toString(claseSeleccionada);
+                String clase = "H" + str;
+
+                switch (claseSeleccionada) {
+                    case 1:
+                        clase = "Hospital Regional Río Blanco.";
+                        break;
+                    case 11:
+                        clase = "Hospital General San Juan Bautista Tuxtepec.";
+                        break;
+                    case 12:
+                        clase = "Hospital General de Zona 53.";
+                        break;
+                        default:
+                       clase="Otro hospital";
+                    }    
+               String sonDe = clase;
+                if (interpretacion.length() > 3) {
+                    interpretacion = interpretacion.substring(0, interpretacion.length() - 3);
+                }
+                interpretacion += ", entonces son del" + " " + sonDe;
+                    DecimalFormat df = new DecimalFormat("#.####");
+                    double deviacion = r.getValFuncion();
+                    String truncatedValFuncion = df.format(deviacion);
+                    
+                    String medida = null;
+                    
+                    switch (medidaSeleccionada) {
+                    case 1:
+                        medida = "\nEsta regla tiene una presición relativa ponderada de: ";
+                        break;
+                    case 2:
+                        medida = "\nEsta regla tiene una estadística Chi-cuadrada de: ";
+                        break;
+                    case 3:
+                        medida = "\nEsta regla tiene una distribución binomial de: ";
+                        break;
+                        
+                    }  
+                    double porcentaje = 0 ;
+                    double porcentajeG =0;
+                    int instancias =onto2.getNumInstances();
+                    int porcentajeEntero=0;
+                    int porcentajeEnteroG=0;
+                    switch(claseSeleccionada){
+                        
+                        case 1:
+                             int HRRB=169;
+                            porcentaje = ((r.getTamaño() / (double) HRRB) * 100);
+                            porcentajeEntero = (int) Math.floor(porcentaje);
+                            porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                            porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                             break;
+                        case 11:
+                               int HSB=64;
+                               porcentaje = ((r.getTamaño() / (double) HSB) * 100);
+                               porcentajeEntero = (int) Math.floor(porcentaje);                               
+                               porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                                porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                             break;
+                         
+                        case 12: 
+                          int  HGZ=57;
+                             porcentaje = ((r.getTamaño() / (double) HGZ) * 100);
+                             porcentajeG = ((r.getTamaño() / (double) instancias) * 100);
+                             porcentajeEnteroG = (int) Math.floor(porcentajeG);
+                          break;                
+                    }
+                    
+                       
+
+
+                        String tamaño= ", el tamaño de este subgrupo es de: "+r.getTamaño();
+                        String global=" y su porcentaje global de: "+porcentajeEnteroG+"%.";
+                                            
+                interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
+                datosGrafica dato=new datosGrafica();
+                dato.setRegla(contador1);
+                dato.setValor(porcentajeEnteroG);
+                datos.add(dato);
+            
+            }
+
+        } catch (IOException e) {            
+        }
+        return datos;
+    }
+     
+     
+     
+     
+     
+     
+     
+     
          //--------------------------Aquí empieza la obtencion de reglas conjunto C------------------------
 //Este método recibe la lista de reglas para poder interpretarlas
 public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionada,List<ReglasSG> reglasSGList) throws Exception, Throwable {
         ArrayList<String> interpretaciones = new ArrayList<>();
+        
         Ontology onto2 = DataFactory.createOntology(new File("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\EstudioAutopsiaFunciona\\corpus\\SD\\C\\SDMap\\centro_hospitalario\\matriz_binaria3.arff"));
         System.out.println("Instancias en conjunto de datos: " + onto2.getNumInstances());
         // ReglasSG rsg = new ReglasSG();
@@ -312,7 +472,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
 
                 switch (claseSeleccionada) {
                     case 1:
-                        clase = "Hospital Regional de Río Blanco.";
+                        clase = "Hospital Regional Río Blanco.";
                         break;
                     case 11:
                         clase = "Hospital General San Juan Bautista Tuxtepec.";
@@ -327,7 +487,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                 if (interpretacion.length() > 3) {
                     interpretacion = interpretacion.substring(0, interpretacion.length() - 3);
                 }
-                interpretacion += ", entonces son del hospital" + " " + sonDe;
+                interpretacion += ", entonces son del" + " " + sonDe;
                     DecimalFormat df = new DecimalFormat("#.####");
                     double deviacion = r.getValFuncion();
                     String truncatedValFuncion = df.format(deviacion);
@@ -383,6 +543,7 @@ public List<String> obtenerReglasC1(int claseSeleccionada, int medidaSeleccionad
                         String global=" y su porcentaje global de: "+porcentajeEnteroG+"%.";
                                             
                 interpretaciones.add(interpretacion + medida + truncatedValFuncion + tamaño +global);
+                
             
             }
 

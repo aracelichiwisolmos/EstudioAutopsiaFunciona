@@ -5,23 +5,31 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
- <html xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-          xmlns:h="http://xmlns.jcp.org/jsf/html"
-          xmlns:p="http://primefaces.org/ui"
-          xmlns:f="http://xmlns.jcp.org/jsf/core" >
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" 
+      >
+    <style>
+        svg rect {
+            fill: orange;
+        }
 
+        svg text {
+            fill:white;
+            font: 10px sans-serif;
+            text-anchor: end;
+        }
+    </style>
     <body>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-      
-        <div>Prueba GRÁFICA</div>
-     <script type="text/javascript">
-           d3.csv("matriz_binaria3.csv", function(data){
-               var map=data.map(function (i){return i.centro_hospitalario;})
-                   console.log(map);
-           })
-</script>
 
+        <script src="https://d3js.org//d3.v4.min.js"></script>  
+
+        <div>Prueba GRÁFICA</div>
+ 
+        
+        <p:chart type="bar" model="#{oSGJB.barModel}" />
         
     </body>
 </html>
