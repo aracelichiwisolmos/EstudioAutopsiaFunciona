@@ -207,7 +207,7 @@
                                     <p:fieldset id="pnl" collapsed="true"  legend="Análisis Visual" toggleable="true" class="siBordes">
                                         <div id="graficos">
                                             <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style="width:600px;">
-                                                <p:chart type="bar" id="chart" model="#{oSGJB.barModel}"  style="height: 1600px"/>
+                                                <p:chart type="bar" style="height: #{oSGJB.alturaGrafica}" id="chart" model="#{oSGJB.barModel}" />
                                             </p:panelGrid>
                                         </div>
                                         <br/>

@@ -37,12 +37,16 @@ import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import javax.annotation.PostConstruct;
+import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.HorizontalBarChartModel;
 
 @ManagedBean(name = "oSGJB")
 @ViewScoped
 public class subgruposControler extends Model {
 
+   
+  
     private String sQuery;
     private String ruta;
     private AccesoDatos oAD;
@@ -63,6 +67,7 @@ public class subgruposControler extends Model {
     private List<centroHospitalario> lista_hospitales;
     private centroHospitalario oCH;
     private HorizontalBarChartModel barModel;
+    private String alturaGrafica ;
 
     @SuppressWarnings("empty-statement")
     public subgruposControler() throws Exception {
@@ -241,6 +246,12 @@ public class subgruposControler extends Model {
                     }
                     break;
             }
+            if(reglasSeleccionadas  ==20){
+                setAlturaGrafica("400px");
+            }else{
+                setAlturaGrafica("800px");
+            }
+            
             barModel = new HorizontalBarChartModel();
             List<datosGrafica> datos = oSGUtilidades.obtenerDatosGrafico(claseSeleccionada, medidaSeleccionada, getReglas2());
             ChartSeries reglas = new ChartSeries();
@@ -252,7 +263,18 @@ public class subgruposControler extends Model {
             }
 
             barModel.addSeries(reglas);
-            barModel.setBarWidth(25);
+            barModel.setLegendPosition("ne");
+            barModel.setBarPadding(0);
+            barModel.setBarMargin(100 );
+            barModel.setBarWidth(5);
+            barModel.setStacked(true);
+            Axis YAxis=barModel.getAxis(AxisType.Y);
+            YAxis.setLabel("Regla");                 
+            Axis XAxis=barModel.getAxis(AxisType.X);
+            XAxis.setLabel("%");
+            
+            
+            
             
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
@@ -525,6 +547,16 @@ public class subgruposControler extends Model {
     public void setReglasPDFA(ArrayList<String> reglasPDFA) {
         this.reglasPDFA = reglasPDFA;
     }
+    
+      public String getAlturaGrafica() {
+        return alturaGrafica;
+    }
+
+    
+    public void setAlturaGrafica(String alturaGrafica) {
+        this.alturaGrafica = alturaGrafica;
+    }
+
     //traeemos la lista de todos los hospitales en la BD para moestrarlos al usuario de manera dinámica
 
     public List<centroHospitalario> getLista_hospitales() {
