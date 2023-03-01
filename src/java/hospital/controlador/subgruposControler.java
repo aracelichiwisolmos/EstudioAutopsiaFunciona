@@ -247,9 +247,9 @@ public class subgruposControler extends Model {
                     break;
             }
             if(reglasSeleccionadas  ==20){
-                setAlturaGrafica("400px");
+                setAlturaGrafica("600px");
             }else{
-                setAlturaGrafica("800px");
+                setAlturaGrafica("1200px");
             }
             
             barModel = new HorizontalBarChartModel();
@@ -258,16 +258,21 @@ public class subgruposControler extends Model {
             reglas.setLabel("Reglas");
 
             for (datosGrafica i : datos) {
-                //System.out.println("--------------- valor regla:"+i.getRegla()+"valor :  "+i.getValor());  
+                //System.out.println("--------------- valor regla:"+i.getRegla()+"valor :  "+i.getValor());
+               
+                
                 reglas.set(i.getRegla(), i.getValor());
+                
+               
             }
 
             barModel.addSeries(reglas);
             barModel.setLegendPosition("ne");
-            barModel.setBarPadding(0);
-            barModel.setBarMargin(100 );
-            barModel.setBarWidth(5);
-            barModel.setStacked(true);
+            barModel.setBarPadding(10);
+            barModel.setBarMargin(0);
+            barModel.setShadow(false);
+            barModel.setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+            //barModel.setStacked(true);
             Axis YAxis=barModel.getAxis(AxisType.Y);
             YAxis.setLabel("Regla");                 
             Axis XAxis=barModel.getAxis(AxisType.X);
