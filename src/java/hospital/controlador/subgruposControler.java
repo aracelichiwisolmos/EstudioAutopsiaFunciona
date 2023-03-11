@@ -69,6 +69,9 @@ public class subgruposControler extends Model {
     private HorizontalBarChartModel barModel;
     private BarChartModel barModel2;
     private BarChartModel barModel3;
+    private BarChartModel barModel4;
+    private BarChartModel barModel5;
+    private BarChartModel barModel6;
     private String alturaGrafica;
     
     private List<encuestaSG> datosEncuestas;
@@ -657,9 +660,15 @@ public class subgruposControler extends Model {
         barModel = new HorizontalBarChartModel();
         barModel2 = new BarChartModel();
         barModel3 = new BarChartModel();
+        barModel4 = new BarChartModel();
+        barModel5 = new BarChartModel();
+        barModel6 = new BarChartModel();
         
         this.crearGraficaEncuestas();
         this.crearGraficaEncuestasPreg4();
+        this.crearGraficaEncuestasPreg7();
+        this.crearGraficaEncuestasPreg8();
+        this.crearGraficaEncuestasPreg11();
         
     }
     
@@ -668,11 +677,11 @@ public class subgruposControler extends Model {
         this.barModel2 = new BarChartModel();
         
         ChartSeries h1 = new ChartSeries();
-        h1.setLabel("H1");
+        h1.setLabel("Hospital Regional de Río Blanco ");
         ChartSeries h11 = new ChartSeries();
-        h11.setLabel("H11");
+        h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("H12");
+        h12.setLabel("Hospiatl General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 3)).forEachOrdered((e) -> {
             if(null != e.getCentro())
@@ -713,11 +722,11 @@ public class subgruposControler extends Model {
         this.setBarModel3(new BarChartModel());
         
         ChartSeries h1 = new ChartSeries();
-        h1.setLabel("H1");
+        h1.setLabel("Hospital Regional de Río Blanco ");
         ChartSeries h11 = new ChartSeries();
-        h11.setLabel("H11");
+        h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("H12");
+        h12.setLabel("Hospiatl General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 4)).forEachOrdered((e) -> {
             if(null != e.getCentro())
@@ -751,37 +760,188 @@ public class subgruposControler extends Model {
         Axis XAxis = this.barModel3.getAxis(AxisType.X);
         XAxis.setLabel("Experiencia en casos de autopsia");
     }
+     
+     //----pregunta 7
+      public void crearGraficaEncuestasPreg7() {
+        //setBarModel2(new BarChartModel());
+        this.setBarModel4(new BarChartModel());
+        
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
 
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 7)).forEachOrdered((e) -> {
+            if(null != e.getCentro())
+                switch (e.getCentro()) {
+                case "H1":
+                    h1.set(e.getSresp(), e.getCant());
+                    break;
+                case "H11":
+                    h11.set(e.getSresp(), e.getCant());
+                    break;
+                case "H12":
+                    h12.set(e.getSresp(), e.getCant());
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        this.barModel4.addSeries(h1);
+        this.barModel4.addSeries(h11);
+        this.barModel4.addSeries(h12);
+
+        this.barModel4.setLegendPosition("ne");
+        //getBarModel2().setBarPadding(10);
+        //getBarModel2().setBarMargin(0);
+        this.barModel4.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel4.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel4.getAxis(AxisType.X);
+        XAxis.setLabel("Discrepancias encontradas en las autopsias");
+    }
+      
+        //----pregunta 7
+      public void crearGraficaEncuestasPreg8() {
+        //setBarModel2(new BarChartModel());
+        this.setBarModel5(new BarChartModel());
+        
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 8)).forEachOrdered((e) -> {
+            if(null != e.getCentro())
+                switch (e.getCentro()) {
+                case "H1":
+                    h1.set(e.getSresp(), e.getCant());
+                    break;
+                case "H11":
+                    h11.set(e.getSresp(), e.getCant());
+                    break;
+                case "H12":
+                    h12.set(e.getSresp(), e.getCant());
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        this.barModel5.addSeries(h1);
+        this.barModel5.addSeries(h11);
+        this.barModel5.addSeries(h12);
+
+        this.barModel5.setLegendPosition("ne");
+        //getBarModel2().setBarPadding(10);
+        //getBarModel2().setBarMargin(0);
+        this.barModel5.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel5.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel5.getAxis(AxisType.X);
+        XAxis.setLabel("Dan origen a casos de arbitraje");
+    }
+     
+      
+        //----pregunta 11
+      public void crearGraficaEncuestasPreg11() {
+        //setBarModel2(new BarChartModel());
+        this.setBarModel6(new BarChartModel());
+        
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 11)).forEachOrdered((e) -> {
+            if(null != e.getCentro())
+                switch (e.getCentro()) {
+                case "H1":
+                    h1.set(e.getSresp(), e.getCant());
+                    break;
+                case "H11":
+                    h11.set(e.getSresp(), e.getCant());
+                    break;
+                case "H12":
+                    h12.set(e.getSresp(), e.getCant());
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        this.barModel6.addSeries(h1);
+        this.barModel6.addSeries(h11);
+        this.barModel6.addSeries(h12);
+
+        this.barModel6.setLegendPosition("ne");
+        //getBarModel2().setBarPadding(10);
+        //getBarModel2().setBarMargin(0);
+        this.barModel6.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel6.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel6.getAxis(AxisType.X);
+        XAxis.setLabel("Dan origen a casos de demandas");
+    }
+     
+      
+      
     public HorizontalBarChartModel getBarModel() {
         return barModel;
     }
 
-    /**
-     * @return the barModel2
-     */
     public BarChartModel getBarModel2() {
         return barModel2;
     }
 
-    /**
-     * @param barModel2 the barModel2 to set
-     */
     public void setBarModel2(BarChartModel barModel2) {
         this.barModel2 = barModel2;
     }
 
-    /**
-     * @return the barModel3
-     */
     public BarChartModel getBarModel3() {
         return barModel3;
     }
 
-    /**
-     * @param barModel3 the barModel3 to set
-     */
     public void setBarModel3(BarChartModel barModel3) {
         this.barModel3 = barModel3;
+    }
+
+    public BarChartModel getBarModel4() {
+        return barModel4;
+    }
+
+    public void setBarModel4(BarChartModel barModel4) {
+        this.barModel4 = barModel4;
+    }
+
+    public BarChartModel getBarModel5() {
+        return barModel5;
+    }
+
+    public void setBarModel5(BarChartModel barModel5) {
+        this.barModel5 = barModel5;
+    }
+
+    
+    public BarChartModel getBarModel6() {
+        return barModel6;
+    }
+
+    public void setBarModel6(BarChartModel barModel6) {
+        this.barModel6 = barModel6;
     }
 
 }
