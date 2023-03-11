@@ -194,7 +194,7 @@ public class ChartView2 implements Serializable {
         }
 
     }
-
+    
     @PostConstruct
     public void init() {
         createAnimatedModels();
@@ -295,9 +295,11 @@ public class ChartView2 implements Serializable {
     public void setAnimatedFMRSA(BarChartModel animatedFMRSA) {
         this.animatedFMRSA = animatedFMRSA;
     }
-
+    
+    // [PASO] 1. Crear grafico sin datos para su uso
     private void createAnimatedModels() {
-
+        
+        // [PASO] 2. Agregar series (datos)
         animatedModel1 = initLinearModel();
         //animatedModel1.setTitle("Autopsias en H.R.R.B");
         animatedModel1.setAnimate(true);
@@ -398,6 +400,8 @@ public class ChartView2 implements Serializable {
 
     private BarChartModel initBarModel() {
         BarChartModel model = new BarChartModel();
+        
+        
 
         ChartSeries totalEncuestados = new ChartSeries();
         totalEncuestados.setLabel("Total");
@@ -415,6 +419,7 @@ public class ChartView2 implements Serializable {
         estudiante.setLabel("Estudiante medicina");
         estudiante.set("Estudiante", estudiantes);
 
+        
         model.addSeries(totalEncuestados);
         model.addSeries(especialista);
         model.addSeries(medicoGeneral);
@@ -826,7 +831,7 @@ public class ChartView2 implements Serializable {
         return model;
     }
 
-    //-------------------
+    //[PASO] 2.1 Cargar datos para asignar series
     private LineChartModel initLinearModel() {
         LineChartModel model = new LineChartModel();
 

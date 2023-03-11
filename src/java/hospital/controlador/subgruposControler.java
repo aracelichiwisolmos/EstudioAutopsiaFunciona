@@ -24,8 +24,10 @@ import framework.GUI.Model;
 import hospital.datos.AccesoDatos;
 import hospital.epm.model.Confianza;
 import hospital.modelo.centroHospitalario;
+import hospital.modelo.encuesta;
 import hospital.subgrupos.model.ReglasSG;
 import hospital.subgrupos.model.datosGrafica;
+import hospital.subgrupos.model.encuestaSG;
 import hospital.subgrupos.model.subgruposUtilidades;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -45,8 +47,6 @@ import org.primefaces.model.chart.HorizontalBarChartModel;
 @ViewScoped
 public class subgruposControler extends Model {
 
-   
-  
     private String sQuery;
     private String ruta;
     private AccesoDatos oAD;
@@ -63,11 +63,16 @@ public class subgruposControler extends Model {
     private int medidaSeleccionada;
     private List<String> reglas;
     private List<ReglasSG> reglas2;
-    private List<String> reglasPDFA;
+    private List<datosGrafica> reglasPDFA;
     private List<centroHospitalario> lista_hospitales;
     private centroHospitalario oCH;
     private HorizontalBarChartModel barModel;
-    private String alturaGrafica ;
+    private BarChartModel barModel2;
+    private BarChartModel barModel3;
+    private String alturaGrafica;
+    
+    private List<encuestaSG> datosEncuestas;
+    
 
     @SuppressWarnings("empty-statement")
     public subgruposControler() throws Exception {
@@ -83,12 +88,74 @@ public class subgruposControler extends Model {
         this.reglasPDFA = new ArrayList<>();
         this.reglas = new ArrayList<>();
         this.oCH = new centroHospitalario();
+        
+        this.datosEncuestas = this.cantInstancias_hospital();
 
     }
 
     public subgruposUtilidades getoSGUtilidades() {
         return oSGUtilidades;
 
+    }
+
+    //--------------------------------Datos para graficar--------------------------------------------------------
+    public List<encuestaSG> cantInstancias_hospital() throws Exception {
+
+        int cantidad = 0;
+        ArrayList resultado = null;
+        ArrayList arr = null;
+        ArrayList<encuestaSG> datos = new ArrayList<>();
+
+        try {
+            String sQuery = "	select\n"
+                    + "		CASE \n"
+                    + "			WHEN i.centro_hospitalario <= 10 THEN 'H'|| 1 \n"
+                    + "			ELSE 'H' || i.centro_hospitalario \n"
+                    + "		END as centro,\n"
+                    + "		e.idresp,\n"
+                    + "		e.idpreg,\n"
+                    + "		COUNT(*),\n"
+                    + " (select sresp from respuesta r where r.idpreg = e.idpreg and r.idresp = e.idresp) as sresp \n"
+                    + "	from encuesta e\n"
+                    + "	inner join identificacion_usuario4 i\n"
+                    + "	on e.idmedico = i.clave_med\n"
+                    + "	where e.idpreg in (3,4,7,8,11)\n"
+                    + "	group by centro, e.idresp, e.idpreg\n"
+                    + "	order by e.idpreg, centro, e.idresp;";
+            if (oAD == null) {
+                oAD = new AccesoDatos();
+                if (oAD.conectar()) {
+                    arr = oAD.ejecutarConsulta(sQuery);
+                    oAD.desconectar();
+                    if (arr != null && !arr.isEmpty()) {
+                        encuestaSG item;
+                        
+                        for(int i = 0; i < arr.toArray().length; i++) {
+                            item = new encuestaSG();
+                            item.setCentro(((ArrayList) arr.get(i)).get(0).toString());
+                            item.setResp(((ArrayList) arr.get(i)).get(1).toString());
+                            item.setPregunta((int)Math.floor((double) ((ArrayList) arr.get(i)).get(2)));
+                            item.setCant((int)Math.floor((double) ((ArrayList) arr.get(i)).get(3)));
+                            item.setSresp(((ArrayList) arr.get(i)).get(4).toString());
+                            datos.add(item);
+                        }
+                    }
+                    
+                    return datos;
+                }
+                oAD = null;
+            } else {
+                resultado = oAD.ejecutarConsulta(sQuery);
+                oAD.desconectar();
+            }
+            
+           
+            
+        } catch (Exception e) {
+            throw e;
+        }
+        
+        return datos;
     }
 
     //Metodo que muestra los resultados para cualquier usuario
@@ -242,30 +309,24 @@ public class subgruposControler extends Model {
                                     reglasSeleccionadas, medidaSeleccionada, getModeloSeleccionado()));
                             reglasPDFA = oSGUtilidades.obtenerReglasD1(claseSeleccionada, medidaSeleccionada, getReglas2());
                             break;
-
                     }
                     break;
             }
-            if(reglasSeleccionadas  ==20){
+            if (reglasSeleccionadas == 20) {
                 setAlturaGrafica("600px");
-            }else{
+            } else {
                 setAlturaGrafica("1200px");
             }
-            
+
             barModel = new HorizontalBarChartModel();
-            List<datosGrafica> datos = oSGUtilidades.obtenerDatosGrafico(claseSeleccionada, medidaSeleccionada, getReglas2());
             ChartSeries reglas = new ChartSeries();
             reglas.setLabel("Reglas");
-
-            for (datosGrafica i : datos) {
-                //System.out.println("--------------- valor regla:"+i.getRegla()+"valor :  "+i.getValor());
-               
-                
+            System.out.println("---------------REGLAS" + reglasPDFA);
+            for (datosGrafica i : reglasPDFA) {
+                System.out.println("--------------- valor regla:" + i.getRegla() + "valor :  " + i.getValor());
                 reglas.set(i.getRegla(), i.getValor());
-                
-               
-            }
 
+            }
             barModel.addSeries(reglas);
             barModel.setLegendPosition("ne");
             barModel.setBarPadding(10);
@@ -273,14 +334,11 @@ public class subgruposControler extends Model {
             barModel.setShadow(false);
             barModel.setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
             //barModel.setStacked(true);
-            Axis YAxis=barModel.getAxis(AxisType.Y);
-            YAxis.setLabel("Regla");                 
-            Axis XAxis=barModel.getAxis(AxisType.X);
+            Axis YAxis = barModel.getAxis(AxisType.Y);
+            YAxis.setLabel("Regla");
+            Axis XAxis = barModel.getAxis(AxisType.X);
             XAxis.setLabel("%");
-            
-            
-            
-            
+
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
 
@@ -545,25 +603,23 @@ public class subgruposControler extends Model {
         this.reglas = reglas;
     }
 
-    public List<String> getReglasPDFA() {
+    public List<datosGrafica> getReglasPDFA() {
         return reglasPDFA;
     }
 
-    public void setReglasPDFA(ArrayList<String> reglasPDFA) {
+    public void setReglasPDFA(ArrayList<datosGrafica> reglasPDFA) {
         this.reglasPDFA = reglasPDFA;
     }
-    
-      public String getAlturaGrafica() {
+
+    public String getAlturaGrafica() {
         return alturaGrafica;
     }
 
-    
     public void setAlturaGrafica(String alturaGrafica) {
         this.alturaGrafica = alturaGrafica;
     }
 
     //traeemos la lista de todos los hospitales en la BD para moestrarlos al usuario de manera dinámica
-
     public List<centroHospitalario> getLista_hospitales() {
         List<centroHospitalario> lista = new ArrayList<>();
         try {
@@ -599,11 +655,133 @@ public class subgruposControler extends Model {
     public void init() {
         //      createBarModel();
         barModel = new HorizontalBarChartModel();
+        barModel2 = new BarChartModel();
+        barModel3 = new BarChartModel();
+        
+        this.crearGraficaEncuestas();
+        this.crearGraficaEncuestasPreg4();
+        
+    }
+    
+    public void crearGraficaEncuestas() {
+        //setBarModel2(new BarChartModel());
+        this.barModel2 = new BarChartModel();
+        
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("H1");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("H11");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("H12");
 
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 3)).forEachOrdered((e) -> {
+            if(null != e.getCentro())
+                switch (e.getCentro()) {
+                case "H1":
+                    h1.set(e.getSresp(), e.getCant());
+                    break;
+                case "H11":
+                    h11.set(e.getSresp(), e.getCant());
+                    break;
+                case "H12":
+                    h12.set(e.getSresp(), e.getCant());
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        this.barModel2.addSeries(h1);
+        this.barModel2.addSeries(h11);
+        this.barModel2.addSeries(h12);
+
+        this.barModel2.setLegendPosition("ne");
+        //getBarModel2().setBarPadding(10);
+        //getBarModel2().setBarMargin(0);
+        this.barModel2.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel2.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel2.getAxis(AxisType.X);
+        XAxis.setLabel("Años de práctica");
+    }
+    
+    //----pregunta 4
+     public void crearGraficaEncuestasPreg4() {
+        //setBarModel2(new BarChartModel());
+        this.setBarModel3(new BarChartModel());
+        
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("H1");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("H11");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("H12");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 4)).forEachOrdered((e) -> {
+            if(null != e.getCentro())
+                switch (e.getCentro()) {
+                case "H1":
+                    h1.set(e.getSresp(), e.getCant());
+                    break;
+                case "H11":
+                    h11.set(e.getSresp(), e.getCant());
+                    break;
+                case "H12":
+                    h12.set(e.getSresp(), e.getCant());
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        this.barModel3.addSeries(h1);
+        this.barModel3.addSeries(h11);
+        this.barModel3.addSeries(h12);
+
+        this.barModel3.setLegendPosition("ne");
+        //getBarModel2().setBarPadding(10);
+        //getBarModel2().setBarMargin(0);
+        this.barModel3.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel3.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel3.getAxis(AxisType.X);
+        XAxis.setLabel("Experiencia en casos de autopsia");
     }
 
     public HorizontalBarChartModel getBarModel() {
         return barModel;
+    }
+
+    /**
+     * @return the barModel2
+     */
+    public BarChartModel getBarModel2() {
+        return barModel2;
+    }
+
+    /**
+     * @param barModel2 the barModel2 to set
+     */
+    public void setBarModel2(BarChartModel barModel2) {
+        this.barModel2 = barModel2;
+    }
+
+    /**
+     * @return the barModel3
+     */
+    public BarChartModel getBarModel3() {
+        return barModel3;
+    }
+
+    /**
+     * @param barModel3 the barModel3 to set
+     */
+    public void setBarModel3(BarChartModel barModel3) {
+        this.barModel3 = barModel3;
     }
 
 }

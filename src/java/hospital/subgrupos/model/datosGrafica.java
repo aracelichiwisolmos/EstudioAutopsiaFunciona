@@ -11,8 +11,11 @@ package hospital.subgrupos.model;
  */
 public class datosGrafica {
 
+
+
     private int regla;
     private int valor;
+    private String interpretacion;
     
      
        public datosGrafica() {
@@ -35,6 +38,14 @@ public class datosGrafica {
   
     public void setValor(int valor) {
         this.valor = valor;
+    }
+    
+    public String getInterpretacion() {
+        return interpretacion;
+    }
+
+    public void setInterpretacion(String interpretacion) {
+        this.interpretacion = interpretacion;
     }
 
     
