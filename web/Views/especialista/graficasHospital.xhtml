@@ -226,7 +226,25 @@
                                     </ui:repeat>
                                 </ul>
                             </p:fieldset>
-                        </h:form>                                 
+                        </h:form>    
+                        
+                         <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl"  legend="¿Cuál sería la forma, método o recurso que pudiera funcionar en forma eficiente para la solcitud de un estudio de autopsia?" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width: 800px;">
+                                        <p:chart id="chtMod10" type="bar" model="#{oSGJB.barModel11}"  />
+
+                                    </p:panelGrid>
+                                </div>
+                                <br/>
+                                  <ul>
+                                    <ui:repeat value="#{oSGJB.opciones_preg21}" var="data">
+                                        <li style="border-bottom: none;">#{data.resp} - #{data.sresp}</li>
+                                    </ui:repeat>
+                                </ul>
+                            </p:fieldset>
+                        </h:form>    
 
 
                     </p:column>

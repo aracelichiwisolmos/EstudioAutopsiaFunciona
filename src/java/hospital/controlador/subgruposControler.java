@@ -84,6 +84,7 @@ public class subgruposControler extends Model {
     private List<encuestaSG> opciones_preg17;
     private List<encuestaSG> opciones_preg18;
     private List<encuestaSG> opciones_preg19;
+    private List<encuestaSG> opciones_preg21;
 
     @SuppressWarnings("empty-statement")
     public subgruposControler() throws Exception {
@@ -728,6 +729,7 @@ public class subgruposControler extends Model {
         barModel8 = new BarChartModel();
         barModel9 = new BarChartModel();
         barModel10 = new HorizontalBarChartModel();
+        barModel11 = new BarChartModel();
 
         this.crearGraficaEncuestas();
         this.crearGraficaEncuestasPreg4();
@@ -738,6 +740,7 @@ public class subgruposControler extends Model {
         this.crearGraficaEncuestasPreg17();
         this.crearGraficaEncuestasPreg18();
         this.crearGraficaEncuestasPreg19();
+        this.crearGraficaEncuestasPreg21();
 
 
     }
@@ -1067,51 +1070,7 @@ public class subgruposControler extends Model {
         XAxis.setLabel("Opciones");
     }
        
-       
-    /* //----pregunta 17
-    public void crearGraficaEncuestasPreg17() {
-
-        this.setBarModel8(new HorizontalBarChartModel());
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 17)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel8.addSeries(h1);
-        this.barModel8.addSeries(h11);
-        this.barModel8.addSeries(h12);
-        getBarModel8().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        //getBarModel8().setBarWidth(25);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.barModel8.setLegendPosition("ne");
-        this.barModel8.setShadow(false);
-        Axis YAxis = this.barModel8.getAxis(AxisType.Y);
-        //YAxis.setLabel("");
-        Axis XAxis = this.barModel8.getAxis(AxisType.X);
-        XAxis.setLabel("Cantidad de respuestas");
-    }
-  */  
+        
     //----pregunta 18
     public void crearGraficaEncuestasPreg18() {
          
@@ -1209,75 +1168,33 @@ public class subgruposControler extends Model {
     }
     
     
-    
-    /*
-//----pregunta 19
-    public void crearGraficaEncuestasPreg19() {
-
-        this.setBarModel10(new HorizontalBarChartModel());
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 19)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.getBarModel10().addSeries(h1);
-        this.getBarModel10().addSeries(h11);
-        this.getBarModel10().addSeries(h12);
-        getBarModel10().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        getBarModel10().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.getBarModel10().setLegendPosition("ne");
-        this.getBarModel10().setShadow(false);
-        Axis YAxis = this.barModel10.getAxis(AxisType.Y);
-        //YAxis.setLabel("");
-        Axis XAxis = this.barModel10.getAxis(AxisType.X);
-        XAxis.setLabel("Cantidad de respuestas");
-    }
-    */
             //----pregunta 21
-    public void crearGraficaEncuestasPreg21() {
-
-        this.setBarModel11(new HorizontalBarChartModel());
-
+     public void crearGraficaEncuestasPreg21() {
+         
+        setOpciones_preg21(new ArrayList<>());
+        this.setBarModel11(new BarChartModel());
         ChartSeries h1 = new ChartSeries();
         h1.setLabel("Hospital Regional de Río Blanco ");
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
         h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 19)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
+      
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 21 )).forEachOrdered((e) -> {
+            if (null !=e.getCentro()) {
+              boolean exist= getOpciones_preg21().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+              if(!exist){
+                  getOpciones_preg21().add(e);
+              }
                 switch (e.getCentro()) {
                     case "H1":
-                        h1.set(e.getSresp(), e.getCant());
+                        h1.set(e.getResp(), e.getCant());
                         break;
                     case "H11":
-                        h11.set(e.getSresp(), e.getCant());
+                        h11.set(e.getResp(), e.getCant());
                         break;
                     case "H12":
-                        h12.set(e.getSresp(), e.getCant());
+                        h12.set(e.getResp(), e.getCant());
                         break;
                     default:
                         break;
@@ -1285,20 +1202,19 @@ public class subgruposControler extends Model {
             }
         });
 
-        this.getBarModel11().addSeries(h1);
-        this.getBarModel11().addSeries(h11);
-        this.getBarModel11().addSeries(h12);
-        getBarModel11().setBarPadding(10);
+        this.barModel11.addSeries(h1);
+        this.barModel11.addSeries(h11);
+        this.barModel11.addSeries(h12);
+        //getBarModel7().setBarPadding(10);
         //getBarModel7().setBarMargin(0);
         getBarModel11().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.getBarModel11().setLegendPosition("ne");
-        this.getBarModel11().setShadow(false);
+        this.barModel11.setLegendPosition("ne");
+        this.barModel11.setShadow(false);
         Axis YAxis = this.barModel11.getAxis(AxisType.Y);
-        //YAxis.setLabel("");
+        YAxis.setLabel("Cantidad de respuestas");
         Axis XAxis = this.barModel11.getAxis(AxisType.X);
-        XAxis.setLabel("Cantidad de respuestas");
+        XAxis.setLabel("Opciones");
     }
-    
     
 
     public HorizontalBarChartModel getBarModel() {
@@ -1453,6 +1369,20 @@ public class subgruposControler extends Model {
      */
     public void setOpciones_preg17(List<encuestaSG> opciones_preg17) {
         this.opciones_preg17 = opciones_preg17;
+    }
+
+    /**
+     * @return the opciones_preg21
+     */
+    public List<encuestaSG> getOpciones_preg21() {
+        return opciones_preg21;
+    }
+
+    /**
+     * @param opciones_preg21 the opciones_preg21 to set
+     */
+    public void setOpciones_preg21(List<encuestaSG> opciones_preg21) {
+        this.opciones_preg21 = opciones_preg21;
     }
 
 }
