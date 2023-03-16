@@ -72,7 +72,7 @@ public class subgruposControler extends Model {
     private BarChartModel barModel5;
     private BarChartModel barModel6;
     private BarChartModel barModel7;
-    private HorizontalBarChartModel barModel8;
+    private BarChartModel barModel8;
     private BarChartModel barModel9;
     private BarChartModel barModel10;
     private BarChartModel barModel11;
@@ -81,6 +81,7 @@ public class subgruposControler extends Model {
     private List<encuestaSG> datosEncuestas;
     private List<encuestaSG> datosEncuestas2;
     private List<encuestaSG> opciones_preg14;
+    private List<encuestaSG> opciones_preg17;
     private List<encuestaSG> opciones_preg18;
     private List<encuestaSG> opciones_preg19;
 
@@ -724,7 +725,7 @@ public class subgruposControler extends Model {
         barModel5 = new BarChartModel();
         barModel6 = new BarChartModel();
         barModel7 = new HorizontalBarChartModel();
-        barModel8 = new HorizontalBarChartModel();
+        barModel8 = new BarChartModel();
         barModel9 = new BarChartModel();
         barModel10 = new HorizontalBarChartModel();
 
@@ -1018,7 +1019,56 @@ public class subgruposControler extends Model {
         XAxis.setLabel("Opciones");
     }
     
-     //----pregunta 17
+      //----pregunta 17
+       public void crearGraficaEncuestasPreg17() {
+         
+        setOpciones_preg17(new ArrayList<>());
+        this.setBarModel8(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+      
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 17 )).forEachOrdered((e) -> {
+            if (null !=e.getCentro()) {
+              boolean exist= getOpciones_preg17().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+              if(!exist){
+                  getOpciones_preg17().add(e);
+              }
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getResp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getResp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getResp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel8.addSeries(h1);
+        this.barModel8.addSeries(h11);
+        this.barModel8.addSeries(h12);
+        //getBarModel7().setBarPadding(10);
+        //getBarModel7().setBarMargin(0);
+        getBarModel8().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        this.barModel8.setLegendPosition("ne");
+        this.barModel8.setShadow(false);
+        Axis YAxis = this.barModel8.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel8.getAxis(AxisType.X);
+        XAxis.setLabel("Opciones");
+    }
+       
+       
+    /* //----pregunta 17
     public void crearGraficaEncuestasPreg17() {
 
         this.setBarModel8(new HorizontalBarChartModel());
@@ -1061,7 +1111,7 @@ public class subgruposControler extends Model {
         Axis XAxis = this.barModel8.getAxis(AxisType.X);
         XAxis.setLabel("Cantidad de respuestas");
     }
-    
+  */  
     //----pregunta 18
     public void crearGraficaEncuestasPreg18() {
          
@@ -1149,7 +1199,7 @@ public class subgruposControler extends Model {
         this.barModel10.addSeries(h12);
         //getBarModel7().setBarPadding(10);
         //getBarModel7().setBarMargin(0);
-        getBarModel10().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        getBarModel10().setBarWidth(30);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
         this.barModel10.setLegendPosition("ne");
         this.barModel10.setShadow(false);
         Axis YAxis = this.barModel10.getAxis(AxisType.Y);
@@ -1307,7 +1357,7 @@ public class subgruposControler extends Model {
         return barModel8;
     }
 
-    public void setBarModel8(HorizontalBarChartModel barModel8) {
+    public void setBarModel8(BarChartModel barModel8) {
         this.barModel8 = barModel8;
     }
 
@@ -1389,6 +1439,20 @@ public class subgruposControler extends Model {
      */
     public void setOpciones_preg19(List<encuestaSG> opciones_preg19) {
         this.opciones_preg19 = opciones_preg19;
+    }
+
+    /**
+     * @return the opciones_preg17
+     */
+    public List<encuestaSG> getOpciones_preg17() {
+        return opciones_preg17;
+    }
+
+    /**
+     * @param opciones_preg17 the opciones_preg17 to set
+     */
+    public void setOpciones_preg17(List<encuestaSG> opciones_preg17) {
+        this.opciones_preg17 = opciones_preg17;
     }
 
 }

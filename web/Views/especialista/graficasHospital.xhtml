@@ -178,11 +178,16 @@
                             <p:fieldset id="pnl"  legend="¿Cuál considera que es la principal causa de rechazo por parte del familiar para realizar una autopsia?" toggleable="true" class="siBordes">
                                 <div id="graficos">
                                     <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width: 800px;">
-                                        <p:chart id="chtMod8" type="bar" model="#{oSGJB.barModel8}"  style="height:800px;"/>
+                                        <p:chart id="chtMod8" type="bar" model="#{oSGJB.barModel8}"/>
 
                                     </p:panelGrid>
                                 </div>
                                 <br/>
+                                <ul>
+                                    <ui:repeat value="#{oSGJB.opciones_preg17}" var="data">
+                                        <li style="border-bottom: none;">#{data.resp} - #{data.sresp}</li>
+                                    </ui:repeat>
+                                </ul>
 
                             </p:fieldset>
                         </h:form>
