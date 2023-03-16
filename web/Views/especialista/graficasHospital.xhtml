@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -153,6 +153,76 @@
 
                             </p:fieldset>
                         </h:form>
+
+                        <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl"  legend="¿Cuáles son los motivos, las causas y las circunstancias para que solicite una autopsia?" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width: 800px;">
+                                        <p:chart id="chtMod7" type="bar" model="#{oSGJB.barModel7}" />
+
+                                    </p:panelGrid>
+                                </div>
+                                <br/>
+                                <ul>
+                                    <ui:repeat value="#{oSGJB.opciones_preg14}" var="data">
+                                        <li style="border-bottom: none;">#{data.resp} - #{data.sresp}</li>
+                                    </ui:repeat>
+                                </ul>
+
+                            </p:fieldset>
+                        </h:form>        
+
+                        <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl"  legend="¿Cuál considera que es la principal causa de rechazo por parte del familiar para realizar una autopsia?" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width: 800px;">
+                                        <p:chart id="chtMod8" type="bar" model="#{oSGJB.barModel8}"  style="height:800px;"/>
+
+                                    </p:panelGrid>
+                                </div>
+                                <br/>
+
+                            </p:fieldset>
+                        </h:form>
+
+                        <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl"  legend="¿Cuáles consideras que son las causas por las que no se realizan suficientes autopsias en su hospital?" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width:800px;">
+                                        <p:chart id="chtMod9" type="bar" model="#{oSGJB.barModel9}"  />
+
+                                    </p:panelGrid>
+                                </div>
+                                <br/>
+                                <ul>
+                                    <ui:repeat value="#{oSGJB.opciones_preg18}" var="data">
+                                        <li style="border-bottom: none;">#{data.resp} - #{data.sresp}</li>
+                                    </ui:repeat>
+                                </ul>
+                            </p:fieldset>
+                        </h:form>
+
+                        <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl"  legend="¿Quién considera que debe solicitar la autopsia?" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width: 800px;">
+                                        <p:chart id="chtMod10" type="bar" model="#{oSGJB.barModel10}"  />
+
+                                    </p:panelGrid>
+                                </div>
+                                <br/>
+                                  <ul>
+                                    <ui:repeat value="#{oSGJB.opciones_preg19}" var="data">
+                                        <li style="border-bottom: none;">#{data.resp} - #{data.sresp}</li>
+                                    </ui:repeat>
+                                </ul>
+                            </p:fieldset>
+                        </h:form>                                 
+
 
                     </p:column>
                 </p:panelGrid>
