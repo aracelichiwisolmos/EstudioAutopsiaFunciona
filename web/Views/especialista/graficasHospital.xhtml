@@ -80,6 +80,19 @@
 
                     </p:column>
                     <p:column>
+                           <h:form>
+                            <p:growl id="growl" showDetail="true" showSummary=""/>
+                            <p:fieldset id="pnl"  legend="Último grado de estudios" toggleable="true" class="siBordes">
+                                <div id="graficos">
+                                    <p:panelGrid columns="1" styleClass="noBordes" columnClasses="left,right" style=" width: 800px;">
+                                        <p:chart id="chtMod12" type="bar" model="#{oSGJB.barModel12}"  />
+
+                                    </p:panelGrid>
+                                </div>
+                                <br/>                                 
+                            </p:fieldset>
+                        </h:form>   
+                        
                         <h:form>
                             <p:growl id="growl" showDetail="true" showSummary=""/>
                             <p:fieldset id="pnl"  legend="Años de práctica" toggleable="true" class="siBordes">
