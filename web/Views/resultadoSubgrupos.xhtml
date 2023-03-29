@@ -8,8 +8,8 @@
 
 
     <h:body>
-        
-      
+
+
 
         <p:growl id="growl" sticky="true" showDetail="true"/>
         <ui:composition template="./../Template/plantillaBase.xhtml">
@@ -81,42 +81,47 @@
                                         <f:selectItem itemLabel="BeamSearch" itemValue="3" />
 
                                     </p:selectOneMenu>
-                                    
+
                                     <p:outputLabel for="conjunto" value="Dataset:" style="font-weight: bolder"/>
                                     <p:selectOneRadio id="conjunto" layout="grid" columns="1" value="#{oSGJB.corpusSeleccionado}" required="true">
                                         <f:selectItem itemLabel="Conjunto C" itemValue="c" />
                                         <f:selectItem itemLabel="Conjunto D" itemValue="d" />
                                     </p:selectOneRadio>
-                                    
-                                   
-                                     
-                                      <p:outputLabel for="medida" value="Medida de interés:" style="font-weight: bolder"/>
-                                      <p:selectOneMenu id="medida" value="#{oSGJB.medidaSeleccionada}" required="true" style="width:125px">
+
+
+
+                                    <p:outputLabel for="medida" value="Medida de interés:" style="font-weight: bolder"/>
+                                    <p:selectOneMenu id="medida" value="#{oSGJB.medidaSeleccionada}" required="true" style="width:125px">
                                         <f:selectItem itemLabel="WRAccQF" itemValue="1"  />
                                         <f:selectItem itemLabel="ChiSquareQF" itemValue="2"/>
                                         <f:selectItem itemLabel="BinomialQF" itemValue="3"  />
 
                                     </p:selectOneMenu>
-                                      
-                                      
-                                      
+
+
+
                                     <p:outputLabel for="Etiqueta_clase" value="Etiqueta de clase:" style="font-weight: bolder"/>
                                     <p:selectOneMenu id="Etiqueta_clase" value="#{oSGJB.claseSeleccionada}" required="true" style="width:125px">
                                         <f:selectItems  value="#{oSGJB.lista_hospitales}" var="hospital" itemValue="#{hospital.claveCH}" itemLabel="#{hospital.nombreCH}" /> 
                                     </p:selectOneMenu>
-                                    
+
                                     <p:outputLabel for="reglas" value="Número de reglas:" style="font-weight: bolder"/>
                                     <p:selectOneMenu id="reglas" value="#{oSGJB.reglasSeleccionadas}" required="true" style="width:125px">
                                         <f:selectItem itemLabel="20" itemValue="20"/>
                                         <f:selectItem itemLabel="50" itemValue="50"/>
-                                        
+
 
                                     </p:selectOneMenu>
-                                    
-                                     <p:outputLabel for="numero" value="Número de atributos:" style="font-weight: bolder"/>
-                                     <p:inputText id="numero" type="number" value="#{oSGJB.numeroSeleccionado}" required="true" style="width:125px" requiredMessage="Campo requerido." onkeydown="return event.keyCode === 69 ? false : true" ><f:attribute name="value" value="3" />   </p:inputText>   
-                      
-                                     
+
+                                    <p:outputLabel for="numero" value="Número de atributos:" style="font-weight: bolder"/>
+                                    <p:selectOneMenu id="numero" value="#{oSGJB.numeroSeleccionado}" required="true" style="width:125px">
+                                        <f:selectItem itemLabel="1" itemValue="1"/>
+                                        <f:selectItem itemLabel="2" itemValue="2"/>
+                                        <f:selectItem itemLabel="3" itemValue="3"/>
+                                        <f:selectItem itemLabel="4" itemValue="4"/>
+                                        <f:selectItem itemLabel="5" itemValue="5"/>
+                                    </p:selectOneMenu>
+
                                     <p:column/> <p:commandButton onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog2').hide()" update="frmReglas:dtReglas" value="Mostrar Reglas" action="#{oSGJB.mostrarResultadosSG()}"/>
                                     <p:column/>
 
@@ -137,16 +142,16 @@
 
                                     <f:facet name="header">
                                         Interpretación de las reglas
-                                        <h:commandLink>
-                                        <p:graphicImage name="/images/pdf1.png" width="40em" />
-                                        <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oSGJB.preProcessPDF}"/>
-                                    </h:commandLink>
+                                         <h:commandLink>
+                                            <p:graphicImage name="/images/pdf1.png" width="40em" />
+                                            <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oSGJB.preProcessPDF}"/>
+                                        </h:commandLink>
                                     </f:facet>
                                     <p:column width="10%">
                                         <p:outputLabel value=" #{rowIndex+1}" />
                                     </p:column>
                                     <p:column headerText="Regla" width="70%">
-                                        <p:outputLabel value="#{reglita}"/>
+                                        <p:outputLabel value="#{reglita.interpretacion}"/>
                                     </p:column>
                                 </p:dataTable>
 

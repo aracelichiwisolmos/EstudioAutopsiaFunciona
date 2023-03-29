@@ -9,10 +9,15 @@ import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.Font;
 import com.lowagie.text.FontFactory;
+import com.lowagie.text.Image;
+import com.lowagie.text.pdf.codec.PngImage;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
+import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
+import com.lowagie.text.pdf.PdfTable;
 import com.lowagie.text.pdf.PdfWriter;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,18 +34,35 @@ import hospital.subgrupos.model.ReglasSG;
 import hospital.subgrupos.model.datosGrafica;
 import hospital.subgrupos.model.encuestaSG;
 import hospital.subgrupos.model.subgruposUtilidades;
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import static java.lang.System.console;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.chart.BarChart;
+import javafx.scene.image.WritableImage;
+//import javafx.scene.chart.Chart;
 import javax.faces.validator.ValidatorException;
 import javax.faces.component.UIComponent;
 import org.primefaces.model.chart.BarChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import javax.annotation.PostConstruct;
+import javax.imageio.ImageIO;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.HorizontalBarChartModel;
+import org.primefaces.component.chart.Chart;
+import org.primefaces.component.chart.ChartRenderer;
+import org.primefaces.util.ComponentUtils;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+
 
 @ManagedBean(name = "oSGJB")
 @ViewScoped
@@ -77,11 +99,13 @@ public class subgruposControler extends Model {
     private BarChartModel barModel10;
     private BarChartModel barModel11;
     private BarChartModel barModel12;
+    private BarChartModel barModel13;
     private String alturaGrafica;
 
     private List<encuestaSG> datosEncuestas;
     private List<encuestaSG> datosEncuestas2;
     private List<encuestaSG> datosEncuestas3;
+    private List<encuestaSG> datosEncuestas4;
     private List<encuestaSG> opciones_preg14;
     private List<encuestaSG> opciones_preg17;
     private List<encuestaSG> opciones_preg18;
@@ -106,6 +130,7 @@ public class subgruposControler extends Model {
         this.datosEncuestas = this.cantInstancias_hospital();
         this.datosEncuestas2 = this.cantInstancias_hospital2();
         this.datosEncuestas3 = this.cantInstancias_hospital3();
+        this.datosEncuestas4 = this.cantInstancias_hospital4();
 
     }
 
@@ -242,6 +267,57 @@ public class subgruposControler extends Model {
                     + "	INNER JOIN identificacion_usuario4 c ON c.clave_med = b.idmedico\n"
                     + "GROUP BY centro, b.idgrado\n"
                     + "ORDER BY idresp, idpreg, COUNT(DISTINCT a.idmedico), sresp, centro;;";
+
+            if (oAD.conectar()) {
+                arr = oAD.ejecutarConsulta(sQuery);
+
+                if (arr != null && !arr.isEmpty()) {
+                    encuestaSG item;
+
+                    for (int i = 0; i < arr.toArray().length; i++) {
+                        item = new encuestaSG();
+                        item.setCentro(((ArrayList) arr.get(i)).get(0).toString());
+                        item.setResp(((ArrayList) arr.get(i)).get(1).toString());
+                        item.setPregunta((int) Math.floor((double) ((ArrayList) arr.get(i)).get(2)));
+                        item.setCant((int) Math.floor((double) ((ArrayList) arr.get(i)).get(3)));
+                        item.setSresp(((ArrayList) arr.get(i)).get(4).toString());
+                        datos.add(item);
+                    }
+                }
+
+                return datos;
+            }
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            oAD.desconectar();
+        }
+
+        return datos;
+    }
+
+    //------areas
+    public List<encuestaSG> cantInstancias_hospital4() throws Exception {
+        int cantidad = 0;
+        ArrayList arr = null;
+        ArrayList<encuestaSG> datos = new ArrayList<>();
+
+        try {
+            String sQuery = "SELECT \n"
+                    + "		CASE \n"
+                    + "			WHEN c.centro_hospitalario <= 10 THEN 'H'|| 1 \n"
+                    + "			ELSE 'H' || c.centro_hospitalario \n"
+                    + "		END as centro,\n"
+                    + "		b.idarea as idresp,\n"
+                    + "		1 as idpreg,\n"
+                    + "		COUNT(DISTINCT a.idmedico),\n"
+                    + "		(SELECT sdesc FROM area r WHERE r.idarea = b.idarea) as sresp\n"
+                    + "	FROM encuesta a\n"
+                    + "		INNER JOIN medico b ON a.idmedico = b.idmedico\n"
+                    + "		INNER JOIN identificacion_usuario4 c ON c.clave_med = b.idmedico\n"
+                    + "	GROUP BY centro, b.idarea\n"
+                    + "	ORDER BY centro, idresp, idpreg, COUNT(DISTINCT a.idmedico), sresp;";
 
             if (oAD.conectar()) {
                 arr = oAD.ejecutarConsulta(sQuery);
@@ -463,6 +539,7 @@ public class subgruposControler extends Model {
         Document pdf = (Document) document;
         pdf.open();
         pdf.setPageSize(PageSize.A4);
+
         Phrase phrase = new Phrase();
         int algoritmos = getModeloSeleccionado();
         System.out.println("Algoritmo: " + algoritmos);
@@ -635,14 +712,605 @@ public class subgruposControler extends Model {
                     }
 
             }
-
+        
+             // Agregar la gráfica al documento
+            pdf.add(new Paragraph("_______________________Gráfica de las reglas generadas____________________" + "\n"));
+            DefaultCategoryDataset data=new DefaultCategoryDataset();
+            
+             for (datosGrafica i : reglasPDFA) {
+                System.out.println("--------------- valor regla:" + i.getRegla() + "valor :  " + i.getValor());
+                //reglas.set(i.getRegla(), i.getValor());
+                //data.addValue(i.getValor(), "%", i.getRegla());
+                String regla = "    "+i.getRegla();
+                data.addValue(i.getValor(), regla, "-");
+            }
+            //data.addValue(20, "ventas", "ene");
+            //data.addValue(10, "ventas", "feb");
+            //data.addValue(50, "ventas", "marz");
+            
+            JFreeChart chart = ChartFactory.createBarChart("", "Reglas", "Valor porcentual",data, PlotOrientation.VERTICAL, true,true,true);
+            chart.setBorderPaint(Color.WHITE);
+            int width=500;
+            int height=300;
+            
+            BufferedImage buffer= chart.createBufferedImage(width, height);
+            ByteArrayOutputStream boos= new ByteArrayOutputStream();
+            ImageIO.write(buffer, "png", boos);
+            boos.flush();
+            byte[] imageBytes=boos.toByteArray();
+            boos.close();
+            Image imagen =Image.getInstance(imageBytes);
+            imagen.setAlignment(Image.ALIGN_CENTER);
+            
+            
+            pdf.add(imagen);
+            // Agregar el título al PDF
             phrase.add("_______________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");
             pdf.add(phrase);
+          
+            
 
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
 
         }
+    }
+
+    //XML----------------------------------
+    public void setoSGUtilidades(subgruposUtilidades oSGUtilidades) {
+        this.oSGUtilidades = oSGUtilidades;
+    }
+
+    public configuracionAppControler getoConfApp() {
+        return oConfApp;
+    }
+
+    @PostConstruct
+    public void init() {
+        //      createBarModel();
+        barModel = new HorizontalBarChartModel();
+        barModel2 = new BarChartModel();
+        barModel3 = new BarChartModel();
+        barModel4 = new BarChartModel();
+        barModel5 = new BarChartModel();
+        barModel6 = new BarChartModel();
+        barModel7 = new HorizontalBarChartModel();
+        barModel8 = new BarChartModel();
+        barModel9 = new BarChartModel();
+        barModel10 = new HorizontalBarChartModel();
+        barModel11 = new BarChartModel();
+        barModel12 = new BarChartModel();
+        barModel13 = new BarChartModel();
+
+        this.crearGraficaEncuestas();
+        this.crearGraficaEncuestasPreg4();
+        this.crearGraficaEncuestasPreg7();
+        this.crearGraficaEncuestasPreg8();
+        this.crearGraficaEncuestasPreg11();
+        this.crearGraficaEncuestasPreg14();
+        this.crearGraficaEncuestasPreg17();
+        this.crearGraficaEncuestasPreg18();
+        this.crearGraficaEncuestasPreg19();
+        this.crearGraficaEncuestasPreg21();
+        this.crearGraficaEncuestasGrado();
+        this.crearGraficaEncuestasArea();
+
+    }
+
+    public void crearGraficaEncuestas() {
+        this.barModel2 = new BarChartModel();
+
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 3)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel2.addSeries(h1);
+        this.barModel2.addSeries(h11);
+        this.barModel2.addSeries(h12);
+
+        this.barModel2.setLegendPosition("ne");
+        this.barModel2.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel2.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel2.getAxis(AxisType.X);
+        XAxis.setLabel("Años de práctica");
+    }
+
+    //----pregunta 4
+    public void crearGraficaEncuestasPreg4() {
+        this.setBarModel3(new BarChartModel());
+
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 4)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel3.addSeries(h1);
+        this.barModel3.addSeries(h11);
+        this.barModel3.addSeries(h12);
+
+        this.barModel3.setLegendPosition("ne");
+        this.barModel3.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel3.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel3.getAxis(AxisType.X);
+        XAxis.setLabel("Experiencia en casos de autopsia");
+    }
+
+    //----pregunta 7
+    public void crearGraficaEncuestasPreg7() {
+        this.setBarModel4(new BarChartModel());
+
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 7)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel4.addSeries(h1);
+        this.barModel4.addSeries(h11);
+        this.barModel4.addSeries(h12);
+
+        this.barModel4.setLegendPosition("ne");
+        this.barModel4.setShadow(false);
+        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel4.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel4.getAxis(AxisType.X);
+        XAxis.setLabel("Discrepancias encontradas en las autopsias");
+    }
+
+    //----pregunta 7
+    public void crearGraficaEncuestasPreg8() {
+        this.setBarModel5(new BarChartModel());
+
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 8)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel5.addSeries(h1);
+        this.barModel5.addSeries(h11);
+        this.barModel5.addSeries(h12);
+
+        this.barModel5.setLegendPosition("ne");
+        this.barModel5.setShadow(false);
+        //barModel.setStacked(true);
+        Axis YAxis = this.barModel5.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel5.getAxis(AxisType.X);
+        XAxis.setLabel("Dan origen a casos de arbitraje");
+    }
+
+    //----pregunta 11
+    public void crearGraficaEncuestasPreg11() {
+        this.setBarModel6(new BarChartModel());
+
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 11)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel6.addSeries(h1);
+        this.barModel6.addSeries(h11);
+        this.barModel6.addSeries(h12);
+        this.barModel6.setLegendPosition("ne");
+        this.barModel6.setShadow(false);
+        Axis YAxis = this.barModel6.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel6.getAxis(AxisType.X);
+        XAxis.setLabel("Dan origen a casos de demandas");
+    }
+
+    //----pregunta 14
+    public void crearGraficaEncuestasPreg14() {
+
+        setOpciones_preg14(new ArrayList<>());
+        this.setBarModel7(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 14)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                boolean exist = getOpciones_preg14().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+                if (!exist) {
+                    getOpciones_preg14().add(e);
+                }
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getResp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getResp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getResp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel7.addSeries(h1);
+        this.barModel7.addSeries(h11);
+        this.barModel7.addSeries(h12);
+        getBarModel7().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        this.barModel7.setLegendPosition("ne");
+        this.barModel7.setShadow(false);
+        Axis YAxis = this.barModel7.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel7.getAxis(AxisType.X);
+        XAxis.setLabel("Opciones");
+    }
+
+    //----pregunta 17
+    public void crearGraficaEncuestasPreg17() {
+
+        setOpciones_preg17(new ArrayList<>());
+        this.setBarModel8(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 17)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                boolean exist = getOpciones_preg17().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+                if (!exist) {
+                    getOpciones_preg17().add(e);
+                }
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getResp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getResp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getResp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel8.addSeries(h1);
+        this.barModel8.addSeries(h11);
+        this.barModel8.addSeries(h12);
+        getBarModel8().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        this.barModel8.setLegendPosition("ne");
+        this.barModel8.setShadow(false);
+        Axis YAxis = this.barModel8.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel8.getAxis(AxisType.X);
+        XAxis.setLabel("Opciones");
+    }
+
+    //----pregunta 18
+    public void crearGraficaEncuestasPreg18() {
+
+        setOpciones_preg18(new ArrayList<>());
+        this.setBarModel9(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 18)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                boolean exist = getOpciones_preg18().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+                if (!exist) {
+                    getOpciones_preg18().add(e);
+                }
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getResp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getResp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getResp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel9.addSeries(h1);
+        this.barModel9.addSeries(h11);
+        this.barModel9.addSeries(h12);
+        getBarModel9().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
+        this.barModel9.setLegendPosition("ne");
+        this.barModel9.setShadow(false);
+        Axis YAxis = this.barModel9.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel9.getAxis(AxisType.X);
+        XAxis.setLabel("Opciones");
+    }
+
+    //----pregunta 19
+    public void crearGraficaEncuestasPreg19() {
+        setOpciones_preg19(new ArrayList<>());
+        this.setBarModel10(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 19)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                boolean exist = getOpciones_preg19().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+                if (!exist) {
+                    getOpciones_preg19().add(e);
+                }
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getResp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getResp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getResp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel10.addSeries(h1);
+        this.barModel10.addSeries(h11);
+        this.barModel10.addSeries(h12);
+        getBarModel10().setBarWidth(30);//ancho barra
+        this.barModel10.setLegendPosition("ne");
+        this.barModel10.setShadow(false);
+        Axis YAxis = this.barModel10.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel10.getAxis(AxisType.X);
+        XAxis.setLabel("Opciones");
+    }
+
+    //----pregunta 21
+    public void crearGraficaEncuestasPreg21() {
+        setOpciones_preg21(new ArrayList<>());
+        this.setBarModel11(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 21)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                boolean exist = getOpciones_preg21().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
+                if (!exist) {
+                    getOpciones_preg21().add(e);
+                }
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getResp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getResp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getResp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel11.addSeries(h1);
+        this.barModel11.addSeries(h11);
+        this.barModel11.addSeries(h12);
+        getBarModel11().setBarWidth(20);//ancho barra
+        this.barModel11.setLegendPosition("ne");
+        this.barModel11.setShadow(false);
+        Axis YAxis = this.barModel11.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel11.getAxis(AxisType.X);
+        XAxis.setLabel("Opciones");
+    }
+
+    //----grados
+    public void crearGraficaEncuestasGrado() {
+        this.barModel12 = new BarChartModel();
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas3.stream().filter((e) -> (e.getPregunta() == 1)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.barModel12.addSeries(h1);
+        this.barModel12.addSeries(h11);
+        this.barModel12.addSeries(h12);
+        this.barModel12.setLegendPosition("ne");
+        this.barModel12.setShadow(false);
+        Axis YAxis = this.barModel12.getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.barModel12.getAxis(AxisType.X);
+        XAxis.setLabel("Grado");
+    }
+
+    //----areas
+    public void crearGraficaEncuestasArea() {
+        this.setBarModel13(new BarChartModel());
+        ChartSeries h1 = new ChartSeries();
+        h1.setLabel("Hospital Regional de Río Blanco ");
+        ChartSeries h11 = new ChartSeries();
+        h11.setLabel("Hospital General San Juan Bautista");
+        ChartSeries h12 = new ChartSeries();
+        h12.setLabel("Hospiatl General de Zona 53");
+
+        this.datosEncuestas4.stream().filter((e) -> (e.getPregunta() == 1)).forEachOrdered((e) -> {
+            if (null != e.getCentro()) {
+                switch (e.getCentro()) {
+                    case "H1":
+                        h1.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H11":
+                        h11.set(e.getSresp(), e.getCant());
+                        break;
+                    case "H12":
+                        h12.set(e.getSresp(), e.getCant());
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+        this.getBarModel13().addSeries(h1);
+        this.getBarModel13().addSeries(h11);
+        this.getBarModel13().addSeries(h12);
+        this.getBarModel13().setLegendPosition("ne");
+        this.getBarModel13().setShadow(false);
+        Axis YAxis = this.getBarModel13().getAxis(AxisType.Y);
+        YAxis.setLabel("Cantidad de respuestas");
+        Axis XAxis = this.getBarModel13().getAxis(AxisType.X);
+        XAxis.setLabel("Área");
     }
 
     //-------------------------------------------------------
@@ -756,561 +1424,6 @@ public class subgruposControler extends Model {
         this.reglas2 = reglas2;
     }
 
-    //XML----------------------------------
-    public void setoSGUtilidades(subgruposUtilidades oSGUtilidades) {
-        this.oSGUtilidades = oSGUtilidades;
-    }
-
-    public configuracionAppControler getoConfApp() {
-        return oConfApp;
-    }
-
-    @PostConstruct
-    public void init() {
-        //      createBarModel();
-        barModel = new HorizontalBarChartModel();
-        barModel2 = new BarChartModel();
-        barModel3 = new BarChartModel();
-        barModel4 = new BarChartModel();
-        barModel5 = new BarChartModel();
-        barModel6 = new BarChartModel();
-        barModel7 = new HorizontalBarChartModel();
-        barModel8 = new BarChartModel();
-        barModel9 = new BarChartModel();
-        barModel10 = new HorizontalBarChartModel();
-        barModel11 = new BarChartModel();
-        barModel12 = new BarChartModel();
-
-        this.crearGraficaEncuestas();
-        this.crearGraficaEncuestasPreg4();
-        this.crearGraficaEncuestasPreg7();
-        this.crearGraficaEncuestasPreg8();
-        this.crearGraficaEncuestasPreg11();
-        this.crearGraficaEncuestasPreg14();
-        this.crearGraficaEncuestasPreg17();
-        this.crearGraficaEncuestasPreg18();
-        this.crearGraficaEncuestasPreg19();
-        this.crearGraficaEncuestasPreg21();
-        this.crearGraficaEncuestasGrado();
-
-    }
-
-    public void crearGraficaEncuestas() {
-        //setBarModel2(new BarChartModel());
-        this.barModel2 = new BarChartModel();
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 3)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel2.addSeries(h1);
-        this.barModel2.addSeries(h11);
-        this.barModel2.addSeries(h12);
-
-        this.barModel2.setLegendPosition("ne");
-        //getBarModel2().setBarPadding(10);
-        //getBarModel2().setBarMargin(0);
-        this.barModel2.setShadow(false);
-        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        //barModel.setStacked(true);
-        Axis YAxis = this.barModel2.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel2.getAxis(AxisType.X);
-        XAxis.setLabel("Años de práctica");
-    }
-
-    //----pregunta 4
-    public void crearGraficaEncuestasPreg4() {
-        //setBarModel2(new BarChartModel());
-        this.setBarModel3(new BarChartModel());
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 4)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel3.addSeries(h1);
-        this.barModel3.addSeries(h11);
-        this.barModel3.addSeries(h12);
-
-        this.barModel3.setLegendPosition("ne");
-        //getBarModel2().setBarPadding(10);
-        //getBarModel2().setBarMargin(0);
-        this.barModel3.setShadow(false);
-        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        //barModel.setStacked(true);
-        Axis YAxis = this.barModel3.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel3.getAxis(AxisType.X);
-        XAxis.setLabel("Experiencia en casos de autopsia");
-    }
-
-    //----pregunta 7
-    public void crearGraficaEncuestasPreg7() {
-        //setBarModel2(new BarChartModel());
-        this.setBarModel4(new BarChartModel());
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 7)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel4.addSeries(h1);
-        this.barModel4.addSeries(h11);
-        this.barModel4.addSeries(h12);
-
-        this.barModel4.setLegendPosition("ne");
-        //getBarModel2().setBarPadding(10);
-        //getBarModel2().setBarMargin(0);
-        this.barModel4.setShadow(false);
-        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        //barModel.setStacked(true);
-        Axis YAxis = this.barModel4.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel4.getAxis(AxisType.X);
-        XAxis.setLabel("Discrepancias encontradas en las autopsias");
-    }
-
-    //----pregunta 7
-    public void crearGraficaEncuestasPreg8() {
-        //setBarModel2(new BarChartModel());
-        this.setBarModel5(new BarChartModel());
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 8)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel5.addSeries(h1);
-        this.barModel5.addSeries(h11);
-        this.barModel5.addSeries(h12);
-
-        this.barModel5.setLegendPosition("ne");
-        //getBarModel2().setBarPadding(10);
-        //getBarModel2().setBarMargin(0);
-        this.barModel5.setShadow(false);
-        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        //barModel.setStacked(true);
-        Axis YAxis = this.barModel5.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel5.getAxis(AxisType.X);
-        XAxis.setLabel("Dan origen a casos de arbitraje");
-    }
-
-    //----pregunta 11
-    public void crearGraficaEncuestasPreg11() {
-        //setBarModel2(new BarChartModel());
-        this.setBarModel6(new BarChartModel());
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 11)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel6.addSeries(h1);
-        this.barModel6.addSeries(h11);
-        this.barModel6.addSeries(h12);
-
-        this.barModel6.setLegendPosition("ne");
-        //getBarModel2().setBarPadding(10);
-        //getBarModel2().setBarMargin(0);
-        this.barModel6.setShadow(false);
-        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        //barModel.setStacked(true);
-        Axis YAxis = this.barModel6.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel6.getAxis(AxisType.X);
-        XAxis.setLabel("Dan origen a casos de demandas");
-    }
-
-    //----pregunta 14
-    public void crearGraficaEncuestasPreg14() {
-
-        setOpciones_preg14(new ArrayList<>());
-        this.setBarModel7(new BarChartModel());
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 14)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                boolean exist = getOpciones_preg14().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
-                if (!exist) {
-                    getOpciones_preg14().add(e);
-                }
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getResp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getResp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getResp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel7.addSeries(h1);
-        this.barModel7.addSeries(h11);
-        this.barModel7.addSeries(h12);
-        //getBarModel7().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        getBarModel7().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.barModel7.setLegendPosition("ne");
-        this.barModel7.setShadow(false);
-        Axis YAxis = this.barModel7.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel7.getAxis(AxisType.X);
-        XAxis.setLabel("Opciones");
-    }
-
-    //----pregunta 17
-    public void crearGraficaEncuestasPreg17() {
-
-        setOpciones_preg17(new ArrayList<>());
-        this.setBarModel8(new BarChartModel());
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 17)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                boolean exist = getOpciones_preg17().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
-                if (!exist) {
-                    getOpciones_preg17().add(e);
-                }
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getResp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getResp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getResp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel8.addSeries(h1);
-        this.barModel8.addSeries(h11);
-        this.barModel8.addSeries(h12);
-        //getBarModel7().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        getBarModel8().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.barModel8.setLegendPosition("ne");
-        this.barModel8.setShadow(false);
-        Axis YAxis = this.barModel8.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel8.getAxis(AxisType.X);
-        XAxis.setLabel("Opciones");
-    }
-
-    //----pregunta 18
-    public void crearGraficaEncuestasPreg18() {
-
-        setOpciones_preg18(new ArrayList<>());
-        this.setBarModel9(new BarChartModel());
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 18)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                boolean exist = getOpciones_preg18().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
-                if (!exist) {
-                    getOpciones_preg18().add(e);
-                }
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getResp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getResp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getResp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel9.addSeries(h1);
-        this.barModel9.addSeries(h11);
-        this.barModel9.addSeries(h12);
-        //getBarModel7().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        getBarModel9().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.barModel9.setLegendPosition("ne");
-        this.barModel9.setShadow(false);
-        Axis YAxis = this.barModel9.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel9.getAxis(AxisType.X);
-        XAxis.setLabel("Opciones");
-    }
-
-    //----pregunta 19
-    public void crearGraficaEncuestasPreg19() {
-
-        setOpciones_preg19(new ArrayList<>());
-        this.setBarModel10(new BarChartModel());
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 19)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                boolean exist = getOpciones_preg19().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
-                if (!exist) {
-                    getOpciones_preg19().add(e);
-                }
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getResp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getResp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getResp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel10.addSeries(h1);
-        this.barModel10.addSeries(h11);
-        this.barModel10.addSeries(h12);
-        //getBarModel7().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        getBarModel10().setBarWidth(30);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.barModel10.setLegendPosition("ne");
-        this.barModel10.setShadow(false);
-        Axis YAxis = this.barModel10.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel10.getAxis(AxisType.X);
-        XAxis.setLabel("Opciones");
-    }
-
-    //----pregunta 21
-    public void crearGraficaEncuestasPreg21() {
-
-        setOpciones_preg21(new ArrayList<>());
-        this.setBarModel11(new BarChartModel());
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 21)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                boolean exist = getOpciones_preg21().stream().anyMatch(i -> i.getResp().equals(e.getResp()));
-                if (!exist) {
-                    getOpciones_preg21().add(e);
-                }
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getResp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getResp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getResp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel11.addSeries(h1);
-        this.barModel11.addSeries(h11);
-        this.barModel11.addSeries(h12);
-        //getBarModel7().setBarPadding(10);
-        //getBarModel7().setBarMargin(0);
-        getBarModel11().setBarWidth(20);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        this.barModel11.setLegendPosition("ne");
-        this.barModel11.setShadow(false);
-        Axis YAxis = this.barModel11.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel11.getAxis(AxisType.X);
-        XAxis.setLabel("Opciones");
-    }
-
-    //----grados
-    public void crearGraficaEncuestasGrado() {
-        //setBarModel2(new BarChartModel());
-        this.barModel12 = new BarChartModel();
-
-        ChartSeries h1 = new ChartSeries();
-        h1.setLabel("Hospital Regional de Río Blanco ");
-        ChartSeries h11 = new ChartSeries();
-        h11.setLabel("Hospital General San Juan Bautista");
-        ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
-
-        this.datosEncuestas3.stream().filter((e) -> (e.getPregunta() == 1)).forEachOrdered((e) -> {
-            if (null != e.getCentro()) {
-                switch (e.getCentro()) {
-                    case "H1":
-                        h1.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H11":
-                        h11.set(e.getSresp(), e.getCant());
-                        break;
-                    case "H12":
-                        h12.set(e.getSresp(), e.getCant());
-                        break;
-                    default:
-                        break;
-                }
-            }
-        });
-
-        this.barModel12.addSeries(h1);
-        this.barModel12.addSeries(h11);
-        this.barModel12.addSeries(h12);
-
-        this.barModel12.setLegendPosition("ne");
-        //getBarModel2().setBarPadding(10);
-        //getBarModel2().setBarMargin(0);
-        this.barModel12.setShadow(false);
-        //getBarModel2().setBarWidth(15);//ancho barraaaaaaaaaaaaaaaaaaaaaaaas ;D 
-        //barModel.setStacked(true);
-        Axis YAxis = this.barModel12.getAxis(AxisType.Y);
-        YAxis.setLabel("Cantidad de respuestas");
-        Axis XAxis = this.barModel12.getAxis(AxisType.X);
-        XAxis.setLabel("Grado");
-    }
-
-
     public HorizontalBarChartModel getBarModel() {
         return barModel;
     }
@@ -1395,7 +1508,6 @@ public class subgruposControler extends Model {
         this.barModel11 = barModel11;
     }
 
-   
     public List<encuestaSG> getDatosEncuestas2() {
         return datosEncuestas2;
     }
@@ -1458,6 +1570,22 @@ public class subgruposControler extends Model {
 
     public void setDatosEncuestas3(List<encuestaSG> datosEncuestas3) {
         this.datosEncuestas3 = datosEncuestas3;
+    }
+
+    public BarChartModel getBarModel13() {
+        return barModel13;
+    }
+
+    public void setBarModel13(BarChartModel barModel13) {
+        this.barModel13 = barModel13;
+    }
+
+    public List<encuestaSG> getDatosEncuestas4() {
+        return datosEncuestas4;
+    }
+
+    public void setDatosEncuestas4(List<encuestaSG> datosEncuestas4) {
+        this.datosEncuestas4 = datosEncuestas4;
     }
 
 }

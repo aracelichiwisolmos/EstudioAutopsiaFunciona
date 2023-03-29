@@ -10,6 +10,8 @@ import com.lowagie.text.Paragraph;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import com.lowagie.text.Image;
+import com.lowagie.text.Jpeg;
 import framework.GUI.GUI;
 import hospital.epm.model.epmUtilidades;
 
@@ -1628,6 +1630,7 @@ public class epmControler extends Model {
 
         //FileOutputStream pdf = new FileOutputStream("D:\\Escritorio\\Reglas\\Reglas.pdf");
         FileOutputStream pdf = new FileOutputStream("C:\\Users\\Araceli\\Desktop\\MAESTRÍA\\Reglas\\Reglas.pdf");
+
         int algoritmo = modeloseleccionado;
         System.out.println("corpues : " + corpusSeleccionado + "  Algoritmo: " + algoritmo);
 //
@@ -3890,6 +3893,8 @@ public class epmControler extends Model {
 
                                     }
                                     documento2.add(tabla2);
+                                    
+                                    
                                     //Cierra el documento.
                                     documento2.close();
 
