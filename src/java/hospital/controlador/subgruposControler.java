@@ -61,8 +61,9 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-
-
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.renderer.category.BarRenderer;
+import static java.awt.Font.*;
 
 @ManagedBean(name = "oSGJB")
 @ViewScoped
@@ -712,43 +713,46 @@ public class subgruposControler extends Model {
                     }
 
             }
-        
-             // Agregar la gráfica al documento
-            pdf.add(new Paragraph("_______________________Gráfica de las reglas generadas____________________" + "\n"));
-            DefaultCategoryDataset data=new DefaultCategoryDataset();
+
+            // Agregar la gráfica al documento
             
-             for (datosGrafica i : reglasPDFA) {
-                System.out.println("--------------- valor regla:" + i.getRegla() + "valor :  " + i.getValor());
-                //reglas.set(i.getRegla(), i.getValor());
-                //data.addValue(i.getValor(), "%", i.getRegla());
-                String regla = "    "+i.getRegla();
-                data.addValue(i.getValor(), regla, "-");
+            DefaultCategoryDataset data = new DefaultCategoryDataset();
+
+            for (datosGrafica i : reglasPDFA) {
+                String regla = "" + i.getRegla();
+                data.addValue(i.getValor(), regla, regla);
             }
-            //data.addValue(20, "ventas", "ene");
-            //data.addValue(10, "ventas", "feb");
-            //data.addValue(50, "ventas", "marz");
-            
-            JFreeChart chart = ChartFactory.createBarChart("", "Reglas", "Valor porcentual",data, PlotOrientation.VERTICAL, true,true,true);
+            JFreeChart chart = ChartFactory.createBarChart("Gráfica de las reglas generadas", "Regla", "Valor porcentual", data, PlotOrientation.HORIZONTAL, false, true, true);
             chart.setBorderPaint(Color.WHITE);
-            int width=500;
-            int height=300;
-            
-            BufferedImage buffer= chart.createBufferedImage(width, height);
-            ByteArrayOutputStream boos= new ByteArrayOutputStream();
+            CategoryPlot plot = chart.getCategoryPlot();
+            BarRenderer renderer = (BarRenderer) plot.getRenderer();
+            renderer.setSeriesPaint(0, Color.blue);
+            for (datosGrafica i : reglasPDFA) {           
+            renderer.setSeriesPaint(i.getRegla(), Color.blue); // Cambia el color de todas las barras a azul
+            }
+
+
+            // setea el ancho de la barra
+            renderer.setItemMargin(-15);
+
+            int width = 600;
+            int height = 700;
+
+            BufferedImage buffer = chart.createBufferedImage(width, height);
+            ByteArrayOutputStream boos = new ByteArrayOutputStream();
             ImageIO.write(buffer, "png", boos);
             boos.flush();
-            byte[] imageBytes=boos.toByteArray();
+            byte[] imageBytes = boos.toByteArray();
             boos.close();
-            Image imagen =Image.getInstance(imageBytes);
+            Image imagen = Image.getInstance(imageBytes);
             imagen.setAlignment(Image.ALIGN_CENTER);
-            
-            
+
             pdf.add(imagen);
-            // Agregar el título al PDF
+            pdf.newPage();
+
+            
             phrase.add("_______________________Reglas interpretadas en lenguaje Natural____________________" + "\n" + "\n");
             pdf.add(phrase);
-          
-            
 
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
