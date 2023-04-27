@@ -95,11 +95,6 @@ public class subgruposUtilidades {
 
     }
 
-    /*
-     public subgruposUtilidades(org.vikamine.kernel.data.Ontology ontology){
-        //constructor with one argument of type org.vikamine.kernel.data.Ontology
-    }
-     */
 
     public Instance devuelveInstancias(String sQuery) throws Exception {
         Instance data = null;

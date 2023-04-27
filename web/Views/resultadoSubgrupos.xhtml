@@ -65,7 +65,7 @@
 
                         <p:column>
 
-                            <p:fieldset legend="Algoritmos" class="siBordes">
+                            <p:fieldset legend="Descubrimiento de subgrupos" class="siBordes">
 
                                 <p:growl id="growl" showDetail="true"/>
                                 <h:panelGrid columns="2" cellpadding="10">
@@ -142,15 +142,12 @@
 
                                     <f:facet name="header">
                                         Interpretación de las reglas
-                                         <h:commandLink>
-                                            <p:graphicImage name="/images/pdf1.png" width="40em" />
-                                            <p:dataExporter type="pdf"  target="dtReglas" fileName="reglas" encoding="ISO-8859-1" preProcessor="#{oSGJB.preProcessPDF}"/>
-                                        </h:commandLink>
+                                         
                                     </f:facet>
-                                    <p:column width="10%">
-                                        <p:outputLabel value=" #{rowIndex+1}" />
+                                    <p:column  headerText="No." width="20%" >
+                                        <p:outputLabel value="Regla: #{rowIndex+1}"/>
                                     </p:column>
-                                    <p:column headerText="Regla" width="70%">
+                                    <p:column headerText="Regla">
                                         <p:outputLabel value="#{reglita.interpretacion}"/>
                                     </p:column>
                                 </p:dataTable>

@@ -726,9 +726,9 @@ public class subgruposControler extends Model {
             chart.setBorderPaint(Color.WHITE);
             CategoryPlot plot = chart.getCategoryPlot();
             BarRenderer renderer = (BarRenderer) plot.getRenderer();
-            renderer.setSeriesPaint(0, Color.blue);
+            renderer.setSeriesPaint(0, Color.BLUE);
             for (datosGrafica i : reglasPDFA) {           
-            renderer.setSeriesPaint(i.getRegla(), Color.blue); // Cambia el color de todas las barras a azul
+            renderer.setSeriesPaint(i.getRegla(), Color.BLUE); // Cambia el color de todas las barras a azul
             }
 
 
