@@ -1,246 +1,751 @@
 ____________________________Reglas obtenidas__________________________
 
 
-Regla01 :Si los médicos alegan que es el médico el personal adecuado para ordenar autopsia, entonces son del hospital  1. 
+Regla01 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 76.0%. 
+ Esta regla tiene una confianza de: 76.0%
+Regla11 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital por desinterés del área de patología, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla21 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital porque se considera que los nuevos procedimientos diagnósticos y otros estudios especializados eliminan la necesidad de su práctica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla31 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 89.0%. 
+ Esta regla tiene una confianza de: 89.0%
+Regla41 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital debido a que no se solicitan, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla51 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital por falta de recursos financieros, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 96.0%. 
+ Esta regla tiene una confianza de: 96.0%
+Regla61 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital por falta de material, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla71 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 80.0%. 
+ Esta regla tiene una confianza de: 80.0%
+Regla81 :Si los médicos creen que la causa de rechazo por parte del familiar es circunstancial, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla91 :Si los médicos creen que la causa de rechazo por parte del familiar es por deficiente comunicación del médico con el paciente y sus familiares , entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 94.0%. 
+ Esta regla tiene una confianza de: 94.0%
+Regla101 :Si los médicos creen que la causa de rechazo por parte del familiar es por inconformidad de los familiares con la atención prestada al paciente, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 94.0%. 
+ Esta regla tiene una confianza de: 94.0%
+Regla111 :Si los médicos creen que la causa de rechazo por parte del familiar es por no haber solicitado la autorización en forma adecuada, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 94.0%. 
+ Esta regla tiene una confianza de: 94.0%
+Regla121 :Si los médicos creen que la causa de rechazo por parte del familiar es por motivos morales, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 95.0%. 
+ Esta regla tiene una confianza de: 95.0%
+Regla131 :Si los médicos creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 91.0%. 
+ Esta regla tiene una confianza de: 91.0%
+Regla141 :Si los médicos creen que la causa de rechazo por parte del familiar es por motivos religiosos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla151 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por cuestiones religiosas, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 93.0%. 
+ Esta regla tiene una confianza de: 93.0%
+Regla161 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por falta de indicación, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 92.0%. 
+ Esta regla tiene una confianza de: 92.0%
+Regla171 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 83.0%. 
+ Esta regla tiene una confianza de: 83.0%
+Regla181 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 83.0%. 
+ Esta regla tiene una confianza de: 83.0%
+Regla191 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es el desinterés, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla11 :Si los médicos alegan que es la enfermera el personal adecuado para ordenar autopsia, entonces son del hospital  1. 
+Regla201 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es el desconocimiento de la práctica de autopsias, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 96.0%. 
+ Esta regla tiene una confianza de: 96.0%
+Regla211 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la negativa de los familiares, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 89.0%. 
+ Esta regla tiene una confianza de: 89.0%
+Regla221 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es el temor a la demanda, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla21 :Si los médicos alegan que es el trabajador social el personal adecuado para ordenar autopsia, entonces son del hospital  1. 
+Regla231 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 91.0%. 
+ Esta regla tiene una confianza de: 91.0%
+Regla241 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es po factores sociales, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 93.0%. 
+ Esta regla tiene una confianza de: 93.0%
+Regla251 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es que que se haga sin fines de enseñanza, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 90.0%. 
+ Esta regla tiene una confianza de: 90.0%
+Regla261 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la falta de recursos financieros, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 95.0%. 
+ Esta regla tiene una confianza de: 95.0%
+Regla271 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la falta de recursos materiales, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 90.0%. 
+ Esta regla tiene una confianza de: 90.0%
+Regla281 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la falta de recursos humanos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 93.0%. 
+ Esta regla tiene una confianza de: 93.0%
+Regla291 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la condición del finado, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 94.0%. 
+ Esta regla tiene una confianza de: 94.0%
+Regla301 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es cuando el cuerpo se encuentra en descomposición, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 83.0%. 
+ Esta regla tiene una confianza de: 83.0%
+Regla311 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por cuestiones legales, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla31 :Si los médicos alegan que es la institución quien debe ordenar la autopsia, entonces son del hospital  1. 
+Regla321 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por cuestiones culturales, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla41 :Si los médicos alegan que es el familiar quien debe ordenar autopsia, entonces son del hospital  1. 
+Regla331 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es que no exista el servicio, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla51 :Si los médicos alegan que es criminología forense quien debe ordenar la autopsia, entonces son del hospital  1. 
+Regla341 :Si los médicos plantean como motivo para solicitar autopsia el diagnóstico es difícil, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 89.0%. 
+ Esta regla tiene una confianza de: 89.0%
+Regla351 :Si los médicos plantean como motivo para solicitar autopsia problemas de atención médica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 93.0%. 
+ Esta regla tiene una confianza de: 93.0%
+Regla361 :Si los médicos plantean como motivo para solicitar autopsia cuando es necesario determinar si fue correcta o no la aplicación del tratamiento empleado, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla61 :Si los médicos estiman como motivo para solicitar autopsia el interés, entonces son del hospital  1. 
+Regla371 :Si los médicos plantean como motivo para solicitar autopsia cuando es necesario proporcionar información esencial a familiares en casos de enfermedades infecciosas o congénitas, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 95.0%. 
+ Esta regla tiene una confianza de: 95.0%
+Regla381 :Si los médicos plantean como motivo para solicitar autopsia cuando existe falta de correlación entre los datos clínicos y los de laboratorio, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla71 :Si los médicos estiman como motivo para solicitar autopsia  la enseñanza, entonces son del hospital  1. 
+Regla391 :Si los médicos plantean como motivo para solicitar autopsia la aplicabilidad del estudio, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 93.0%. 
+ Esta regla tiene una confianza de: 93.0%
+Regla401 :Si los médicos plantean como motivo para solicitar autopsia  objetivos pedagógicos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 96.0%. 
+ Esta regla tiene una confianza de: 96.0%
+Regla411 :Si los médicos plantean como motivo para solicitar autopsia cuando existe relación con temas relacionados con medicina forense, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla81 :Si los médicos estiman como motivo para solicitar autopsia un error médico, entonces son del hospital  1. 
+Regla421 :Si los médicos plantean como motivo para solicitar autopsia establecer diagnósticos definitivos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 94.0%. 
+ Esta regla tiene una confianza de: 94.0%
+Regla431 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 97.0%. 
+ Esta regla tiene una confianza de: 97.0%
+Regla441 :Si los médicos están en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla91 :Si los médicos estiman como motivo para solicitar autopsia el consumo de medicamentos mal recetados, entonces son del hospital  1. 
+Regla451 :Si los médicos consideran incierto que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 92.0%. 
+ Esta regla tiene una confianza de: 92.0%
+Regla461 :Si los médicos están de acuerdo en que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla101 :Si los médicos estiman como motivo para solicitar autopsia un diagnóstico erróneo, entonces son del hospital  1. 
+Regla471 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla111 :Si los médicos estiman como motivo para solicitar autopsia  la orientación diagnóstica, entonces son del hospital  1. 
+Regla481 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla121 :Si los médicos estiman como motivo para solicitar autopsia la educación médica continua, entonces son del hospital  1. 
+Regla491 :Si los médicos están en desacuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla131 :Si los médicos estiman como  motivo para solicitar autopsia el acoso por delincuencia organizada, entonces son del hospital  1. 
+Regla501 :Si los médicos consideran incierto que los hallazgos de las autopsias dan origen a casos de arbitraje, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 92.0%. 
+ Esta regla tiene una confianza de: 92.0%
+Regla511 :Si los médicos están de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla141 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es pedir el concentimiento al familiar del paciente, desde que ingresa al hospital, entonces son del hospital  1. 
+Regla521 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 97.0%. 
+ Esta regla tiene una confianza de: 97.0%
+Regla531 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla151 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es solicitar el consentimiento de autopsia a los familiares inmediatamente después de la defunción, entonces son del hospital  1. 
+Regla541 :Si los médicos están en desacuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla161 :Si los médicos opinan que para este estudio deberían participar todos los servicios, entonces son del hospital  1. 
+Regla551 :Si los médicos consideran incierto que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla171 :Si los médicos agradecen por la encuesta , entonces son del hospital  1. 
+Regla561 :Si los médicos están de acuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 96.0%. 
+ Esta regla tiene una confianza de: 96.0%
+Regla571 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 97.0%. 
+ Esta regla tiene una confianza de: 97.0%
+Regla581 :Si los médicos han participado en más de 20 casos de autopsias, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla181 :Si los médicos opinan que se debe consensuar un caso clínico difícil entre todos, entonces son del hospital  1. 
+Regla591 :Si los médicos han participado entre 11 y 20 casos de autopsias, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla191 :Si los médicos opinan que se debe incrementar el número de autopsias, entonces son del hospital  1. 
+Regla601 :Si los médicos han participado entre 6 y 10 casos de autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 97.0%. 
+ Esta regla tiene una confianza de: 97.0%
+Regla611 :Si los médicos han participado en menos de 5 casos de autopsias, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla201 :Si los médicos opinan que deben solicitar residentes de patología, entonces son del hospital  1. 
+Regla621 :Si los médicos no han participado ningún estudio de autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 89.0%. 
+ Esta regla tiene una confianza de: 89.0%
+Regla631 :Si los médicos tienen más de 20 años de práctica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 90.0%. 
+ Esta regla tiene una confianza de: 90.0%
+Regla641 :Si los médicos tienen entre 16 y 20 años de práctica, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla211 :Si los médicos opinan que se debe obligar a los residentes, entonces son del hospital  1. 
+Regla651 :Si los médicos tienen entre 11 y 15 años de práctica, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla221 :Si los médicos opinan que nunca le han realizado autopsias a sus pacientes, entonces son del hospital  1. 
+Regla661 :Si los médicos tienen entre 5 y 10 años de práctica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 97.0%. 
+ Esta regla tiene una confianza de: 97.0%
+Regla671 :Si los médicos tienen menos de 5 años de práctica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 94.0%. 
+ Esta regla tiene una confianza de: 94.0%
+Regla681 :Si los médicos estudiaron su especialidad en Hospital del Departamento del D.F., entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla231 :Si los médicos opinan que se debe solicitar el consentimientos, entonces son del hospital  1. 
+Regla691 :Si los médicos estudiaron su especialidad en Alta Especialidad en IMSS, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla241 :Si los médicos opinan agregar patología a la rotación de los médicos internos, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla251 :Si los médicos opinan que son importantes las autopsias, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla261 :Si los médicos opinan sobre observaciones a la encuesta, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla271 :Si los médicos son especialistas, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla281 :Si los médicos son médicos generales, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla291 :Si los médic, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla301 :Si los médicos son internos, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla311 :Si los médicos son residentes, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla321 :Si los médicos estudiaron medicina general en Facultad Medicina, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla331 :Si los médicos estudiaron medicina general en Instituto Nacional de Cancerología, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla341 :Si los médicos estudiaron medicina general en Universidad Villa Rica, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla351 :Si los médicos estudiaron medicina general en Universidad de San Carlos, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla361 :Si los médicos estudiaron medicina general en Instituto Nacional de Pediatría, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla371 :Si los médicos estudiaron medicina general en Universidad Popular Autónoma, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla381 :Si los médicos estudiaron medicina general en Universidad Benito Juárez, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla391 :Si los médicos estudiaron medicina general en Universidad Juárez Autónoma, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla401 :Si los médicos estudiaron medicina general en San Nicolás de Hidalgo, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla411 :Si los médic, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla421 :Si los médicos estudiaron medicina general en Instituto Nacional de Nutrición, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla431 :Si los médicos estudiaron medicina general en IMSS Adolfo Ruiz Cortines, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla441 :Si los médicos estudiaron medicina general en Secretaría de Salud, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla451 :Si los médic, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla461 :Si los médicos estudiaron medicina general en General Manuel Gea González, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla471 :Si los médicos estudiaron medicina general en Justo Sierra, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla481 :Si los médicos estudiaron medicina general en Nachón/CEM, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla491 :Si los médicos estudiaron medicina general en Alta Especialidad en IMSS, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla501 :Si los médicos estudiaron medicina general en Hospital del Departamento del D.F., entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla511 :Si los médicos estudiaron su especialidad en Universidad Veracruzana, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla521 :Si los médicos estudiaron su especialidad en Facultad Medicina, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla531 :Si los médicos estudiaron su especialidad en Instituto Nacional de Cancerología, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla541 :Si los médicos estudiaron su especialidad en Universidad Villa Rica, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla551 :Si los médicos estudiaron su especialidad en Universidad La Salle, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla561 :Si los médicos estudiaron su especialidad en Instituto Nacional de Pediatría, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla571 :Si los médicos estudiaron su especialidad en Universidad Popular Autónoma, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla581 :Si los médicos estudiaron su especialidad en Universidad Benito Juárez, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla591 :Si los médicos estudiaron su especialidad en Universidad Juárez Autónoma, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla601 :Si los médicos estudiaron su especialidad en San Nicolás de Hidalgo, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla611 :Si los médic, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla621 :Si los médicos estudiaron su especialidad en Instituto Nacional de Nutrición, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla631 :Si los médicos estudiaron su especialidad en IMSS Adolfo Ruiz Cortines, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla641 :Si los médicos estudiaron su especialidad en Secretaría de Salud, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla651 :Si los médicos estudiaron su especialidad en La Raza IMSS, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla661 :Si los médicos hicieron su especialidad en el Hospital General Dr. Manuel Gea González, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla671 :Si los médicos estudiaron su especialidad en Ignacio Chávez, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla681 :Si los médic, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla691 :Si los médicos estudiaron su especialidad en General Manuel Gea González, entonces son del hospital  1. 
- Esta regla tiene una confianza de: 100.0%. 
- Esta regla tiene una confianza de: 100.0%
-Regla701 :Si los médicos estudiaron su especialidad en Justo Sierra, entonces son del hospital  1. 
+Regla701 :Si los médicos estudiaron su especialidad en Nachón/CEM, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
 Regla711 :Si los médicos estudiaron su especialidad en Hospital Regional de Río Blanco, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla721 :Si los médicos estudiaron su especialidad en Nachón/CEM, entonces son del hospital  1. 
+Regla721 :Si los médicos estudiaron su especialidad en Justo Sierra, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla731 :Si los médicos estudiaron su especialidad en Alta Especialidad en IMSS, entonces son del hospital  1. 
+Regla731 :Si los médicos estudiaron su especialidad en General Manuel Gea González, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla741 :Si los médicos estudiaron su especialidad en Hospital del Departamento del D.F., entonces son del hospital  1. 
+Regla741 :Si los médic, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla751 :Si los médicos tienen entre 11 y 15 años de práctica, entonces son del hospital  1. 
+Regla751 :Si los médicos estudiaron su especialidad en UMAC 14 Adolfo Ruiz Cortines, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla761 :Si los médicos tienen entre 16 y 20 años de práctica, entonces son del hospital  1. 
+Regla761 :Si los médicos estudiaron su especialidad en Ignacio Chávez, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla771 :Si los médicos han participado en menos de 5 casos de autopsias, entonces son del hospital  1. 
+Regla771 :Si los médicos hicieron su especialidad en el Hospital General Dr. Manuel Gea González, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla781 :Si los médicos consideran incierto que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
+Regla781 :Si los médicos estudiaron su especialidad en La Raza IMSS, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla791 :Si los médicos están en desacuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
+Regla791 :Si los médicos estudiaron su especialidad en Secretaría de Salud, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
  Esta regla tiene una confianza de: 100.0%
-Regla801 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos, entonces son del hospital  1. 
+Regla801 :Si los médicos estudiaron su especialidad en IMSS Adolfo Ruiz Cortines, entonces son del hospital  1. 
  Esta regla tiene una confianza de: 100.0%. 
- Esta regla 
+ Esta regla tiene una confianza de: 100.0%
+Regla811 :Si los médicos estudiaron su especialidad en Instituto Nacional de Nutrición, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla821 :Si los médic, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla831 :Si los médicos estudiaron su especialidad en San Nicolás de Hidalgo, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla841 :Si los médicos estudiaron su especialidad en Universidad Juárez Autónoma, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla851 :Si los médicos estudiaron su especialidad en Universidad Benito Juárez, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla861 :Si los médicos estudiaron su especialidad en Universidad Popular Autónoma, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla871 :Si los médicos estudiaron su especialidad en Instituto Nacional de Pediatría, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla881 :Si los médicos estudiaron su especialidad en Universidad La Salle, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla891 :Si los médicos estudiaron su especialidad en Universidad Villa Rica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla901 :Si los médicos estudiaron su especialidad en Instituto Nacional de Cancerología, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla911 :Si los médicos estudiaron su especialidad en Facultad Medicina, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla921 :Si los médicos estudiaron su especialidad en Universidad Veracruzana, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla931 :Si los médicos estudiaron medicina general en Hospital del Departamento del D.F., entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla941 :Si los médicos estudiaron medicina general en Alta Especialidad en IMSS, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla951 :Si los médicos estudiaron medicina general en Nachón/CEM, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla961 :Si los médicos estudiaron medicina general en Justo Sierra, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla971 :Si los médicos estudiaron medicina general en General Manuel Gea González, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla981 :Si los médic, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla991 :Si los médicos estudiaron medicina general en Secretaría de Salud, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1001 :Si los médicos estudiaron medicina general en IMSS Adolfo Ruiz Cortines, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1011 :Si los médicos estudiaron medicina general en Instituto Nacional de Nutrición, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1021 :Si los médic, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1031 :Si los médicos estudiaron medicina general en San Nicolás de Hidalgo, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1041 :Si los médicos estudiaron medicina general en Universidad Juárez Autónoma, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1051 :Si los médicos estudiaron medicina general en Universidad Benito Juárez, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1061 :Si los médicos estudiaron medicina general en Universidad Popular Autónoma, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1071 :Si los médicos estudiaron medicina general en Instituto Nacional de Pediatría, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1081 :Si los médicos estudiaron medicina general en Universidad de San Carlos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1091 :Si los médicos estudiaron medicina general en Universidad Villa Rica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1101 :Si los médicos estudiaron medicina general en Instituto Nacional de Cancerología, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1111 :Si los médicos estudiaron medicina general en Facultad Medicina, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1121 :Si los médicos son adscritos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 67.0%. 
+ Esta regla tiene una confianza de: 67.0%
+Regla1131 :Si los médicos son residentes, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1141 :Si los médicos son internos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1151 :Si los médic, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1161 :Si los médicos son médicos generales, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1171 :Si los médicos son especialistas, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1181 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 75.0%. 
+ Esta regla tiene una confianza de: 75.0%
+Regla1191 :Si los médicos opinan motivos para solicitar, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 75.0%. 
+ Esta regla tiene una confianza de: 75.0%
+Regla1201 :Si los médicos opinan sobre observaciones a la encuesta, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1211 :Si los médicos opinan que son importantes las autopsias, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1221 :Si los médicos opinan que la encuesta es útil, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 67.0%. 
+ Esta regla tiene una confianza de: 67.0%
+Regla1231 :Si los médicos opinan que este estudio debería ser rutinario, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 91.0%. 
+ Esta regla tiene una confianza de: 91.0%
+Regla1241 :Si los médicos opinan agregar patología a la rotación de los médicos internos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1251 :Si los médicos opinan que se debe solicitar el consentimientos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1261 :Si los médicos opinan que nunca le han realizado autopsias a sus pacientes, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1271 :Si los médicos opinan que se debe obligar a los residentes, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1281 :Si los médicos opinan que deben solicitar residentes de patología, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1291 :Si los médicos opinan que se debe incrementar el número de autopsias, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1301 :Si los médicos opinan que se debe consensuar un caso clínico difícil entre todos, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1311 :Si los médicos agradecen por la encuesta , entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1321 :Si los médicos opinan que para este estudio deberían participar todos los servicios, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1331 :Si los médicos no comentan, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 67.0%. 
+ Esta regla tiene una confianza de: 67.0%
+Regla1341 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través del área de  patología, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1351 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través del área de trabajo social, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 88.0%. 
+ Esta regla tiene una confianza de: 88.0%
+Regla1361 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través de otra área, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 88.0%. 
+ Esta regla tiene una confianza de: 88.0%
+Regla1371 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 75.0%. 
+ Esta regla tiene una confianza de: 75.0%
+Regla1381 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que la institución a nivel regional o estatal reglamente la practica de autopsias de forma obligatoria a los pacientes hospitalizados que fallezcan, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1391 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es solicitar el consentimiento de autopsia a los familiares inmediatamente después de la defunción, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1401 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es pedir el consentimiento al familiar del paciente, desde que ingresa al hospital, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1411 :Si los médicos estiman como  motivo para solicitar autopsia el acoso por delincuencia organizada, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1421 :Si los médicos estiman como motivo para solicitar autopsia un problema médico legal, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 86.0%. 
+ Esta regla tiene una confianza de: 86.0%
+Regla1431 :Si los médicos estiman como motivo para solicitar autopsia la educación médica continua, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1441 :Si los médicos estiman como motivo para solicitar autopsia  la orientación diagnóstica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1451 :Si los médicos estiman como motivo para solicitar autopsia un diagnóstico erróneo, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1461 :Si los médicos estiman como motivo para solicitar autopsia la negligencia médica, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 67.0%. 
+ Esta regla tiene una confianza de: 67.0%
+Regla1471 :Si los médicos estiman como motivo para solicitar autopsia el consumo de medicamentos mal recetados, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1481 :Si los médicos estiman como motivo para solicitar autopsia un error médico, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1491 :Si los médicos estiman como motivo para solicitar autopsia  la enseñanza, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1501 :Si los médicos estiman como motivo para solicitar autopsia el interés, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1511 :Si los médicos alegan que es criminología forense quien debe ordenar la autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1521 :Si los médicos alegan que es el familiar quien debe ordenar autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1531 :Si los médicos alegan que es la institución quien debe ordenar la autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1541 :Si los médicos alegan que es el trabajador social el personal adecuado para ordenar autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1551 :Si los médicos alegan que es la enfermera el personal adecuado para ordenar autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1561 :Si los médicos alegan que es el médico el personal adecuado para ordenar autopsia, entonces son del hospital  1. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1571 :Si los médicos estudiaron su especialidad en Hospital de la Mujer, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1581 :Si los médicos estudiaron su especialidad en Servicios de Salud, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1591 :Si los médicos estudiaron su especialidad en San Luis Potosí, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1601 :Si los médicos estudiaron su especialidad en Centro de Especialidades Médicas, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1611 :Si los médicos estudiaron su especialidad en Universidad Autónoma, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1621 :Si los médicos opinan que el estudio aclara las causas de muerte, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 67.0%. 
+ Esta regla tiene una confianza de: 67.0%
+Regla1631 :Si los médicos opinan que es inadecuada la enseñanza de la patología general, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 67.0%. 
+ Esta regla tiene una confianza de: 67.0%
+Regla1641 :Si los médicos consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1651 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1661 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la falta de recursos materiales y piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1671 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es cuando el cuerpo se encuentra en descomposición y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1681 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es cuando el cuerpo se encuentra en descomposición y creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1691 :Si los médicos plantean como motivo para solicitar autopsia  objetivos pedagógicos y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1701 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1711 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1721 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y piensan que una causa o motivo para no solicitar autopsia es po factores sociales, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1731 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y piensan que una causa o motivo para no solicitar autopsia es la condición del finado, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1741 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y piensan que una causa o motivo para no solicitar autopsia es cuando el cuerpo se encuentra en descomposición, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1751 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y tienen menos de 5 años de práctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1761 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y estudiaron medicina general en Universidad La Salle, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1771 :Si los médicos opinan sobre fortalecer la relación entre anatomía patológica y cirugía general y opinan que el estudio aclara las causas de muerte, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1781 :Si los médicos opinan motivos para solicitar y consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1791 :Si los médicos opinan motivos para solicitar y piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1801 :Si los médicos opinan motivos para solicitar y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos humanos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1811 :Si los médicos opinan motivos para solicitar y piensan que una causa o motivo para no solicitar autopsia es cuando el cuerpo se encuentra en descomposición, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1821 :Si los médicos opinan motivos para solicitar y plantean como motivo para solicitar autopsia problemas de atención médica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1831 :Si los médicos opinan motivos para solicitar y opinan que el estudio aclara las causas de muerte, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1841 :Si los médicos opinan que este estudio debería ser rutinario y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1851 :Si los médicos opinan que este estudio debería ser rutinario y consideran incierto que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1861 :Si los médicos no comentan y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1871 :Si los médicos no comentan y consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1881 :Si los médicos no comentan y creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1891 :Si los médicos no comentan y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1901 :Si los médicos no comentan y estudiaron su especialidad en Universidad de San Carlos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1911 :Si los médicos no comentan y estudiaron medicina general en Hospital Regional de Río Blanco, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1921 :Si los médicos no comentan y estudiaron medicina general en Universidad Veracruzana, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1931 :Si los médicos no comentan y opinan sobre fortalecer la relación entre anatomía patológica y cirugía general, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1941 :Si los médicos no comentan y opinan motivos para solicitar, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1951 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través del área de trabajo social y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1961 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través del área de trabajo social y consideran incierto que los hallazgos de las autopsias dan origen a casos de demanda, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1971 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través del área de trabajo social y estudiaron medicina general en Universidad La Salle, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1981 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través del área de trabajo social y opinan sobre fortalecer la relación entre anatomía patológica y cirugía general, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla1991 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través de otra área y consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2001 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es realizarlo a través de otra área y son adscritos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2011 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2021 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2031 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y estudiaron su especialidad en Hospital General, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2041 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y estudiaron su especialidad en Universidad de San Carlos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2051 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y estudiaron medicina general en Hospital Regional de Río Blanco, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2061 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y estudiaron medicina general en Universidad La Salle, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2071 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y estudiaron medicina general en Universidad Veracruzana, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2081 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y opinan que el estudio aclara las causas de muerte, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2091 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y opinan que la encuesta es útil, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2101 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y opinan que es inadecuada la enseñanza de la patología general, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2111 :Si los médicos están de acuerdo en que el método eficiente para solicitar autopsia es que el médico tratante sea quién la solicite y no comentan, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2121 :Si los médicos estiman como motivo para solicitar autopsia un problema médico legal y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2131 :Si los médicos estiman como motivo para solicitar autopsia un problema médico legal y opinan que el estudio aclara las causas de muerte, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2141 :Si los médicos estiman como motivo para solicitar autopsia un problema médico legal y opinan sobre fortalecer la relación entre anatomía patológica y cirugía general, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2151 :Si los médicos estiman como motivo para solicitar autopsia un problema médico legal y opinan motivos para solicitar, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2161 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y creen que la causa de rechazo por parte del familiar es por inconformidad de los familiares con la atención prestada al paciente y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2171 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por falta de indicación y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2181 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por falta de indicación y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2191 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por falta de indicación y creen que la causa de rechazo por parte del familiar es por inconformidad de los familiares con la atención prestada al paciente, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2201 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por falta de indicación y creen que la causa de rechazo por parte del familiar es por motivos morales, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2211 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2221 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2231 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida y creen que la causa de rechazo por parte del familiar es por motivos morales, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2241 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la condición del finado y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos humanos y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2251 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la condición del finado y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos humanos y consideran que no se realizan suficientes autopsias en el hospital por falta de recursos humanos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2261 :Si los médicos piensan que una causa o motivo para no solicitar autopsia es la condición del finado y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos humanos y creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2271 :Si los médicos plantean como motivo para solicitar autopsia el diagnóstico es difícil y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos materiales y creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2281 :Si los médicos plantean como motivo para solicitar autopsia  objetivos pedagógicos y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2291 :Si los médicos plantean como motivo para solicitar autopsia  objetivos pedagógicos y plantean como motivo para solicitar autopsia problemas de atención médica y creen que la causa de rechazo por parte del familiar es por inconformidad de los familiares con la atención prestada al paciente, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2301 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda y creen que la causa de rechazo por parte del familiar es por no haber solicitado la autorización en forma adecuada y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2311 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda y piensan que una causa o motivo para no solicitar autopsia es que que se haga sin fines de enseñanza y creen que la causa de rechazo por parte del familiar es por no haber solicitado la autorización en forma adecuada, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2321 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos humanos y creen que la causa de rechazo por parte del familiar es por no haber solicitado la autorización en forma adecuada, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2331 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda y plantean como motivo para solicitar autopsia  objetivos pedagógicos y creen que la causa de rechazo por parte del familiar es por no haber solicitado la autorización en forma adecuada, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2341 :Si los médicos están totalmente en desacuerdo en que los hallazgos de las autopsias dan origen a casos de demanda y plantean como motivo para solicitar autopsia  objetivos pedagógicos y plantean como motivo para solicitar autopsia problemas de atención médica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2351 :Si los médicos consideran incierto que los hallazgos de las autopsias dan origen a casos de demanda y creen que la causa de rechazo por parte del familiar es por motivos morales y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2361 :Si los médicos consideran incierto que los hallazgos de las autopsias dan origen a casos de arbitraje y piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos y creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2371 :Si los médicos consideran incierto que los hallazgos de las autopsias dan origen a casos de arbitraje y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida y creen que la causa de rechazo por parte del familiar es por no haber solicitado la autorización en forma adecuada, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2381 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y creen que la causa de rechazo por parte del familiar es por motivos políticos y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2391 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos financieros y piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2401 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y plantean como motivo para solicitar autopsia el diagnóstico es difícil y piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2411 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y plantean como motivo para solicitar autopsia el diagnóstico es difícil y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos materiales, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2421 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y plantean como motivo para solicitar autopsia problemas de atención médica y creen que la causa de rechazo por parte del familiar es por motivos políticos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2431 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y plantean como motivo para solicitar autopsia problemas de atención médica y piensan que una causa o motivo para no solicitar autopsia es por los trámites administrativos, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2441 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y plantean como motivo para solicitar autopsia problemas de atención médica y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos materiales, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2451 :Si los médicos están totalmente de acuerdo en que los hallazgos de las autopsias dan origen a casos de arbitraje y plantean como motivo para solicitar autopsia cuando es necesario proporcionar información esencial a familiares en casos de enfermedades infecciosas o congénitas y piensan que una causa o motivo para no solicitar autopsia es la falta de recursos materiales, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2461 :Si los médicos están de acuerdo en que los hallazgos de las autopsias pueden ser discrepantes con los diagnósticos clínicos y piensan que una causa o motivo para no solicitar autopsia es por enfermedad de base conocida y consideran que no se realizan suficientes autopsias en el hospital debido a la negación de los familiares, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2471 :Si los médicos han participado entre 6 y 10 casos de autopsia y creen que la causa de rechazo por parte del familiar es por motivos políticos y consideran que no se realizan suficientes autopsias en el hospital por desconocimiento de su utilidad didáctica, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2481 :Si los médicos no han participado ningún estudio de autopsia y piensan que una causa o motivo para no solicitar autopsia es cuando el cuerpo se encuentra en descomposición y piensan que una causa o motivo para no solicitar autopsia es por que el servicio de patología no la realice, entonces son del hospital  2. 
+ Esta regla tiene una confianza de: 100.0%. 
+ Esta regla tiene una confianza de: 100.0%
+Regla2491 :Si los médicos no han participado ningún estudio de autopsia y piensan que una causa o motivo para no solicitar autopsia es cuand

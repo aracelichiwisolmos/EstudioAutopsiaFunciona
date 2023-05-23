@@ -155,11 +155,9 @@
                                             <f:selectItem itemLabel="4" itemValue="4"/>
                                             <f:selectItem itemLabel="5" itemValue="5"/>
                                             </p:selectOneMenu>
-                                        <p:column/>  <p:commandButton onstart="PF('statusDialog4').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
-                                        <p:column/>                                
-
-                                  
-
+                                        <p:column/>  <p:commandButton onstart="PF('statusDialog2').show()" onsuccess="PF('statusDialog4').hide()"  update="growl, frmReglas:dtReglas1, frmReglas:dtReglas" value="Crear Modelo" action="#{oSGJB.guardarModelo(claseSeleccionada, modeloSeleccionado)}"/>
+                                        <p:column/>  
+                                        
                                         <p:dialog widgetVar="statusDialog2" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
                                             <p:graphicImage name="/images/load.gif" />
                                         </p:dialog>

@@ -31,7 +31,7 @@ import org.vikamine.kernel.subgroup.target.SGTarget;
 /**
  * Abstract base class for supervised binary discretization.
  * 
- * @author Hagen Schwaﬂ
+ * @author Hagen Schwa
  * 
  */
 public abstract class SupervisedBinaryDiscretizer extends

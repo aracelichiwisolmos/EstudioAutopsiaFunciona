@@ -28,9 +28,9 @@ import org.vikamine.kernel.subgroup.target.SGTarget;
  * Entropy based discretizationmethod by Fayyad and Irani. See U. Fayyad, K.
  * Irani, "Multi-Interval Discretization of Continuos-Valued Attributes for
  * Classification Learning", XIII International Joint Conference on Artificial
- * Intelligence (IJCAI93), Chambéry (France 1993) 1022-1029.
+ * Intelligence (IJCAI93), Chambï¿½ry (France 1993) 1022-1029.
  * 
- * @author Hagen Schwaß
+ * @author Hagen Schwa
  * 
  */
 public class FayyadIraniDiscretizer extends SupervisedBinaryDiscretizer {
@@ -56,7 +56,7 @@ public class FayyadIraniDiscretizer extends SupervisedBinaryDiscretizer {
      * Each partition, if accepted by the MDLPC (see Fayyad and Irani) has a
      * binary partition of the lower subset and one of the upper subset.
      * 
-     * @author Hagen Schwaß
+     * @author Hagen Schwa
      * 
      */
     private static final class FIDBinaryPartition extends BinaryPartition {

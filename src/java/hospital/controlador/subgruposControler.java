@@ -809,7 +809,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 3)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -852,7 +852,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 4)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -895,7 +895,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 7)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -938,7 +938,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 8)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -980,7 +980,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas.stream().filter((e) -> (e.getPregunta() == 11)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1021,7 +1021,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 14)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1067,7 +1067,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 17)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1113,7 +1113,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 18)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1158,7 +1158,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 19)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1203,7 +1203,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.getDatosEncuestas2().stream().filter((e) -> (e.getPregunta() == 21)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1247,7 +1247,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas3.stream().filter((e) -> (e.getPregunta() == 1)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {
@@ -1286,7 +1286,7 @@ public class subgruposControler extends Model {
         ChartSeries h11 = new ChartSeries();
         h11.setLabel("Hospital General San Juan Bautista");
         ChartSeries h12 = new ChartSeries();
-        h12.setLabel("Hospiatl General de Zona 53");
+        h12.setLabel("Hospital General de Zona 53");
 
         this.datosEncuestas4.stream().filter((e) -> (e.getPregunta() == 1)).forEachOrdered((e) -> {
             if (null != e.getCentro()) {

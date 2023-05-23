@@ -161,7 +161,7 @@ public class RDFExporter {
 	    // Schreiben der XML-Datei ins Filesystem
 	    xmlOut.output(doc, new FileOutputStream(path));
 	} catch (Exception e) {
-	    // Wichtig noch throws hinzufügen
+	    // Wichtig noch throws hinzufgen
 	}
     }
 

@@ -34,7 +34,7 @@ import org.vikamine.kernel.subgroup.target.SGTarget;
  * {@link SoftMetaDiscretizer} implements soft meta discretization with given
  * deviations.
  * 
- * @author lemmerich, Hagen Schwaﬂ
+ * @author lemmerich, Hagen Schwa
  * 
  */
 public class SoftMetaDiscretizer implements DiscretizationMethod {
@@ -56,7 +56,7 @@ public class SoftMetaDiscretizer implements DiscretizationMethod {
     /**
      * Abstract class for computing distances.
      * 
-     * @author Hagen Schwaﬂ
+     * @author Hagen Schwa
      * 
      */
     private static abstract class DistanceFunction {
@@ -91,7 +91,7 @@ public class SoftMetaDiscretizer implements DiscretizationMethod {
     /**
      * Distance function counting instances from the cut point to the candidate.
      * 
-     * @author Hagen Schwaﬂ
+     * @author Hagen Schwa
      * 
      */
     private static final class InstanceCountDistance extends DistanceFunction {
@@ -141,7 +141,7 @@ public class SoftMetaDiscretizer implements DiscretizationMethod {
      * percentage level. The deviation is determined by the extend of the
      * interval the candidate is within.
      * 
-     * @author Hagen Schwaﬂ
+     * @author Hagen Schwa
      * 
      */
     private static final class ToleranceDistance extends DistanceFunction {

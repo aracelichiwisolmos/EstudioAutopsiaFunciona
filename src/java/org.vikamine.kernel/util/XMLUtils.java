@@ -50,25 +50,25 @@ public class XMLUtils {
      */
     public static String convertToXMLCompliantText(String s) {
 	// right characters to metastrings
-	s = s.replaceAll("&amp;", "~°°~1");
-	s = s.replaceAll("&apos;", "~°°~2");
-	s = s.replaceAll("&quot;", "~°°~3");
-	s = s.replaceAll("&gt;", "~°°~4");
-	s = s.replaceAll("&lt;", "~°°~5");
+	s = s.replaceAll("&amp;", "~Â°Â°~1");
+	s = s.replaceAll("&apos;", "~Â°Â°~2");
+	s = s.replaceAll("&quot;", "~Â°Â°~3");
+	s = s.replaceAll("&gt;", "~Â°Â°~4");
+	s = s.replaceAll("&lt;", "~Â°Â°~5");
 
 	// wrong characters to metastrings
-	s = s.replaceAll("&", "~°°~1");
-	s = s.replaceAll("'", "~°°~2");
-	s = s.replaceAll("\"", "~°°~3");
-	s = s.replaceAll(">", "~°°~4");
-	s = s.replaceAll("<", "~°°~5");
+	s = s.replaceAll("&", "~Â°Â°~1");
+	s = s.replaceAll("'", "~Â°Â°~2");
+	s = s.replaceAll("\"", "~Â°Â°~3");
+	s = s.replaceAll(">", "~Â°Â°~4");
+	s = s.replaceAll("<", "~Â°Â°~5");
 
 	// metastrings to right characters
-	s = s.replaceAll("~°°~1", "&amp;");
-	s = s.replaceAll("~°°~2", "&apos;");
-	s = s.replaceAll("~°°~3", "&quot;");
-	s = s.replaceAll("~°°~4", "&gt;");
-	s = s.replaceAll("~°°~5", "&lt;");
+	s = s.replaceAll("~Â°Â°~1", "&amp;");
+	s = s.replaceAll("~Â°Â°~2", "&apos;");
+	s = s.replaceAll("~Â°Â°~3", "&quot;");
+	s = s.replaceAll("~Â°Â°~4", "&gt;");
+	s = s.replaceAll("~Â°Â°~5", "&lt;");
 
 	return (s);
     }
@@ -88,15 +88,15 @@ public class XMLUtils {
 	s = convertToXMLCompliantText(s);
 
 	// then replace special characters
-	s = s.replaceAll("ß", "&szlig;");
-	s = s.replaceAll("ä", "&auml;");
-	s = s.replaceAll("ü", "&uuml;");
-	s = s.replaceAll("ö", "&ouml;");
-	s = s.replaceAll("Ä", "&Auml;");
-	s = s.replaceAll("Ü", "&Uuml;");
-	s = s.replaceAll("Ö", "&Ouml;");
-	s = s.replaceAll("°", "&deg;");
-	s = s.replaceAll("µ", "&micro;");
+	s = s.replaceAll("ÃŸ", "&szlig;");
+	s = s.replaceAll("Ã¤", "&auml;");
+	s = s.replaceAll("Ã¼", "&uuml;");
+	s = s.replaceAll("Ã¶", "&ouml;");
+	s = s.replaceAll("Ã„", "&Auml;");
+	s = s.replaceAll("Ãœ", "&Uuml;");
+	s = s.replaceAll("Ã–", "&Ouml;");
+	s = s.replaceAll("Â°", "&deg;");
+	s = s.replaceAll("Âµ", "&micro;");
 	s = s.replaceAll("&apos;", "'");
 	return (s);
     }

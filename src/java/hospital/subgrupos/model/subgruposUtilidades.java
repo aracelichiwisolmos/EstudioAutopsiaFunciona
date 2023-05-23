@@ -321,7 +321,7 @@ public class subgruposUtilidades {
 
                 switch (medidaSeleccionada) {
                     case 1:
-                        medida = "\nEsta regla tiene una presición relativa ponderada de: ";
+                        medida = "\nEsta regla tiene una precisión relativa ponderada de: ";
                         break;
                     case 2:
                         medida = "\nEsta regla tiene una estadística Chi-cuadrada de: ";
@@ -479,7 +479,7 @@ public class subgruposUtilidades {
 
                 switch (medidaSeleccionada) {
                     case 1:
-                        medida = "\nEsta regla tiene una presición relativa ponderada de: ";
+                        medida = "\nEsta regla tiene una precisión relativa ponderada de: ";
                         break;
                     case 2:
                         medida = "\nEsta regla tiene una estadística Chi-cuadrada de: ";

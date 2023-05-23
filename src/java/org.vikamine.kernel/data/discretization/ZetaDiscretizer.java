@@ -28,7 +28,7 @@ import org.vikamine.kernel.subgroup.target.SGTarget;
  * Zeta, see K.M. Ho and P.D. Scott, Zeta_ A Global Method for Discretization of
  * Continuos Variables, Kdd-97 Proceedings, AAAI, 1997
  * 
- * @author Hagen Schwaﬂ
+ * @author Hagen Schwa
  * 
  */
 public class ZetaDiscretizer extends SupervisedBinaryDiscretizer {
