@@ -64,6 +64,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.renderer.category.BarRenderer;
 import static java.awt.Font.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 @ManagedBean(name = "oSGJB")
 @ViewScoped
@@ -112,6 +115,8 @@ public class subgruposControler extends Model {
     private List<encuestaSG> opciones_preg18;
     private List<encuestaSG> opciones_preg19;
     private List<encuestaSG> opciones_preg21;
+    
+    private ExecutorService executor = Executors.newFixedThreadPool(1);
 
     @SuppressWarnings("empty-statement")
     public subgruposControler() throws Exception {
@@ -508,7 +513,9 @@ public class subgruposControler extends Model {
             } else {
                 setAlturaGrafica("1200px");
             }
-
+            
+           executor.execute(() -> {
+            
             barModel = new HorizontalBarChartModel();
             ChartSeries reglas = new ChartSeries();
             reglas.setLabel("Reglas");
@@ -529,6 +536,10 @@ public class subgruposControler extends Model {
             YAxis.setLabel("Regla");
             Axis XAxis = barModel.getAxis(AxisType.X);
             XAxis.setLabel("%");
+            
+            });
+
+           
 
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Aviso", "Error:" + e.getMessage()));
